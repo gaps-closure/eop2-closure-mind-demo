@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="CLOSURE+MIND GAPS Demo -standard streaming communications protocol">
+  <meta name="keywords" content="h264 player, Trillium camera control, cross-domain system, jmuxer">
+  <title>CLOSURE+MIND GAPS Demonstration</title>
+</head>
+<body>
+<script type="text/javascript" src="jmuxer.min.js"></script>
+
+<div id="container" style="margin: 0 auto; text-align: center;">
+  <!-- <video style="border: 1px solid #333; max-width: 320px;" controls autoplay poster="loader-thumb.jpg" id="player"></video> -->
+  <video style="border: 1px solid #333; max-width: 320px;" controls poster="loader-thumb.jpg" id="player"></video> 
+  <br />
+  <label for="messagebox">Console:</label>
+  <br />
+  <textarea id="messagebox" name="messagebox" rows="4" cols="30"> </textarea>
+  <br />
+  <!-- Camera control buttons here -->
+</div>
+
+<script>
+var socketURL = 'wss://localhost:8443/ws/video';
+var jm = 0;
+var ws = 0;
+var ct = 0;
+
+function closews() {
+  if (ws) ws.close();
+  if (jm) jm.destroy();
+  ws = 0;
+  jm = 0;
+}
+
+function renews() {
+  closews();
+  jm = new JMuxer({
+    node: 'player',
+    mode: 'video',
+    flushingTime: 1000,
+    fps: 25,
+    debug: true,
+  });
+  ws = new WebSocket(socketURL);
+  ws.binaryType = 'arraybuffer';
+  ws.addEventListener('message', function(e) { jm.feed({video: new Uint8Array(e.data)}); });
+  ws.addEventListener('error',   function(e) { console.log('Socket Error'); });
+}
+
+window.onload = function() {
+  var mb = document.getElementById('messagebox');
+  var vw = document.getElementById('player');
+  mb.value = '';
+
+  vw.addEventListener('play', function(e) { 
+    ct += 1;
+    mb.value = 'Play Video: ' + ct;
+    renews();
+  });
+
+  vw.addEventListener('pause', function(e) { 
+    mb.value = 'Closing';
+    closews();
+  });
+}
+ 
+</script>
+</body>
+</html>

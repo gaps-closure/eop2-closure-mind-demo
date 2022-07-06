@@ -1,5 +1,3 @@
-CC       = gcc
-AR       = ar
 PROG    ?= websrv
 SRCS     = $(wildcard *.c)
 CFLAGS   = -I ./Communications -I ./Utils \

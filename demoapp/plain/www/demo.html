@@ -21,37 +21,36 @@
 </div>
 
 <script>
-var socketURL = 'wss://localhost:8443/ws/video';
-var jm = 0;
-var ws = 0;
-var ct = 0;
-
-function closews() {
-  if (ws) ws.close();
-  if (jm) jm.destroy();
-  ws = 0;
-  jm = 0;
-}
-
-function renews() {
-  closews();
-  jm = new JMuxer({
-    node: 'player',
-    mode: 'video',
-    flushingTime: 1000,
-    fps: 25,
-    debug: true,
-  });
-  ws = new WebSocket(socketURL);
-  ws.binaryType = 'arraybuffer';
-  ws.addEventListener('message', function(e) { jm.feed({video: new Uint8Array(e.data)}); });
-  ws.addEventListener('error',   function(e) { console.log('Socket Error'); });
-}
-
 window.onload = function() {
+  var socketURL = 'wss://localhost:8443/ws/video';
   var mb = document.getElementById('messagebox');
   var vw = document.getElementById('player');
+  var jm = 0;
+  var ws = 0;
+  var ct = 0;
+
   mb.value = '';
+
+  function closews() {
+    if (ws) ws.close();
+    if (jm) jm.destroy();
+    ws = 0;
+    jm = 0;
+  }
+
+  function renews() {
+    jm = new JMuxer({
+      node: 'player',
+      mode: 'video',
+      flushingTime: 1000,
+      fps: 25,
+      debug: true,
+    });
+    ws = new WebSocket(socketURL);
+    ws.binaryType = 'arraybuffer';
+    ws.addEventListener('message', function(e) { jm.feed({video: new Uint8Array(e.data)}); });
+    ws.addEventListener('error',   function(e) { mb.value = e; console.log('Socket Error'); });
+  }
 
   vw.addEventListener('play', function(e) { 
     ct += 1;
@@ -62,9 +61,9 @@ window.onload = function() {
   vw.addEventListener('pause', function(e) { 
     mb.value = 'Closing';
     closews();
+    location.reload(); //XXX: renewfs not working as expected without reload
   });
 }
- 
 </script>
 </body>
 </html>

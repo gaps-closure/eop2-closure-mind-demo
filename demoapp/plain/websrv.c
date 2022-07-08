@@ -36,8 +36,8 @@ int getNextFrame(char buf[static MAX_FRAME_BUF]) {
   return sz;
 }
 
-int init_videoproc() {
-  while (cam_open("192.1.100.192") != 0) {
+int init_videoproc(char *dstaddr) {
+  while (cam_open(dstaddr) != 0) {
     fprintf(stderr, "Unable to open camera, sleeping for 5 seconds\n");
     sleep(5);
   }
@@ -45,7 +45,7 @@ int init_videoproc() {
 }
 
 void *process_video(void *arg) {
-  struct framebuf_st *wp = (struct framebuf_st *) arg;
+  struct framebuf_st *wp;
   char fbuf[MAX_FRAME_BUF];
   int  fmaxbytes = MAX_FRAME_BUF;
   int  fsz;
@@ -54,7 +54,11 @@ void *process_video(void *arg) {
   int  mmaxbytes = MAX_MDATA_BUF;
   int  msz;
 
-  init_videoproc();
+  char dstaddr[16];
+  strncpy(dstaddr, (char *) arg, 16);
+
+  init_videoproc(dstaddr); 
+  wp = get_framebuf();
   for(;;) {
     cam_next(fbuf, &fsz, fmaxbytes, mbuf, &msz, mmaxbytes);
     usleep(5000);
@@ -67,15 +71,13 @@ void *process_video(void *arg) {
   return NULL;
 }
 
-void run_videoproc() {
-  struct framebuf_st *wp;
-  wp = get_framebuf();
-  printf("Initializing video processing\n");
+void run_videoproc(char *ipaddr) {
+  fprintf(stderr, "Initializing video processing\n");
   pthread_t thread_id = (pthread_t) 0;
   pthread_attr_t attr;
   (void) pthread_attr_init(&attr);
   (void) pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
-  pthread_create(&thread_id, &attr, (void *(*) (void *)) process_video, (void *) wp);
+  pthread_create(&thread_id, &attr, (void *(*) (void *)) process_video, (void *) ipaddr);
   pthread_attr_destroy(&attr);
 }
 
@@ -133,16 +135,20 @@ void run_webserver() {
   const char *s_listen_on  = WSS_URL;
   const char *s_https_addr = HTTPS_URL;
   mg_mgr_init(&mgr);
-  printf("Starting HTTPS camera API endpoint on %s/api\n", s_https_addr);
-  printf("Starting WSS video endpoint on %s/ws/video\n", s_listen_on);
+  fprintf(stderr, "Starting HTTPS camera API endpoint on %s/api\n", s_https_addr);
+  fprintf(stderr, "Starting WSS video endpoint on %s/ws/video\n", s_listen_on);
   mg_http_listen(&mgr, s_https_addr, webfn, (void *) 1);
   mg_timer_add(&mgr, FRAME_INTERVAL, MG_TIMER_REPEAT, wsend_video, &mgr);
   for (;;) mg_mgr_poll(&mgr, POLL_INTERVAL);
   mg_mgr_free(&mgr);
 }
 
-int main(void) {
-  run_videoproc();
+int main(int argc, char**argv) {
+  if(argc != 2) {
+    fprintf(stderr, "Usage: %s my-ipv4addr\n", argv[0]);
+    exit(1);
+  }
+  run_videoproc(argv[1]);
   run_webserver();
   return 0;
 }

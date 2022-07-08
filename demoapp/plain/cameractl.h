@@ -21,7 +21,7 @@ struct framebuf_st {
   char            data[MAX_FRAME_BUF];
 };
 
-int cam_open(char *ipaddr);
+int cam_open(char *myaddr, char *camaddr);
 int cam_shut(void);
 int cam_next(char *fbuf, int *fsz, int fmaxbytes, char *mbuf, int *msz, int mmaxbytes);
 

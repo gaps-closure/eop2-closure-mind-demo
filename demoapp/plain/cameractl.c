@@ -24,9 +24,6 @@
 #error "libavcodec version >= 55.28.1 required"
 #endif
 
-// Comment out to suppress OrionComm, e.g., for tcpreplay 
-// #define ORION_COMM_ 1
-
 // Incoming and outgoing packet structures. 
 OrionPkt_t PktOut;
 
@@ -373,14 +370,10 @@ int cam_shut(void) {
         return(1);
 }
 
-int cam_open(char *ipaddr) {
+int cam_open(char *myaddr, char *camaddr) {
     uint8_t VideoFrame[1280 * 720 * 3] = { 0 };
     OrionNetworkVideo_t Settings;
     char VideoUrl[32] = "";
-    int argc = 2;
-    char *argv[2];
-    argv[0] =  "";
-    argv[1] =  ipaddr;
 
     // Zero out the video settings packet to set everything to 'no change'
     memset(&Settings, 0, sizeof(Settings));
@@ -390,11 +383,11 @@ int cam_open(char *ipaddr) {
     Settings.StreamType = STREAM_TYPE_H264;
 
     uint8_t Octets[4];
-    if (sscanf(ipaddr, "%3hhu.%3hhu.%3hhu.%3hhu", &Octets[0], &Octets[1], &Octets[2], &Octets[3]))
+    if (sscanf(myaddr, "%3hhu.%3hhu.%3hhu.%3hhu", &Octets[0], &Octets[1], &Octets[2], &Octets[3]))
     {
         int Index = 0;
         Settings.DestIp = uint32FromBeBytes(Octets, &Index);
-        sprintf(VideoUrl, "udp://%s:%d", ipaddr, Settings.Port);
+        sprintf(VideoUrl, "udp://%s:%d", myaddr, Settings.Port);
     }
 
     // Send the network video settings
@@ -402,8 +395,8 @@ int cam_open(char *ipaddr) {
 
 #ifdef ORION_COMM_
     // If we can't connect to a gimbal, kill the app right now
-    if (OrionCommOpen(&argc, &argv) == FALSE) {
-        fprintf(stderr, "Failed to connect to gimabal%s\n", VideoUrl);
+    if (OrionCommOpenNetworkIp(camaddr) == FALSE) {
+        fprintf(stderr, "Failed to connect to gimbal%s\n", VideoUrl);
         cam_shut();
         return(1);
     }

@@ -36,8 +36,8 @@ int getNextFrame(char buf[static MAX_FRAME_BUF]) {
   return sz;
 }
 
-int init_videoproc(char *dstaddr) {
-  while (cam_open(dstaddr) != 0) {
+int init_videoproc(char *myaddr, char *camaddr) {
+  while (cam_open(myaddr, camaddr) != 0) {
     fprintf(stderr, "Unable to open camera, sleeping for 5 seconds\n");
     sleep(5);
   }
@@ -54,10 +54,13 @@ void *process_video(void *arg) {
   int  mmaxbytes = MAX_MDATA_BUF;
   int  msz;
 
-  char dstaddr[16];
-  strncpy(dstaddr, (char *) arg, 16);
+  char **argv = (char **)arg;
+  char myaddr[16];
+  char camaddr[16];
+  strncpy(myaddr, argv[1], 16);
+  strncpy(camaddr, argv[2], 16);
 
-  init_videoproc(dstaddr); 
+  init_videoproc(myaddr, camaddr);
   wp = get_framebuf();
   for(;;) {
     cam_next(fbuf, &fsz, fmaxbytes, mbuf, &msz, mmaxbytes);
@@ -71,13 +74,13 @@ void *process_video(void *arg) {
   return NULL;
 }
 
-void run_videoproc(char *ipaddr) {
+void run_videoproc(char **argv) {
   fprintf(stderr, "Initializing video processing\n");
   pthread_t thread_id = (pthread_t) 0;
   pthread_attr_t attr;
   (void) pthread_attr_init(&attr);
   (void) pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
-  pthread_create(&thread_id, &attr, (void *(*) (void *)) process_video, (void *) ipaddr);
+  pthread_create(&thread_id, &attr, (void *(*) (void *)) process_video, (void *) argv);
   pthread_attr_destroy(&attr);
 }
 
@@ -101,7 +104,7 @@ void wsend_video(void *arg) {
     for (struct mg_connection *c = mgr->conns; c != NULL; c = c->next) { // send next frame to each live stream
       if (c->label[0] == 'S') {
           mg_ws_send(c, buf, sz, WEBSOCKET_OP_BINARY);
-          // fprintf(stderr, "Sent frame to websock\n");
+          // fprintf(stderr, "Sent frame to websock: %d\n", sz);
       }
     }
   }
@@ -144,11 +147,11 @@ void run_webserver() {
 }
 
 int main(int argc, char**argv) {
-  if(argc != 2) {
-    fprintf(stderr, "Usage: %s my-ipv4addr\n", argv[0]);
+  if(argc != 3) {
+    fprintf(stderr, "Usage: %s my-ipv4addr cam-ipv4addr\n", argv[0]);
     exit(1);
   }
-  run_videoproc(argv[1]);
+  run_videoproc(argv);
   run_webserver();
   return 0;
 }

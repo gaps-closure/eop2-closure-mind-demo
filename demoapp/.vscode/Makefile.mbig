@@ -1,0 +1,34 @@
+CLOSURE_DIR=/opt/closure/
+ODIR=./partitioned/$(IPCMODE)
+CFG_DIR=$(CLOSURE_DIR)/emu/config/$(PROG)
+
+autogen_dir := $(ODIR)/autogen
+LIB_OBJ= $(autogen_dir)/float754.o $(autogen_dir)/codec.o 
+
+INCLUDES=-I $(CLOSURE_INCLUDES) -I ../autogen 
+LDLIBS=-L $(CLOSURE_LIBS)
+LIBS=../autogen/libcodecs.a -lpthread
+
+DEBPKGS=$(shell cat .vscode/clean.list)
+
+PYPKGS=pip
+
+deps:
+	mkdir -p .dependencies/pips
+	mkdir -p .dependencies/debs
+	python3.7 -m pip download -d .dependencies/pips $(PYPKGS)
+	rm -f .dependencies/pips/dlib*
+	cd .dependencies/debs && sudo apt update -y && apt download $(DEBPKGS)
+	
+pkg:
+	mkdir -p .dependencies
+	tar cf $(PROG)-orange-enclave-gw-P.tar .dependencies -C partitioned/$(IPCMODE)/orange/ demoapp -C /opt/closure/lib libxdcomms.so
+	tar cf $(PROG)-purple-enclave-gw-O.tar .dependencies -C partitioned/$(IPCMODE)/purple/ demoapp -C /opt/closure/lib libxdcomms.so
+	rm -rf $(CLOSURE_DIR)/emu/.apps
+	mkdir -p $(CLOSURE_DIR)/emu/.apps
+	mv *.tar $(CLOSURE_DIR)/emu/.apps/
+	$(HALGEN) -o $(CFG_DIR) -x $(ODIR)/xdconf.ini -d /opt/closure/etc/devices_socat.json -p $(PROG)_hal
+	cp .vscode/debs.list $(CFG_DIR)/
+
+cleandeps:
+	rm -rf .dependencies

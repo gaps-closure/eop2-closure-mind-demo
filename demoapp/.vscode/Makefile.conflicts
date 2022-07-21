@@ -1,0 +1,12 @@
+IDIR=./annotated
+EDIR=./annotated-working
+
+topology: 
+	conflict_analyzer \
+	--pdg-lib $(CLOSURE_LIBS)/libpdg.so \
+	--clang-args="-I$(realpath $(IDIR)),-I$(realpath $(IDIR)/facilio/include)" \
+	$(shell find $(IDIR) -name *.c) \
+	--output topology.json \
+	--source-path refactored \
+	--log-level INFO \
+	--artifact artifact.json

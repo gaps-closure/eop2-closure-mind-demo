@@ -1,0 +1,36 @@
+MYLIB=-lsqlite3 -lpthread -lssl -lm ../autogen/libcodecs.a -lzmq -L$(CLOSURE_LIBS) -lxdcomms
+
+APPSRC=$(wildcard *.c)
+APPOBJ=$(patsubst %.c, %.o, $(APPSRC)) 
+APPEXE=demoapp
+APPLL=$(patsubst %.c, %.ll, $(APPSRC))
+
+FACILSRC=$(wildcard facilio/src/*.c)
+FACILOBJ=$(patsubst %.c, %.o, $(FACILSRC)) 
+FACILLL=$(patsubst %c, %.ll, $(FACILSRC))
+FACILINCL=-I facilio/include
+FACILLIB=facilio/facilio.a
+
+CFLAGS += -g -I/usr/include/python3.7 -I$(CLOSURE_INCLUDES)
+CFLAGS += -D__LEGACY_XDCOMMS__=1
+#CFLAGS += -D__ONEWAY_RPC__=1
+
+PYFLAGS = `python3-config --ldflags --libs` -lpython3.7m
+
+$(APPEXE): $(APPOBJ) $(FACILLIB)
+	clang $(CFLAGS) -o $@ $^ $(MYLIB) $(PYFLAGS)
+
+$(FACILLIB): $(FACILOBJ)
+	ar -crs $@ $^
+
+clean:
+	rm -f $(APPEXE) $(APPOBJ) $(APPLL)
+
+realclean:
+	rm -f $(APPEXE) $(APPOBJ) $(FACILOBJ) $(FACILLIB) $(APPLL) $(FACILL)
+
+.SECONDARY:
+
+%.o: %.c
+	clang -c $(CFLAGS) $(FACILINCL) -I../autogen $< -o $@
+

@@ -91,7 +91,20 @@ void run_videoproc(char **argv) {
 void handle_camera_command(struct mg_connection *c, struct mg_http_message *hm) {
   if (hm != NULL) {
     // XXX: process h, send commands to remote camera, receive and return response to browser
-    mg_http_reply(c, 200, "", "{\"result\": %d}\n", 123);
+    mg_http_reply(c, 200, "Content-Type: application/json\r\n", "{\"result\": \"%s\"}\n", "OKAY");
+  }
+}
+
+void handle_get_metadata(struct mg_connection *c, struct mg_http_message *hm) {
+  if (hm != NULL) {
+    // XXX: process h, send commands to remote camera, receive and return response to browser
+    char *json = mg_mprintf("{%Q:%g,%Q:%g,%Q:%g,%Q:%g}",
+                            "Lat", 0.0,
+                            "Lon", 0.0,
+                            "Alt", 0.0,
+                            "Tim", 0.0);
+     mg_http_reply(c, 200, "Content-Type: application/json\r\n", "%s\n", json);
+     free(json);
   }
 }
 
@@ -124,8 +137,10 @@ void webfn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
       fprintf(stderr, "Stream request reeived, upgrading to websocket\n");
       mg_ws_upgrade(c, hm, NULL);
       c->label[0] = 'S';  
-    } else if (mg_http_match_uri(hm, "/api")) { // Handle camera API commands
+    } else if (mg_http_match_uri(hm, "/api/camcmd")) { // Handle camera API commands
       handle_camera_command(c, hm);
+    } else if (mg_http_match_uri(hm, "/api/getllat")) { // Latest metadata
+      handle_get_metadata(c, hm);
     } else {                                    // Serve files for webpages
       struct mg_http_serve_opts opts = {.root_dir = s_web_root};
       mg_http_serve_dir(c, ev_data, &opts);

@@ -22,7 +22,7 @@
   <br />
   <textarea id="llat" name="llat" rows=4 cols=40 style="overflow:hidden;resize:none;border:none;outline:none;"></textarea>
   <br />
-  <form name="camcmd" id="camcmd" onsubmit="return postCommand();">
+  <form name="camcmd" id="camcmd" onsubmit="postCommand(); return false;">
   <table>
   <tr>
     <td><label for="imptime">Impulse (s):</label></td>
@@ -59,6 +59,7 @@
   </tr>
   </table>
   </form>
+  <textarea id="cmdres" name="cmdres" rows=1 cols=40 style="overflow:hidden;resize:none;border:none;outline:none;text-align:right"></textarea>
 </td>
 </tr></table>
 <script>
@@ -77,24 +78,21 @@ var tiles        = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.p
 var marker = L.marker([40.69498019344514, -74.57273928765258]).addTo(map);
 
 function getLLAT() {
-  return "Not implemented yet";
-  // return "Lat: \nLon: \nAlt: \nTime: \n";
+  $.ajax({
+    url: "/api/getllat", type: "GET", dataType: "json", contentType: "application/json",
+    data: null,
+    success: function(retdat){$("#llat").val(
+      "Lat: " + retdat.Lat + "\n" + "Lon: " + retdat.Lon + "\n" +
+      "Alt: " + retdat.Alt + "\n" + "Tim: " + retdat.Tim + "\n");}
+  });
 }
 
 function postCommand() {
-  var formData = JSON.stringify($('#camcmd').serialize());
   $.ajax({
-    type: "POST",
-    url: "/api",
-    data: formData,
-    dataType: "json",
-    contentType: "application/json",
-    success: function(retdat){alert(JSON.stringify(retdat));}
+    url: "/api/camcmd", type: "POST", dataType: "json", contentType: "application/json",
+    data: JSON.stringify($("#camcmd").serialize()),
+    success: function(retdat){$("#cmdres").val(retdat.result);}
   });
-
-  alert(formData);
-  alert('Not implemented yet');
-  return;
 }
 
 function closews() {
@@ -107,7 +105,7 @@ function closews() {
 };
 
 function renews() {
-  llatInterval = setInterval(function(){ta.value = getLLAT();}, 250);
+  llatInterval = setInterval(function(){getLLAT();}, 1000);
   jm = new JMuxer({
     node: 'player',
     mode: 'video',

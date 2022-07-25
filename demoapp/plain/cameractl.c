@@ -168,7 +168,7 @@ int cam_open(char *myaddr, char *camaddr) {
 #ifdef ORION_COMM_
   // If we can't connect to a gimbal, kill the app right now
   if (OrionCommOpenNetworkIp(camaddr) == FALSE) {
-    fprintf(stderr, "Failed to connect to gimbal%s\n", VideoUrl);
+    fprintf(stderr, "Failed to connect to gimbal %s\n", VideoUrl);
     cam_close();
     return(1);
   }
@@ -296,7 +296,7 @@ void pull_md(char *mbuf, int msz) {
   alt = KlvGetValueDouble(KLV_UAS_SENSOR_MSL, &Result);
   ts  = KlvGetValueUInt(KLV_UAS_TIME_STAMP,   &Result);
 
-  put_metadata(lat, lon, alt, (double) ts);
+  put_metadata(degrees(lat), degrees(lon), alt, (double) ts);
   //fprintf(stderr, "\nImage LLAT: %11.6lf %11.6lf %7.1lf %ld", degrees(lat), degrees(lon), alt, ts);
 }
 
@@ -415,6 +415,7 @@ int send_camcmd(double pan, double tilt, double imptime, char mode, char stab) {
 
 void *process_video(void *arg) {
   char *addrs = (char *)arg;
+  fprintf(stderr, "Initializing video processing with myaddr %s and camaddr %s\n", &addrs[0], &addrs[16]);
   while (cam_open(&addrs[0], &addrs[16]) != 0) {
     fprintf(stderr, "Unable to open camera, sleeping for 5 seconds\n");
     sleep(5);
@@ -434,7 +435,7 @@ int isValidIPv4(char *ipAddress)
 
 int run_videoproc(void) {
   static int inited = 0;
-  char arg[32];
+  static char arg[32];
   char *myaddr;
   char *camaddr;
 
@@ -451,6 +452,7 @@ int run_videoproc(void) {
 
     strncpy(&arg[0], myaddr, 16);
     strncpy(&arg[16], camaddr, 16);
+    fprintf(stderr, "Initializing video processing with myaddr %s and camaddr %s\n", &arg[0], &arg[16]);
  
     pthread_t thread_id = (pthread_t) 0;
     pthread_attr_t attr;

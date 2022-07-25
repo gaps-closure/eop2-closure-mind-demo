@@ -415,7 +415,6 @@ int send_camcmd(double pan, double tilt, double imptime, char mode, char stab) {
 
 void *process_video(void *arg) {
   char *addrs = (char *)arg;
-  fprintf(stderr, "Initializing video processing with myaddr %s and camaddr %s\n", &addrs[0], &addrs[16]);
   while (cam_open(&addrs[0], &addrs[16]) != 0) {
     fprintf(stderr, "Unable to open camera, sleeping for 5 seconds\n");
     sleep(5);
@@ -452,7 +451,6 @@ int run_videoproc(void) {
 
     strncpy(&arg[0], myaddr, 16);
     strncpy(&arg[16], camaddr, 16);
-    fprintf(stderr, "Initializing video processing with myaddr %s and camaddr %s\n", &arg[0], &arg[16]);
  
     pthread_t thread_id = (pthread_t) 0;
     pthread_attr_t attr;

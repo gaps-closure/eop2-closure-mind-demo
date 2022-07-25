@@ -3,8 +3,7 @@ SRCS     = $(wildcard *.c)
 CFLAGS   = -I ./Communications -I ./Utils \
            -Wno-unused-result -Wno-deprecated-declarations \
            -D_GNU_SOURCE -D MG_ENABLE_MBEDTLS=1 -DMG_ENABLE_LINES=1 \
-           -UORION_COMM_
-           #-DORION_COMM_=1
+           -DORION_COMM_=1
 LDFLAGS  = -L ./Communications -lOrionComm -L ./Utils -lOrionUtils \
            -lavformat -lavcodec -lavutil -lswscale -lswresample \
            -lmbedtls -lmbedcrypto -lmbedx509 \

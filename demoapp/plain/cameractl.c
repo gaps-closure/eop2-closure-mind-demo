@@ -292,7 +292,7 @@ void pull_md(char *mbuf, int msz) {
   // Grab the gimbal's LLA and TS out of the KLV data
   lat = KlvGetValueDouble(KLV_UAS_SENSOR_LAT, &Result);
   lon = KlvGetValueDouble(KLV_UAS_SENSOR_LON, &Result);
-  alt = KlvGetValueDouble(KLV_UAS_SENSOR_LON, &Result);
+  alt = KlvGetValueDouble(KLV_UAS_SENSOR_MSL, &Result);
   ts  = KlvGetValueUInt(KLV_UAS_TIME_STAMP,   &Result);
 
   put_metadata(lat, lon, alt, (double) ts);

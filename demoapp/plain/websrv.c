@@ -84,16 +84,13 @@ void run_webserver() {
   mg_mgr_free(&mgr);
 }
 
-int main(int argc, char**argv) {
-  if(argc != 3) {
-    fprintf(stderr, "Usage: %s my-ipv4addr cam-ipv4addr\n", argv[0]);
-    exit(1);
+int websrv_main(void) {
+  if (run_videoproc() != 0) {
+    fprintf(stderr, "Failed to run video processing\n");
   }
-  if (strlen(argv[1]) > 15 || strlen(argv[2]) > 15) {
-    fprintf(stderr, "IPv4 address strings must be 15 characters or less\n");
-    exit(1);
-  }
-  run_videoproc(argv[1], argv[2]);
   run_webserver();
-  return 0;
+}
+
+int main(int argc, char**argv) {
+  return websrv_main();
 }

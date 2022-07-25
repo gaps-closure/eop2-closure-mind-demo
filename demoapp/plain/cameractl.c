@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <arpa/inet.h>
 #include "libavcodec/avcodec.h"
 #include "libavformat/avformat.h"
 #include "libavutil/mathematics.h"
@@ -425,15 +426,32 @@ void *process_video(void *arg) {
   return NULL;
 }
 
-int run_videoproc(char *myaddr, char *camaddr) {
+int isValidIPv4(char *ipAddress)
+{
+    struct sockaddr_in sa;
+    return inet_pton(AF_INET, ipAddress, &(sa.sin_addr));
+}
+
+int run_videoproc(void) {
   static int inited = 0;
   char arg[32];
-  strncpy(&arg[0], myaddr, 16);
-  strncpy(&arg[16], camaddr, 16);
- 
+  char *myaddr;
+  char *camaddr;
+
   if(!inited) {
     inited = 1;
-    fprintf(stderr, "Initializing video processing\n");
+    myaddr = getenv("MYADDR");
+    camaddr = getenv("CAMADDR");
+    if(!myaddr || !camaddr || !isValidIPv4(myaddr) || !isValidIPv4(camaddr)) {
+      fprintf(stderr, "Error with environment variables MYADDR and CAMADDR\n");
+      return -1;
+    }
+
+    fprintf(stderr, "Initializing video processing with myaddr %s and camaddr %s\n", myaddr, camaddr);
+
+    strncpy(&arg[0], myaddr, 16);
+    strncpy(&arg[16], camaddr, 16);
+ 
     pthread_t thread_id = (pthread_t) 0;
     pthread_attr_t attr;
     (void) pthread_attr_init(&attr);

@@ -22,7 +22,7 @@ struct framebuf_st {
   char            data[MAX_FRAME_BUF];
 };
 
-int run_videoproc(char *myaddr, char *camaddr);
+int run_videoproc(void);
 int get_frame(char buf[static MAX_FRAME_BUF]);
 int get_metadata(double *lat, double *lon, double *alt, double *ts);
 int send_camcmd(double pan, double tilt, double imptime, char mode, char stab);

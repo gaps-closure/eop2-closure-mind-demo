@@ -1,6 +1,5 @@
 #include "mongoose.h"
 #include "cameractl.h"
-#include <pthread.h>
 #include <unistd.h>
 
 #define FRAME_INTERVAL  20
@@ -9,110 +8,34 @@
 #define HTTPS_URL       "https://0.0.0.0:8443"
 #define WWW_ROOT        "./www"
 
-// ------------------------------------------------------------------------------------
-// Video processing that will run on ARM
-// ------------------------------------------------------------------------------------
-
-struct framebuf_st * get_framebuf() {
-  static struct framebuf_st wp;
-  static int inited = 0;
-  if (!inited) { inited  = 1; wp.newf = 0; wp.size = 0; }
-  return &wp;
-}
-
-int getNextFrame(char buf[static MAX_FRAME_BUF]) {
-  int sz;
-  struct framebuf_st *wp;
-  wp = get_framebuf();
-  pthread_mutex_lock(&wp->flk);
-  if (wp->newf == 1 && wp->size > 0) {
-     memcpy(buf, wp->data, wp->size);
-     wp->newf = 0;  // mark frame not new 
-     sz = wp->size;
-  } else {
-     sz = 0;
-  }
-  pthread_mutex_unlock(&wp->flk);
-  return sz;
-}
-
-int init_videoproc(char *myaddr, char *camaddr) {
-  while (cam_open(myaddr, camaddr) != 0) {
-    fprintf(stderr, "Unable to open camera, sleeping for 5 seconds\n");
-    sleep(5);
-  }
-  return 0;
-}
-
-void *process_video(void *arg) {
-  struct framebuf_st *wp;
-  char fbuf[MAX_FRAME_BUF];
-  int  fmaxbytes = MAX_FRAME_BUF;
-  int  fsz;
-
-  char mbuf[MAX_MDATA_BUF];
-  int  mmaxbytes = MAX_MDATA_BUF;
-  int  msz;
-
-  char **argv = (char **)arg;
-  char myaddr[16];
-  char camaddr[16];
-  strncpy(myaddr, argv[1], 16);
-  strncpy(camaddr, argv[2], 16);
-
-  init_videoproc(myaddr, camaddr);
-  wp = get_framebuf();
-  for(;;) {
-    cam_next(fbuf, &fsz, fmaxbytes, mbuf, &msz, mmaxbytes);
-    usleep(5000);
-    pthread_mutex_lock(&wp->flk);
-    memcpy(wp->data, fbuf, fsz);  // XXX: avoid copy by making StreamProcess do the locking
-    wp->size = fsz;
-    wp->newf = 1;
-    pthread_mutex_unlock(&wp->flk);
-  }
-  return NULL;
-}
-
-void run_videoproc(char **argv) {
-  fprintf(stderr, "Initializing video processing\n");
-  pthread_t thread_id = (pthread_t) 0;
-  pthread_attr_t attr;
-  (void) pthread_attr_init(&attr);
-  (void) pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
-  pthread_create(&thread_id, &attr, (void *(*) (void *)) process_video, (void *) argv);
-  pthread_attr_destroy(&attr);
-}
-
-// ------------------------------------------------------------------------------------
-// Webserver that will run on MB
-// ------------------------------------------------------------------------------------
-
 void handle_camera_command(struct mg_connection *c, struct mg_http_message *hm) {
+  double pan, tilt, imptime;
+  char   mode, stab;
   if (hm != NULL) {
-    // XXX: process h, send commands to remote camera, receive and return response to browser
-    mg_http_reply(c, 200, "Content-Type: application/json\r\n", "{\"result\": \"%s\"}\n", "OKAY");
+    // XXX: extract pan, tilt, imptime, mode, stab from JSON in hm
+    // XXX: check if posted
+    if (send_camcmd(pan, tilt, imptime, mode, stab) == 1) {
+      mg_http_reply(c, 200, "Content-Type: application/json\r\n", "{\"result\": \"%s\"}\n", "OKAY");
+    }
   }
+  mg_http_reply(c, 200, "Content-Type: application/json\r\n", "{\"result\": \"%s\"}\n", "FAIL");
 }
 
 void handle_get_metadata(struct mg_connection *c, struct mg_http_message *hm) {
-  if (hm != NULL) {
-    // XXX: process h, send commands to remote camera, receive and return response to browser
-    char *json = mg_mprintf("{%Q:%g,%Q:%g,%Q:%g,%Q:%g}",
-                            "Lat", 0.0,
-                            "Lon", 0.0,
-                            "Alt", 0.0,
-                            "Tim", 0.0);
-     mg_http_reply(c, 200, "Content-Type: application/json\r\n", "%s\n", json);
-     free(json);
+  double lat, lon, alt, ts;
+  if (get_metadata(&lat, &lon, &alt, &ts) != 1) {
+    lat = 0.0; lon = 0.0; alt = 0.0; ts = 0.0;
   }
+  char *json = mg_mprintf("{%Q:%g,%Q:%g,%Q:%g,%Q:%g}", "Lat", lat, "Lon", lon, "Alt", alt, "Tim", ts);
+  mg_http_reply(c, 200, "Content-Type: application/json\r\n", "%s\n", json);
+  free(json);
 }
 
 void wsend_video(void *arg) {
   struct mg_mgr *mgr = (struct mg_mgr *) arg;
   static char buf[MAX_FRAME_BUF];
   int sz;
-  sz = getNextFrame(buf);
+  sz = get_frame(buf);
   if (sz > 0) {
     for (struct mg_connection *c = mgr->conns; c != NULL; c = c->next) { // send next frame to each live stream
       if (c->label[0] == 'S') {
@@ -133,7 +56,7 @@ void webfn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
     mg_tls_init(c, &opts);
   } else if (ev == MG_EV_HTTP_MSG) {
     struct mg_http_message *hm = (struct mg_http_message *) ev_data;
-    if (mg_http_match_uri(hm, "/ws/video"))   { // Upgrade to websocket and mark connection as live streamer
+    if (mg_http_match_uri(hm, "/ws/video"))   { // Upgrade to websocket, mark connection as livestreamr
       fprintf(stderr, "Stream request reeived, upgrading to websocket\n");
       mg_ws_upgrade(c, hm, NULL);
       c->label[0] = 'S';  
@@ -166,7 +89,11 @@ int main(int argc, char**argv) {
     fprintf(stderr, "Usage: %s my-ipv4addr cam-ipv4addr\n", argv[0]);
     exit(1);
   }
-  run_videoproc(argv);
+  if (strlen(argv[1]) > 15 || strlen(argv[2]) > 15) {
+    fprintf(stderr, "IPv4 address strings must be 15 characters or less\n");
+    exit(1);
+  }
+  run_videoproc(argv[1], argv[2]);
   run_webserver();
   return 0;
 }

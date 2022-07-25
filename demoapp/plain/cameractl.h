@@ -4,15 +4,16 @@
 #include <stdint.h>
 #include <pthread.h>
 
-struct llat_st {
-  double   lat;
-  double   lon;
-  double   alt;
-  uint64_t ts;
-};
-
 #define MAX_FRAME_BUF   64000
-#define MAX_MDATA_BUF   sizeof(struct llat_st)
+
+struct llat_st {
+  pthread_mutex_t flk;
+  double          lat;
+  double          lon;
+  double          alt;
+  double          ts;
+  char            newf;
+};
 
 struct framebuf_st {
   pthread_mutex_t flk;
@@ -21,11 +22,10 @@ struct framebuf_st {
   char            data[MAX_FRAME_BUF];
 };
 
-int cam_open(char *myaddr, char *camaddr);
-int cam_shut(void);
-int cam_next(char *fbuf, int *fsz, int fmaxbytes, char *mbuf, int *msz, int mmaxbytes);
-
-// XXX: need functions for camera commands
+int run_videoproc(char *myaddr, char *camaddr);
+int get_frame(char buf[static MAX_FRAME_BUF]);
+int get_metadata(double *lat, double *lon, double *alt, double *ts);
+int send_camcmd(double pan, double tilt, double imptime, char mode, char stab);
 
 #endif // CAMERACTL_H
 

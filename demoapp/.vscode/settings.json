@@ -4,5 +4,6 @@
         "*.inc": "cpp",
         "*.idl": "c",
         "random": "c"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

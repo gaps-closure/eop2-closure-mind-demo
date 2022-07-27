@@ -4,9 +4,10 @@ EDIR=./annotated-working
 topology: 
 	conflict_analyzer \
 	--pdg-lib $(CLOSURE_LIBS)/libpdg.so \
-	--clang-args="-I$(realpath $(IDIR)),-I$(realpath $(IDIR)/facilio/include)" \
+	--clang-args="-I$(realpath $(IDIR)),-I$(realpath $(IDIR)/Communications),-I$(realpath $(IDIR)/Utils)" \
 	$(shell find $(IDIR) -name *.c) \
 	--output topology.json \
 	--source-path refactored \
 	--log-level INFO \
-	--artifact artifact.json
+	--artifact artifact.json \
+	--temp-dir temp

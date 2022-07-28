@@ -4,7 +4,7 @@ EDIR=./annotated-working
 topology: 
 	conflict_analyzer \
 	--pdg-lib $(CLOSURE_LIBS)/libpdg.so \
-	--clang-args="-I$(realpath $(IDIR)),-I$(realpath $(IDIR)/Communications),-I$(realpath $(IDIR)/Utils)" \
+	--clang-args="-I$(realpath $(IDIR)),-I$(realpath $(IDIR)/Communications),-I$(realpath $(IDIR)/Utils),-D_GNU_SOURCE,-DMG_ENABLE_MBEDTLS=1,-DMG_ENABLE_MD5=1,-DMG_ENABLE_LINES=1,-DORION_COMM_=1" \
 	$(shell find $(IDIR) -name *.c) \
 	--output topology.json \
 	--source-path refactored \

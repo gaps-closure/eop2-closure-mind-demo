@@ -1,0 +1,20 @@
+  "global_scoped_vars": [
+    {"name": "mg_fs_packed", "enclave": "green_E", "level": "green", "line": 0},
+    {"name": "mg_fs_posix", "enclave": "green_E", "level": "green", "line": 0},
+    {"name": "TagInfo", "enclave": "orange_E", "level": "orange", "line": 0},
+    {"name": "pInputContext", "enclave": "orange_E", "level": "orange", "line": 0},
+    {"name": "pDecodeContext", "enclave": "orange_E", "level": "orange", "line": 0},
+    {"name": "pEncodeContext", "enclave": "orange_E", "level": "orange", "line": 0},
+    {"name": "pFrame", "enclave": "orange_E", "level": "orange", "line": 0},
+    {"name": "VideoStream", "enclave": "orange_E", "level": "orange", "line": 0},
+    {"name": "DataStream", "enclave": "orange_E", "level": "orange", "line": 0},
+    {"name": "Packet", "enclave": "orange_E", "level": "orange", "line": 0},
+    {"name": "OutPacket", "enclave": "orange_E", "level": "orange", "line": 0},
+    {"name": "PktOut", "enclave": "orange_E", "level": "orange", "line": 0},
+    {"name": "pHeadTag", "enclave": "orange_E", "level": "orange", "line": 0},
+    {"name": "Handle", "enclave": "orange_E", "level": "orange", "line": 0},
+    {"name": "month_day_leap", "enclave": "green_E", "level": "green", "line": 0},
+    {"name": "month_day_norm", "enclave": "orange_E", "level": "orange", "line": 0},
+    {"name": "s_log_func", "enclave": "green_E", "level": "green", "line": 0},
+    {"name": "s_spec", "enclave": "green_E", "level": "green", "line": 0}
+  ]

@@ -1,4 +1,4 @@
 DIVINCLUDES=-I/usr/local/include,-I/usr/local/lib/clang/10.0.1/include,-I/usr/include
 
 all:
-	$(DIV) -f topology.json -c ",-v,-x,c,$(DIVINCLUDES),-I./refactored/Communications,-I./refactored/Utils"
+	$(DIV) -f topology.json -c ",-v,-x,c,$(DIVINCLUDES),-I./refactored/Communications,-I./refactored/Utils,-D_GNU_SOURCE,-DMG_ENABLE_MBEDTLS=1,-DMG_ENABLE_MD5=1,-DMG_ENABLE_LINES=1,-DORION_COMM_=1" 

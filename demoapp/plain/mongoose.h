@@ -809,7 +809,6 @@ struct mg_fs {
 
 extern struct mg_fs mg_fs_posix;   // POSIX open/close/read/write/seek
 extern struct mg_fs mg_fs_packed;  // Packed FS, see examples/device-dashboard
-extern struct mg_fs mg_fs_fat;     // FAT FS
 
 // File descriptor
 struct mg_fd {
@@ -1310,30 +1309,8 @@ int mg_json_get(const char *buf, int len, const char *path, int *toklen);
 bool mg_json_get_num(struct mg_str json, const char *path, double *v);
 bool mg_json_get_bool(struct mg_str json, const char *path, bool *v);
 char *mg_json_get_str(struct mg_str json, const char *path);
-char *mg_json_get_hex(struct mg_str json, const char *path);
+/* char *mg_json_get_hex(struct mg_str json, const char *path); */
 
-
-
-
-
-struct mip_driver {
-  void *data;                                       // Driver-specific data
-  void (*init)(void *data);                         // Initialise driver
-  size_t (*tx)(const void *, size_t, void *data);   // Transmit frame
-  size_t (*rx)(void *buf, size_t len, void *data);  // Receive frame (polling)
-  bool (*status)(void *data);                       // Up/down status
-  // Set receive callback for interrupt-driven drivers
-  void (*rxcb)(void (*fn)(void *buf, size_t len, void *rxdata), void *rxdata);
-};
-
-struct mip_ipcfg {
-  uint8_t mac[6];         // MAC address. Must not be 0
-  uint32_t ip, mask, gw;  // IP, netmask, GW. If IP is 0, DHCP is used
-};
-
-void mip_init(struct mg_mgr *, struct mip_ipcfg *, struct mip_driver *);
-
-extern struct mip_driver mip_driver_stm32;
 
 #ifdef __cplusplus
 }

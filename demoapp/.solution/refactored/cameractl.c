@@ -26,8 +26,8 @@
 #endif
 
 // Incoming and outgoing packet structures. 
+#pragma cle begin ORANGE_NOSHARE
 OrionPkt_t PktOut;
-
 AVFormatContext *pInputContext = NULL;
 AVCodecContext  *pDecodeContext = NULL;
 AVCodecContext  *pEncodeContext = NULL;
@@ -36,6 +36,7 @@ AVPacket Packet;
 AVPacket OutPacket;
 int VideoStream = 0;
 int DataStream = 0;
+#pragma cle end ORANGE_NOSHARE
 
 void stream_close(void) {
   av_frame_free(&pFrame);
@@ -198,9 +199,13 @@ struct llat_st * get_mdatabuf() {
   return &wp;
 }
 
+#pragma cle begin XDLINKAGE_GET_FRAME
 int get_frame(char buf[static MAX_FRAME_BUF]) {
+#pragma cle end XDLINKAGE_GET_FRAME
+  #pragma cle begin ORANGE_SHARE
   int sz;
   struct framebuf_st *wp;
+  #pragma cle end ORANGE_SHARE
   wp = get_framebuf();
   pthread_mutex_lock(&wp->flk);
   if (wp->newf == 1 && wp->size > 0) {
@@ -214,9 +219,13 @@ int get_frame(char buf[static MAX_FRAME_BUF]) {
   return sz;
 }
 
+#pragma cle begin XDLINKAGE_GET_METADATA
 int get_metadata(double *lat, double *lon, double *alt, double *ts) {
+#pragma cle end XDLINKAGE_GET_METADATA
+  #pragma cle begin ORANGE_SHARE
   struct llat_st *wp;
   int ret = 0;
+  #pragma cle end ORANGE_SHARE
   wp = get_mdatabuf();
   pthread_mutex_lock(&wp->flk);
   if (wp->newf == 1) {
@@ -409,8 +418,15 @@ int stream_process() {
   return 0; 
 }
 
+#pragma cle begin XDLINKAGE_SEND_CAMCMD
 int send_camcmd(double pan, double tilt, double imptime, char mode, char stab) {
-  return 1;
+#pragma cle end XDLINKAGE_SEND_CAMCMD
+  #pragma cle begin ORANGE_SHARE
+  int ret = 0;
+  #pragma cle end ORANGE_SHARE
+
+  ret = 1;
+  return ret;
 }
 
 void *process_video(void *arg) {
@@ -432,11 +448,16 @@ int isValidIPv4(char *ipAddress)
     return inet_pton(AF_INET, ipAddress, &(sa.sin_addr));
 }
 
+#pragma cle begin XDLINKAGE_RUN_VIDEOPROC
 int run_videoproc(void) {
+#pragma cle end XDLINKAGE_RUN_VIDEOPROC
   static int inited = 0;
   static char arg[32];
   char *myaddr;
   char *camaddr;
+  #pragma cle begin ORANGE_SHARE
+  int ret = 0;
+  #pragma cle end ORANGE_SHARE
 
   if(!inited) {
     inited = 1;
@@ -444,7 +465,8 @@ int run_videoproc(void) {
     camaddr = getenv("CAMADDR");
     if(!myaddr || !camaddr || !isValidIPv4(myaddr) || !isValidIPv4(camaddr)) {
       fprintf(stderr, "Error with environment variables MYADDR and CAMADDR\n");
-      return -1;
+      ret = -1;
+      return ret;
     }
 
     fprintf(stderr, "Initializing video processing with myaddr %s and camaddr %s\n", myaddr, camaddr);
@@ -459,6 +481,6 @@ int run_videoproc(void) {
     pthread_create(&thread_id, &attr, (void *(*) (void *)) process_video, (void *) arg);
     pthread_attr_destroy(&attr);
   }
-  return 0;
+  return ret;
 }
 

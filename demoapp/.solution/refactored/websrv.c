@@ -102,9 +102,13 @@
 #define HTTPS_URL       "https://0.0.0.0:8443"
 #define WWW_ROOT        "./www"
 
-void handle_camera_command(struct mg_connection *c, struct mg_http_message *hm) {
+#pragma cle begin FUN_HANDLE_CAMERA_COMMAND 
+int handle_camera_command(struct mg_connection *c, struct mg_http_message *hm) {
+#pragma cle end FUN_HANDLE_CAMERA_COMMAND 
+  #pragma cle begin GREEN_SHARE
   double pan, tilt, imptime;
   char   mode, stab;
+  #pragma cle end GREEN_SHARE
   if (hm != NULL) {
     // XXX: extract pan, tilt, imptime, mode, stab from JSON in hm
     // XXX: check if posted
@@ -113,21 +117,29 @@ void handle_camera_command(struct mg_connection *c, struct mg_http_message *hm) 
     }
   }
   mg_http_reply(c, 200, "Content-Type: application/json\r\n", "{\"result\": \"%s\"}\n", "FAIL");
+  return 0;
 }
 
-void handle_get_metadata(struct mg_connection *c, struct mg_http_message *hm) {
+#pragma cle begin FUN_HANDLE_GET_METADATA
+int handle_get_metadata(struct mg_connection *c, struct mg_http_message *hm) {
+#pragma cle end FUN_HANDLE_GET_METADATA
+  #pragma cle begin GREEN_SHARE
   double lat, lon, alt, ts;
+  #pragma cle end GREEN_SHARE
   if (get_metadata(&lat, &lon, &alt, &ts) != 1) {
     lat = 0.0; lon = 0.0; alt = 0.0; ts = 0.0;
   }
   char *json = mg_mprintf("{%Q:%g,%Q:%g,%Q:%g,%Q:%g}", "Lat", lat, "Lon", lon, "Alt", alt, "Tim", ts);
   mg_http_reply(c, 200, "Content-Type: application/json\r\n", "%s\n", json);
   free(json);
+  return 0;
 }
 
 void wsend_video(void *arg) {
   struct mg_mgr *mgr = (struct mg_mgr *) arg;
+  #pragma cle begin GREEN_SHARE
   static char buf[MAX_FRAME_BUF];
+  #pragma cle end GREEN_SHARE
   int sz;
   sz = get_frame(buf);
   if (sz > 0) {
@@ -138,6 +150,7 @@ void wsend_video(void *arg) {
       }
     }
   }
+  return;
 }
 
 void webfn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
@@ -185,6 +198,7 @@ int websrv_main(void) {
     fprintf(stderr, "Failed to run video processing\n");
   }
   run_webserver();
+  return 0;
 }
 
 int main(int argc, char**argv) {

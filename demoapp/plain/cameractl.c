@@ -27,7 +27,6 @@
 
 // Incoming and outgoing packet structures. 
 OrionPkt_t PktOut;
-
 AVFormatContext *pInputContext = NULL;
 AVCodecContext  *pDecodeContext = NULL;
 AVCodecContext  *pEncodeContext = NULL;
@@ -410,7 +409,10 @@ int stream_process() {
 }
 
 int send_camcmd(double pan, double tilt, double imptime, char mode, char stab) {
-  return 1;
+  int ret = 0;
+
+  ret = 1;
+  return ret;
 }
 
 void *process_video(void *arg) {
@@ -437,6 +439,7 @@ int run_videoproc(void) {
   static char arg[32];
   char *myaddr;
   char *camaddr;
+  int ret = 0;
 
   if(!inited) {
     inited = 1;
@@ -444,7 +447,8 @@ int run_videoproc(void) {
     camaddr = getenv("CAMADDR");
     if(!myaddr || !camaddr || !isValidIPv4(myaddr) || !isValidIPv4(camaddr)) {
       fprintf(stderr, "Error with environment variables MYADDR and CAMADDR\n");
-      return -1;
+      ret = -1;
+      return ret;
     }
 
     fprintf(stderr, "Initializing video processing with myaddr %s and camaddr %s\n", myaddr, camaddr);
@@ -459,6 +463,6 @@ int run_videoproc(void) {
     pthread_create(&thread_id, &attr, (void *(*) (void *)) process_video, (void *) arg);
     pthread_attr_destroy(&attr);
   }
-  return 0;
+  return ret;
 }
 

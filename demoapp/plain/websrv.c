@@ -8,7 +8,7 @@
 #define HTTPS_URL       "https://0.0.0.0:8443"
 #define WWW_ROOT        "./www"
 
-void handle_camera_command(struct mg_connection *c, struct mg_http_message *hm) {
+int handle_camera_command(struct mg_connection *c, struct mg_http_message *hm) {
   double pan, tilt, imptime;
   char   mode, stab;
   if (hm != NULL) {
@@ -19,9 +19,10 @@ void handle_camera_command(struct mg_connection *c, struct mg_http_message *hm) 
     }
   }
   mg_http_reply(c, 200, "Content-Type: application/json\r\n", "{\"result\": \"%s\"}\n", "FAIL");
+  return 0;
 }
 
-void handle_get_metadata(struct mg_connection *c, struct mg_http_message *hm) {
+int handle_get_metadata(struct mg_connection *c, struct mg_http_message *hm) {
   double lat, lon, alt, ts;
   if (get_metadata(&lat, &lon, &alt, &ts) != 1) {
     lat = 0.0; lon = 0.0; alt = 0.0; ts = 0.0;
@@ -29,6 +30,7 @@ void handle_get_metadata(struct mg_connection *c, struct mg_http_message *hm) {
   char *json = mg_mprintf("{%Q:%g,%Q:%g,%Q:%g,%Q:%g}", "Lat", lat, "Lon", lon, "Alt", alt, "Tim", ts);
   mg_http_reply(c, 200, "Content-Type: application/json\r\n", "%s\n", json);
   free(json);
+  return 0;
 }
 
 void wsend_video(void *arg) {
@@ -44,6 +46,7 @@ void wsend_video(void *arg) {
       }
     }
   }
+  return;
 }
 
 void webfn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
@@ -89,6 +92,7 @@ int websrv_main(void) {
     fprintf(stderr, "Failed to run video processing\n");
   }
   run_webserver();
+  return 0;
 }
 
 int main(int argc, char**argv) {

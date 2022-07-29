@@ -25,6 +25,9 @@
 #error "libavcodec version >= 55.28.1 required"
 #endif
 
+// For GEDL heuristics
+void outhint(void *from, void *to, int sz) { }
+
 // Incoming and outgoing packet structures. 
 #pragma cle begin ORANGE_NOSHARE
 OrionPkt_t PktOut;
@@ -205,7 +208,7 @@ int get_frame(char buf[static MAX_FRAME_BUF]) {
   #pragma cle begin ORANGE_SHARE
   int sz;
   struct framebuf_st *wp;
-  #pragma cle end ORANGE_SHARE
+  outhint(buf, NULL, MAX_FRAME_BUF); // only a hint for GEDL
   wp = get_framebuf();
   pthread_mutex_lock(&wp->flk);
   if (wp->newf == 1 && wp->size > 0) {
@@ -226,6 +229,13 @@ int get_metadata(double *lat, double *lon, double *alt, double *ts) {
   struct llat_st *wp;
   int ret = 0;
   #pragma cle end ORANGE_SHARE
+
+  // only a hint for GEDL
+  outhint(lat, NULL, sizeof(double)); 
+  outhint(lon, NULL, sizeof(double)); 
+  outhint(alt, NULL, sizeof(double)); 
+  outhint(ts, NULL, sizeof(double)); 
+
   wp = get_mdatabuf();
   pthread_mutex_lock(&wp->flk);
   if (wp->newf == 1) {

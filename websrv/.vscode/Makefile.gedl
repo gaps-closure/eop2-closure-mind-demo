@@ -56,9 +56,13 @@ $(EDIR)/perencll.done: $(EDIR)/compencs.done
 
 compencs: $(EDIR)/compencs.done
 
+
 # compile to LLVM IR
 $(EDIR)/compencs.done: $(EDIR)/preproc.done
-	$(foreach enclave,$(ENCLAVES), $(foreach p,$(shell find $(EDIR)/$(enclave) -name *.c;), $(CLANG) $(CLANG_FLAGS) $(INCLUDES) -I $(EDIR)/$(enclave)/facilio/include $p -o $(basename $p).ll;))
+	$(foreach enclave,$(ENCLAVES), $(foreach p,$(shell find $(EDIR)/$(enclave) -name *.c;), $(CLANG) $(CLANG_FLAGS) $(INCLUDES) \
+	-I $(EDIR)/$(enclave)/Communications -I $(EDIR)/$(enclave)/Utils -D_GNU_SOURCE -DMG_ENABLE_MBEDTLS=1 -DMG_ENABLE_MD5=1 -DMG_ENABLE_LINES=1 -DORION_COMM_=1 \
+	-Wno-unused-result -Wno-deprecated-declarations \
+	$p -o $(basename $p).ll;))
 	touch $(EDIR)/compencs.done
 
 preproc: $(EDIR)/preproc.done

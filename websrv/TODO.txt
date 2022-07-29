@@ -15,4 +15,10 @@
 * develop and integrate xdcomms DMA version
 * test e2e on zcu102
 
-
+* remaining project files to fix
+  - Makefile.websrv: untested
+  - Makefile.mbig: derived from secdesk, rename to Makefile.websrv and modify for websrv
+  - clean.list: should match Dockerfile apt get for this project
+  - debs.list: should be empty
+  - Makefile.verifier: derived from secdesk, rename to Makefile.websrv and modify for websrv
+  - tasks.json: do we want to run verifier and emu?

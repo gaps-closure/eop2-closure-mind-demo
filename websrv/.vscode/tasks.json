@@ -90,7 +90,7 @@
       {
         "label": "9d BUILD",
         "type": "shell",
-        "command": "source .vscode/closure_env.sh && make -C partitioned/multithreaded/orange -f ../../../.vscode/Makefile.demoapp; make -C partitioned/multithreaded/purple -f ../../../.vscode/Makefile.demoapp",
+        "command": "source .vscode/closure_env.sh && make -C partitioned/multithreaded/orange -f ../../../.vscode/Makefile.websrv; make -C partitioned/multithreaded/green -f ../../../.vscode/Makefile.websrv",
         "args": [],
         "group": "build",
         "problemMatcher": []
@@ -106,7 +106,7 @@
       {
         "label": "4 BUILD PLAIN",
         "type": "shell",
-        "command": "source .vscode/closure_env.sh; cd plain; make realclean; make",
+        "command": "source .vscode/closure_env.sh; cd plain; make clean; make",
         "args": [],
         "group": "build",
         "problemMatcher": []

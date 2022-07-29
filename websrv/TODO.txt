@@ -1,10 +1,12 @@
+* fix conflict_analyzer bugs in export of artifact.json and topology.json 
+* generate CLOSURE docker image with fixes and updated GEDL heuristics
+
 * fix bb to use websrv not demoapp
 * update bb to also build both partitioned and unpartitioned versions (may need to check in partitioned version ?)
 
 * browser must move map with gps 
 * webserver must send commands to gimbal
 
-* fix conflict_analyzer bugs in export of artifact.json and topology.json 
 
 * update Makefile.mbig and Makefile.demoapp to  build the partioned executables
 * if needed cleanup code (remove unused macro blocks) so divvied output compiles cleanly

@@ -1,7 +1,7 @@
 {
 	"name": "CLOSUREDEV",
 	"build": {
-	"dockerfile": "../Dockerfile"
+		"dockerfile": "../Dockerfile"
 	},
 	"containerEnv": {
 		"DISPLAY": "${localEnv:DISPLAY}",

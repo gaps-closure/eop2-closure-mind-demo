@@ -9,7 +9,7 @@ LDFLAGS  = -L ./Communications -lOrionComm -L ./Utils -lOrionUtils \
            -lmbedtls -lmbedcrypto -lmbedx509 \
            -lz -lpthread -lm
 
-CFLAGS  += -I$(CLOSURE_INCLUDES)
+CFLAGS  += -I$(CLOSURE_INCLUDES) -I../autogen
 CFLAGS  += -D__LEGACY_XDCOMMS__=1
 LDFLAGS += ../autogen/libcodecs.a -lzmq -L$(CLOSURE_LIBS) -lxdcomms
 

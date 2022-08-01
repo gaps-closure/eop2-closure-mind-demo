@@ -66,16 +66,18 @@
 var jm           = null;
 var ws           = null;
 var llatInterval = null;
-//var socketURL    = 'wss://localhost:8443/ws/video';
 var socketURL    = 'wss://' + window.location.hostname + ':8443/ws/video';
-var map          = L.map('map').setView([40.69,-74.57], 14);
-
+var map          = L.map('map').setView([37.09,-95.71], 3);
+var marker       = L.marker([37.09, -95.71], draggable=false).addTo(map);
 var tiles        = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-var marker = L.marker([40.69498019344514, -74.57273928765258]).addTo(map);
+function moveMap(lat, lon) {
+  map.setView([lat,lon], 15);
+  marker.setLatLng(new L.LatLng(lat, lon));
+}
 
 function getLLAT() {
   $.ajax({
@@ -83,7 +85,8 @@ function getLLAT() {
     data: null,
     success: function(retdat){$("#llat").val(
       "Lat: " + retdat.Lat + "\n" + "Lon: " + retdat.Lon + "\n" +
-      "Alt: " + retdat.Alt + "\n" + "Tim: " + retdat.Tim + "\n");}
+      "Alt: " + retdat.Alt + "\n" + "Tim: " + retdat.Tim + "\n");
+      moveMap(retdat.Lat, retdat.Lon);}
   });
 }
 

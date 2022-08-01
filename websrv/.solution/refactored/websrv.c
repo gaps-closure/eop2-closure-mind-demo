@@ -164,7 +164,7 @@ void webfn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
   } else if (ev == MG_EV_HTTP_MSG) {
     struct mg_http_message *hm = (struct mg_http_message *) ev_data;
     if (mg_http_match_uri(hm, "/ws/video"))   { // Upgrade to websocket, mark connection as livestreamr
-      fprintf(stderr, "Stream request reeived, upgrading to websocket\n");
+      fprintf(stderr, "Stream request received, upgrading to websocket\n");
       mg_ws_upgrade(c, hm, NULL);
       c->label[0] = 'S';  
     } else if (mg_http_match_uri(hm, "/api/camcmd")) { // Handle camera API commands

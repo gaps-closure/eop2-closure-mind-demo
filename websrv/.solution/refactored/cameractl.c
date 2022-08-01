@@ -31,6 +31,7 @@ void outhint(void *from, void *to, int sz) { }
 // Incoming and outgoing packet structures. 
 #pragma cle begin ORANGE_NOSHARE
 OrionPkt_t PktOut;
+OrionPkt_t PktIn;
 AVFormatContext *pInputContext = NULL;
 AVCodecContext  *pDecodeContext = NULL;
 AVCodecContext  *pEncodeContext = NULL;
@@ -428,14 +429,54 @@ int stream_process() {
   return 0; 
 }
 
+int wait_for_response() {
+  int retries = 0;
+#ifdef ORION_COMM_ 
+  while (++retries < 20) {
+    while (OrionCommReceive(&PktIn)) {
+      if (PktIn.ID == ORION_PKT_CMD) return 1;
+    }
+    usleep(100000); // wait 100ms
+  }
+#endif /* ORION_COMM_ */
+  return 0;
+}
+
 #pragma cle begin XDLINKAGE_SEND_CAMCMD
 int send_camcmd(double pan, double tilt, double imptime, char mode, char stab) {
 #pragma cle end XDLINKAGE_SEND_CAMCMD
   #pragma cle begin ORANGE_SHARE
   int ret = 0;
   #pragma cle end ORANGE_SHARE
+  OrionCmd_t Cmd  = { { 0, 0 } };
+  Cmd.Target[0]   = deg2radf(pan);
+  Cmd.Target[1]   = deg2radf(tilt);
+  Cmd.ImpulseTime = imptime;
+  Cmd.Stabilized  = (stab == 1);
+  Cmd.Mode        = ORION_MODE_RATE;
+  switch (mode) {
+    case 'P':
+      Cmd.Mode = ORION_MODE_POSITION;
+      break;
+    case 'D':
+      Cmd.Mode = ORION_MODE_DISABLED;
+      break;
+    case 'F':
+      // Note that we use the 'auto' FFC mode. To FFC at a specific location, change this line:
+      Cmd.Mode = ORION_MODE_FFC_AUTO;
+      break;
+    case 'R':
+    default:
+      Cmd.Mode = ORION_MODE_RATE;
+      break;
+  };
 
-  ret = 1;
+  encodeOrionCmdPacket(&PktOut, &Cmd);
+
+#ifdef ORION_COMM_ 
+  OrionCommSend(&PktOut);
+#endif /* ORION_COMM_ */
+  ret = wait_for_response();
   return ret;
 }
 

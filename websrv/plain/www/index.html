@@ -91,9 +91,13 @@ function getLLAT() {
 }
 
 function postCommand() {
+  var result = { };
+  $.each($("#camcmd").serializeArray(), function() {
+    result[this.name] = this.value;
+  });
   $.ajax({
     url: "/api/camcmd", type: "POST", dataType: "json", contentType: "application/json",
-    data: JSON.stringify($("#camcmd").serialize()),
+    data: JSON.stringify(result),
     success: function(retdat){$("#cmdres").val(retdat.result);}
   });
 }

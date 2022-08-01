@@ -12,10 +12,27 @@ int handle_camera_command(struct mg_connection *c, struct mg_http_message *hm) {
   double pan, tilt, imptime;
   char   mode, stab;
   if (hm != NULL) {
-    // XXX: extract pan, tilt, imptime, mode, stab from JSON in hm
-    // XXX: check if posted
+    struct mg_str json = mg_str("");
+    json = mg_str_n(hm->body.ptr, hm->body.len);
+    char *pstr = mg_json_get_str(json, "$.pan");
+    char *tstr = mg_json_get_str(json, "$.tilt");
+    char *istr = mg_json_get_str(json, "$.imptime");
+    char *mstr = mg_json_get_str(json, "$.mode");
+    char *sstr = mg_json_get_str(json, "$.stab");
+    pan     = atof(pstr);
+    tilt    = atof(tstr);
+    imptime = atof(istr);
+    mode    = strlen(mstr) >= 1 ? mstr[0] : '_';
+    stab    = (char) atoi(sstr);
+    // fprintf(stderr, "got params %lf %lf %lf %c %d \n", pan, tilt, imptime, mode, stab);
+    free(pstr);
+    free(tstr);
+    free(istr);
+    free(mstr);
+    free(sstr);
     if (send_camcmd(pan, tilt, imptime, mode, stab) == 1) {
       mg_http_reply(c, 200, "Content-Type: application/json\r\n", "{\"result\": \"%s\"}\n", "OKAY");
+      return 1;
     }
   }
   mg_http_reply(c, 200, "Content-Type: application/json\r\n", "{\"result\": \"%s\"}\n", "FAIL");

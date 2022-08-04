@@ -65,8 +65,8 @@
 var jm           = null;
 var ws           = null;
 var llatInterval = null;
-var socketURL    = 'wss://' + window.location.hostname + ':8443/ws/video'; 
-/* var socketURL    = 'ws://' + window.location.hostname + ':8443/ws/video'; */
+/* var socketURL    = 'wss://' + window.location.hostname + ':8443/ws/video'; */
+var socketURL    = 'ws://' + window.location.hostname + ':8443/ws/video';
 
 var map          = L.map('map').setView([37.09,-95.71], 3);
 var marker       = L.marker([37.09, -95.71], draggable=false).addTo(map);

@@ -4770,7 +4770,7 @@ void mg_tls_init(struct mg_connection *c, const struct mg_tls_opts *opts) {
     rc = mbedtls_x509_crt_parse(&tls->ca, (uint8_t *) s.ptr, s.len + 1);
     if (opts->ca[0] != '-') free((char *) s.ptr);
     if (rc != 0) {
-      mg_error(c, "parse(%s) err %#x", opts->ca, -rc);
+      mg_error(c, "parse-ca(%s) err %#x", opts->ca, -rc);
       goto fail;
     }
     mbedtls_ssl_conf_ca_chain(&tls->conf, &tls->ca, NULL);
@@ -4790,7 +4790,7 @@ void mg_tls_init(struct mg_connection *c, const struct mg_tls_opts *opts) {
     rc = mbedtls_x509_crt_parse(&tls->cert, (uint8_t *) s.ptr, s.len + 1);
     if (opts->cert[0] != '-') free((char *) s.ptr);
     if (rc != 0) {
-      mg_error(c, "parse(%s) err %#x", opts->cert, -rc);
+      mg_error(c, "parse-cert(%s) err %#x", opts->cert, -rc);
       goto fail;
     }
     s = mg_loadfile(fs, key);

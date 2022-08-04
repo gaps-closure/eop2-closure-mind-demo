@@ -171,7 +171,7 @@ int cam_open(char *myaddr, char *camaddr) {
 #ifdef ORION_COMM_
   // If we can't connect to a gimbal, kill the app right now
   if (OrionCommOpenNetworkIp(camaddr) == FALSE) {
-    fprintf(stderr, "Failed to connect to gimbal %s\n", VideoUrl);
+    fprintf(stderr, "Closing communications on gimbal connect error\n");
     cam_close();
     return(1);
   }

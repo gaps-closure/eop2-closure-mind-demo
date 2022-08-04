@@ -4790,7 +4790,11 @@ void mg_tls_init(struct mg_connection *c, const struct mg_tls_opts *opts) {
     rc = mbedtls_x509_crt_parse(&tls->cert, (uint8_t *) s.ptr, s.len + 1);
     if (opts->cert[0] != '-') free((char *) s.ptr);
     if (rc != 0) {
-      mg_error(c, "parse-cert(%s) err %#x", opts->cert, -rc);
+      char error_buf[200];
+      mbedtls_strerror( rc, error_buf, 200 );
+      mg_error(c, "parse-cert(%s) err %#x %s", opts->cert, -rc);
+      fprintf(stderr, "%s\n", error_buf);
+      fflush(stderr);
       goto fail;
     }
     s = mg_loadfile(fs, key);

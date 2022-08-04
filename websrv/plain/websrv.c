@@ -4,8 +4,11 @@
 
 #define FRAME_INTERVAL  20
 #define POLL_INTERVAL   5
+//XXX: mbedtls on MB not working as expected
 #define WSS_URL         "wss://0.0.0.0:8443"   
 #define HTTPS_URL       "https://0.0.0.0:8443"
+//#define WSS_URL         "ws://0.0.0.0:8443"   
+//#define HTTPS_URL       "http://0.0.0.0:8443"
 #define WWW_ROOT        "./www"
 
 int handle_camera_command(struct mg_connection *c, struct mg_http_message *hm) {
@@ -70,8 +73,8 @@ void webfn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
   static const char *s_web_root = WWW_ROOT;
   if (ev == MG_EV_ACCEPT && fn_data != NULL) {
     struct mg_tls_opts opts = {
-      .cert = "./creds/server.pem",
-      .certkey = "./creds/server.pem",
+      .cert = "./creds/server.cert",
+      .certkey = "./creds/server.key",
     };
     mg_tls_init(c, &opts);
   } else if (ev == MG_EV_HTTP_MSG) {

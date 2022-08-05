@@ -3,11 +3,14 @@
 //! Number of days between Jan 6 1980 and Jan 1 2012
 #define JAN12012 11683
 
+#pragma cle begin ORANGE_NOSHARE
 //! Day number at start of each month for a common year, day and month are zero based
-const uint16_t month_day_norm[12] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
+uint16_t month_day_norm[12] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
 
 //! Day number at start of each month for a leap year, day and month are zero based
-const uint16_t month_day_leap[12] = {0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335};
+uint16_t month_day_leap[12] = {0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335};
+#pragma cle end ORANGE_NOSHARE
+
 
 //! Determine if a year is a leap year in the Gregorian calendar.
 int isLeapYear(uint16_t year);

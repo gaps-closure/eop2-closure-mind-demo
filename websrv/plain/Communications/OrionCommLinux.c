@@ -17,7 +17,7 @@
 
 static struct sockaddr *GetSockAddr(uint32_t Address, unsigned short port);
 
-static int Handle = -1;
+int Handle = -1;
 
 BOOL OrionCommOpenSerial(const char *pPath)
 {

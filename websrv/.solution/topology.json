@@ -1,0 +1,5979 @@
+{
+  "source_path": "refactored",
+  "enclaves": [
+    "green_E",
+    "orange_E"
+  ],
+  "levels": [
+    "green",
+    "orange"
+  ],
+  "functions": [
+    {
+      "name": "KlvGetLength",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 145
+    },
+    {
+      "name": "KlvNewData",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 161
+    },
+    {
+      "name": "KlvTreeSetValue",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 408
+    },
+    {
+      "name": "KlvFindTag",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 387
+    },
+    {
+      "name": "KlvCreateTag",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 372
+    },
+    {
+      "name": "KlvGetValueDouble",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 186
+    },
+    {
+      "name": "KlvTreeGetValueDouble",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 445
+    },
+    {
+      "name": "KlvTreeGetValueUInt",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 554
+    },
+    {
+      "name": "KlvTreeGetValueInt",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 513
+    },
+    {
+      "name": "KlvGetValueInt",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 213
+    },
+    {
+      "name": "KlvGetValueUInt",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 258
+    },
+    {
+      "name": "KlvGetValueString",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 301
+    },
+    {
+      "name": "KlvTreeGetValueString",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 595
+    },
+    {
+      "name": "KlvPrintData",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 314
+    },
+    {
+      "name": "av_make_error_string",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 109
+    },
+    {
+      "name": "KlvTreeHasKey",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 438
+    },
+    {
+      "name": "KlvTreeGetValue",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 619
+    },
+    {
+      "name": "KlvTreePrint",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 639
+    },
+    {
+      "name": "get_frame",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 210
+    },
+    {
+      "name": "get_metadata",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 232
+    },
+    {
+      "name": "send_camcmd",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 453
+    },
+    {
+      "name": "run_videoproc",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 512
+    },
+    {
+      "name": "isValidIPv4",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 504
+    },
+    {
+      "name": "process_video",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 491
+    },
+    {
+      "name": "cam_open",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 153
+    },
+    {
+      "name": "stream_process",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 416
+    },
+    {
+      "name": "re_encode",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 289
+    },
+    {
+      "name": "extract_metadata",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 329
+    },
+    {
+      "name": "pull_md",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 311
+    },
+    {
+      "name": "put_metadata",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 277
+    },
+    {
+      "name": "get_mdatabuf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 201
+    },
+    {
+      "name": "put_frame",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 260
+    },
+    {
+      "name": "get_framebuf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 194
+    },
+    {
+      "name": "cam_close",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 68
+    },
+    {
+      "name": "stream_open",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 76
+    },
+    {
+      "name": "stream_close",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 47
+    },
+    {
+      "name": "wait_for_response",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 438
+    },
+    {
+      "name": "outhint",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 29
+    },
+    {
+      "name": "llaToTrig",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 13
+    },
+    {
+      "name": "llaToECEF",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 29
+    },
+    {
+      "name": "llaToECEFandTrig",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 43
+    },
+    {
+      "name": "llaTrigToECEF",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 59
+    },
+    {
+      "name": "ecefToLLA",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 81
+    },
+    {
+      "name": "ecefToLLAandTrig",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 99
+    },
+    {
+      "name": "geodeticToGeocentric",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 194
+    },
+    {
+      "name": "testEarthPosition",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 224
+    },
+    {
+      "name": "addAngles",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 27
+    },
+    {
+      "name": "wrapAngle",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 51
+    },
+    {
+      "name": "subtractAngles",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 39
+    },
+    {
+      "name": "wrapAngle90",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 68
+    },
+    {
+      "name": "firstOrderFilter",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 87
+    },
+    {
+      "name": "addAnglesf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 100
+    },
+    {
+      "name": "wrapAnglef",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 124
+    },
+    {
+      "name": "subtractAnglesf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 112
+    },
+    {
+      "name": "wrapAngle90f",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 141
+    },
+    {
+      "name": "wrapAngle360f",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 158
+    },
+    {
+      "name": "fastSin",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 172
+    },
+    {
+      "name": "fastCos",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 195
+    },
+    {
+      "name": "fastISqrt",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 218
+    },
+    {
+      "name": "fastSqrt",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 238
+    },
+    {
+      "name": "firstOrderFilterf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 254
+    },
+    {
+      "name": "rateOfChangeLimitf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 269
+    },
+    {
+      "name": "computeDateAndTimeFromWeekAndItow",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 307
+    },
+    {
+      "name": "computeDateFromWeekAndItow",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 337
+    },
+    {
+      "name": "computeTimeFromItow",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 425
+    },
+    {
+      "name": "isLeapYear",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 453
+    },
+    {
+      "name": "computeWeekAndItow",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 497
+    },
+    {
+      "name": "testDateConversion",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 553
+    },
+    {
+      "name": "dcmGet",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 33
+    },
+    {
+      "name": "dcmGetFromRawData",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 45
+    },
+    {
+      "name": "dcmCopy",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 58
+    },
+    {
+      "name": "dcmSetIdentity",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 71
+    },
+    {
+      "name": "dcmAddIdentity",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 94
+    },
+    {
+      "name": "dcmAddEquals",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 110
+    },
+    {
+      "name": "dcmScale",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 131
+    },
+    {
+      "name": "dcmSet",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 153
+    },
+    {
+      "name": "dcmAllocate",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 165
+    },
+    {
+      "name": "setDCMBasedOnRoll",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 187
+    },
+    {
+      "name": "setDCMBasedOnPitch",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 207
+    },
+    {
+      "name": "setDCMBasedOnYaw",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 227
+    },
+    {
+      "name": "setDCMBasedOnEuler",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 249
+    },
+    {
+      "name": "setDCMBasedOnPanTilt",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 277
+    },
+    {
+      "name": "dcmYaw",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 303
+    },
+    {
+      "name": "dcmPitch",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 315
+    },
+    {
+      "name": "dcmSinPitch",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 342
+    },
+    {
+      "name": "dcmCosPitch",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 327
+    },
+    {
+      "name": "dcmRoll",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 353
+    },
+    {
+      "name": "dcmCosRoll",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 365
+    },
+    {
+      "name": "dcmSinRoll",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 376
+    },
+    {
+      "name": "dcmApplyRotation",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 388
+    },
+    {
+      "name": "rawdcmApplyRotation",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 416
+    },
+    {
+      "name": "dcmApplyReverseRotation",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 403
+    },
+    {
+      "name": "rawdcmApplyReverseRotation",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 437
+    },
+    {
+      "name": "dcmMultiply",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 458
+    },
+    {
+      "name": "rawdcmMultiply",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 473
+    },
+    {
+      "name": "vector3Sum",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 78
+    },
+    {
+      "name": "vector3Difference",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 98
+    },
+    {
+      "name": "dcmMultiplyTransA",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 502
+    },
+    {
+      "name": "dcmMultiplyTransB",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 534
+    },
+    {
+      "name": "dcmTransposeInPlace",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 562
+    },
+    {
+      "name": "dcmAverage",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 595
+    },
+    {
+      "name": "vectorSkewSymmetric",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 617
+    },
+    {
+      "name": "skewSymmetric",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 631
+    },
+    {
+      "name": "vectorAttitudeIncrement",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 645
+    },
+    {
+      "name": "attitudeIncrement",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 660
+    },
+    {
+      "name": "attitudeIncrementBigYaw",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 678
+    },
+    {
+      "name": "testLinearAlgebra",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 694
+    },
+    {
+      "name": "dcmdGet",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 803
+    },
+    {
+      "name": "dcmdGetFromRawData",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 815
+    },
+    {
+      "name": "dcmdCopy",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 828
+    },
+    {
+      "name": "dcmdSetIdentity",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 841
+    },
+    {
+      "name": "dcmdAddIdentity",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 864
+    },
+    {
+      "name": "dcmdAddEquals",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 880
+    },
+    {
+      "name": "dcmdScale",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 901
+    },
+    {
+      "name": "dcmdSet",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 922
+    },
+    {
+      "name": "dcmdAllocate",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 934
+    },
+    {
+      "name": "setDCMdBasedOnRoll",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 956
+    },
+    {
+      "name": "setDCMdBasedOnPitch",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 976
+    },
+    {
+      "name": "setDCMdBasedOnYaw",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 996
+    },
+    {
+      "name": "setDCMdBasedOnEuler",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1018
+    },
+    {
+      "name": "setDCMdBasedOnPanTilt",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1045
+    },
+    {
+      "name": "dcmdYaw",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1071
+    },
+    {
+      "name": "dcmdPitch",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1083
+    },
+    {
+      "name": "dcmdSinPitch",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1110
+    },
+    {
+      "name": "dcmdCosPitch",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1095
+    },
+    {
+      "name": "dcmdRoll",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1121
+    },
+    {
+      "name": "dcmdCosRoll",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1133
+    },
+    {
+      "name": "dcmdSinRoll",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1144
+    },
+    {
+      "name": "dcmdApplyRotation",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1156
+    },
+    {
+      "name": "rawdcmdApplyRotation",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1184
+    },
+    {
+      "name": "vectorLengthSquaredf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2373
+    },
+    {
+      "name": "dcmdApplyReverseRotation",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1171
+    },
+    {
+      "name": "rawdcmdApplyReverseRotation",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1205
+    },
+    {
+      "name": "dcmdMultiply",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1226
+    },
+    {
+      "name": "rawdcmdMultiply",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1241
+    },
+    {
+      "name": "dcmdMultiplyTransA",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1270
+    },
+    {
+      "name": "dcmdMultiplyTransB",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1302
+    },
+    {
+      "name": "dcmdTransposeInPlace",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1330
+    },
+    {
+      "name": "dcmdAverage",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1363
+    },
+    {
+      "name": "vectorSkewSymmetricd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1385
+    },
+    {
+      "name": "skewSymmetricd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1399
+    },
+    {
+      "name": "vectorAttitudeIncrementd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1413
+    },
+    {
+      "name": "attitudeIncrementd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1428
+    },
+    {
+      "name": "attitudeIncrementBigYawd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1446
+    },
+    {
+      "name": "FormGeolocateTelemetry",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 16
+    },
+    {
+      "name": "DecodeGeolocateTelemetry",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 29
+    },
+    {
+      "name": "ConvertGeolocateTelemetryCore",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 49
+    },
+    {
+      "name": "offsetImageLocation",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 130
+    },
+    {
+      "name": "distanceToHorizonM",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 200
+    },
+    {
+      "name": "offsetImageLocationOcean",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 221
+    },
+    {
+      "name": "getTerrainIntersection",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 324
+    },
+    {
+      "name": "getImageVelocity",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 415
+    },
+    {
+      "name": "getGeolocateBuffer",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 460
+    },
+    {
+      "name": "copyGeolocateTelemetry",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 542
+    },
+    {
+      "name": "pushGeolocateBuffer",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 519
+    },
+    {
+      "name": "getOrionPublicPacketData",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 12
+    },
+    {
+      "name": "getOrionPublicPacketDataConst",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 18
+    },
+    {
+      "name": "finishOrionPublicPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 24
+    },
+    {
+      "name": "getOrionPublicPacketSize",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 30
+    },
+    {
+      "name": "getOrionPublicPacketID",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 36
+    },
+    {
+      "name": "vector3Set",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 20
+    },
+    {
+      "name": "vector3Copy",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 38
+    },
+    {
+      "name": "vector3MultiplyAccumulate",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 58
+    },
+    {
+      "name": "initQuaternion",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 124
+    },
+    {
+      "name": "setQuaternionBasedOnRoll",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 138
+    },
+    {
+      "name": "setQuaternionBasedOnPitch",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 151
+    },
+    {
+      "name": "setQuaternionBasedOnYaw",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 164
+    },
+    {
+      "name": "setQuaternionBasedOnEuler",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 180
+    },
+    {
+      "name": "quaternionYaw",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 195
+    },
+    {
+      "name": "vector3Multiply",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 118
+    },
+    {
+      "name": "vector3Dot",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 137
+    },
+    {
+      "name": "vector3AngleBetween",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 155
+    },
+    {
+      "name": "vector3LengthSquared",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 195
+    },
+    {
+      "name": "vector3Cross",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 179
+    },
+    {
+      "name": "vector3Length",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 206
+    },
+    {
+      "name": "vector3ChangeLength",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 220
+    },
+    {
+      "name": "vector3Scale",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 247
+    },
+    {
+      "name": "vector3Convert",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 264
+    },
+    {
+      "name": "vector3Convertf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 281
+    },
+    {
+      "name": "vector3Unit",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 299
+    },
+    {
+      "name": "vectorGet",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 321
+    },
+    {
+      "name": "vectorSet",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 337
+    },
+    {
+      "name": "vectorAddToElement",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 353
+    },
+    {
+      "name": "vectorSetAll",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 368
+    },
+    {
+      "name": "vectorAllocate",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 386
+    },
+    {
+      "name": "vectorZero",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 478
+    },
+    {
+      "name": "vectorChangeAllocateSize",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 425
+    },
+    {
+      "name": "vectorChangeSize",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 462
+    },
+    {
+      "name": "vectorCopy",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 491
+    },
+    {
+      "name": "vectorMultiplyAccumulate",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 513
+    },
+    {
+      "name": "vectorSum",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 532
+    },
+    {
+      "name": "vectorDifference",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 552
+    },
+    {
+      "name": "vectorMultiply",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 572
+    },
+    {
+      "name": "vectorDot",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 591
+    },
+    {
+      "name": "vectorLengthSquared",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 609
+    },
+    {
+      "name": "vectorLength",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 620
+    },
+    {
+      "name": "vectorChangeLength",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 634
+    },
+    {
+      "name": "vectorScale",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 661
+    },
+    {
+      "name": "vectorUnit",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 680
+    },
+    {
+      "name": "vectorAbs",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 692
+    },
+    {
+      "name": "vectorMax",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 709
+    },
+    {
+      "name": "vectorMin",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 729
+    },
+    {
+      "name": "matrixGet",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 776
+    },
+    {
+      "name": "matrixSet",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 789
+    },
+    {
+      "name": "matrixAddToElement",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 802
+    },
+    {
+      "name": "matrixAllocate",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 816
+    },
+    {
+      "name": "matrixZero",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 975
+    },
+    {
+      "name": "matrixChangeAllocateSize",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 858
+    },
+    {
+      "name": "matrixChangeSize",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 897
+    },
+    {
+      "name": "matrixSetIdentity",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 984
+    },
+    {
+      "name": "matrixCopy",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1006
+    },
+    {
+      "name": "matrixSetRow",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1027
+    },
+    {
+      "name": "matrixSetColumn",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1044
+    },
+    {
+      "name": "matrixMultiply",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1063
+    },
+    {
+      "name": "matrixMultiplyTransA",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1108
+    },
+    {
+      "name": "matrixMultiplyTransB",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1154
+    },
+    {
+      "name": "matrixVectorMultiply",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1203
+    },
+    {
+      "name": "matrixVectorMultiplyTransA",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1251
+    },
+    {
+      "name": "matrixAdd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1297
+    },
+    {
+      "name": "matrixAddEquals",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1320
+    },
+    {
+      "name": "matrixScale",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1340
+    },
+    {
+      "name": "matrixAverage",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1359
+    },
+    {
+      "name": "matrixAddIdentity",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1379
+    },
+    {
+      "name": "matrixMinusIdentity",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1398
+    },
+    {
+      "name": "matrixIdentityMinus",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1416
+    },
+    {
+      "name": "matrixDotRows",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1442
+    },
+    {
+      "name": "matrixTranspose",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1464
+    },
+    {
+      "name": "matrixInverse",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1523
+    },
+    {
+      "name": "matrixInverse2x2",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1559
+    },
+    {
+      "name": "matrixInverse3x3",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1591
+    },
+    {
+      "name": "testForIdentity",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1641
+    },
+    {
+      "name": "testForZeroMatrix",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1667
+    },
+    {
+      "name": "quadraticDerivativeEvaluation",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1690
+    },
+    {
+      "name": "quadraticEvaluation",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1702
+    },
+    {
+      "name": "quadraticRegression",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1718
+    },
+    {
+      "name": "vector3Setf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1788
+    },
+    {
+      "name": "vector3Copyf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1806
+    },
+    {
+      "name": "vector3MultiplyAccumulatef",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1826
+    },
+    {
+      "name": "vector3Sumf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1846
+    },
+    {
+      "name": "vector3Differencef",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1866
+    },
+    {
+      "name": "vector3Multiplyf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1886
+    },
+    {
+      "name": "vector3Dotf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1905
+    },
+    {
+      "name": "vector3AngleBetweenf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1923
+    },
+    {
+      "name": "vector3LengthSquaredf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1963
+    },
+    {
+      "name": "vector3Crossf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1947
+    },
+    {
+      "name": "vector3Lengthf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1974
+    },
+    {
+      "name": "vector3ChangeLengthf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1988
+    },
+    {
+      "name": "vector3Scalef",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2015
+    },
+    {
+      "name": "vector3Unitf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2034
+    },
+    {
+      "name": "vector3Abs",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2056
+    },
+    {
+      "name": "vector3Absf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2071
+    },
+    {
+      "name": "vectorGetf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2086
+    },
+    {
+      "name": "vectorSetf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2102
+    },
+    {
+      "name": "vectorAddToElementf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2118
+    },
+    {
+      "name": "vectorSetAllf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2133
+    },
+    {
+      "name": "vectorAllocatef",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2151
+    },
+    {
+      "name": "vectorZerof",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2243
+    },
+    {
+      "name": "vectorChangeAllocateSizef",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2190
+    },
+    {
+      "name": "vectorChangeSizef",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2227
+    },
+    {
+      "name": "vectorCopyf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2256
+    },
+    {
+      "name": "vectorMultiplyAccumulatef",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2277
+    },
+    {
+      "name": "vectorSumf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2296
+    },
+    {
+      "name": "vectorDifferencef",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2316
+    },
+    {
+      "name": "vectorMultiplyf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2336
+    },
+    {
+      "name": "vectorDotf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2355
+    },
+    {
+      "name": "mg_pass_string",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 16
+    },
+    {
+      "name": "vectorLengthf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2384
+    },
+    {
+      "name": "vectorChangeLengthf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2398
+    },
+    {
+      "name": "vectorScalef",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2425
+    },
+    {
+      "name": "vectorUnitf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2444
+    },
+    {
+      "name": "vectorAbsf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2456
+    },
+    {
+      "name": "vectorMaxf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2473
+    },
+    {
+      "name": "vectorMinf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2493
+    },
+    {
+      "name": "matrixGetf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2522
+    },
+    {
+      "name": "matrixSetf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2535
+    },
+    {
+      "name": "matrixAddToElementf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2548
+    },
+    {
+      "name": "matrixAllocatef",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2562
+    },
+    {
+      "name": "matrixZerof",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2716
+    },
+    {
+      "name": "matrixChangeAllocateSizef",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2604
+    },
+    {
+      "name": "matrixChangeSizef",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2643
+    },
+    {
+      "name": "matrixSetIdentityf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2725
+    },
+    {
+      "name": "matrixCopyf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2747
+    },
+    {
+      "name": "matrixSetRowf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2768
+    },
+    {
+      "name": "matrixSetColumnf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2785
+    },
+    {
+      "name": "matrixMultiplyf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2804
+    },
+    {
+      "name": "matrixMultiplyTransAf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2849
+    },
+    {
+      "name": "matrixMultiplyTransBf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2895
+    },
+    {
+      "name": "matrixVectorMultiplyf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2944
+    },
+    {
+      "name": "matrixVectorMultiplyTransAf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 2992
+    },
+    {
+      "name": "matrixAddf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 3038
+    },
+    {
+      "name": "matrixAddEqualsf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 3061
+    },
+    {
+      "name": "matrixScalef",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 3081
+    },
+    {
+      "name": "matrixAveragef",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 3100
+    },
+    {
+      "name": "matrixAddIdentityf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 3120
+    },
+    {
+      "name": "matrixMinusIdentityf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 3139
+    },
+    {
+      "name": "matrixIdentityMinusf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 3157
+    },
+    {
+      "name": "matrixDotRowsf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 3183
+    },
+    {
+      "name": "matrixTransposef",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 3205
+    },
+    {
+      "name": "matrixInversef",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3264
+    },
+    {
+      "name": "matrixInverse2x2f",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3300
+    },
+    {
+      "name": "matrixInverse3x3f",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3332
+    },
+    {
+      "name": "testForIdentityf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3382
+    },
+    {
+      "name": "testForZeroMatrixf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3408
+    },
+    {
+      "name": "matrixTranspose_ftod",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 3431
+    },
+    {
+      "name": "matrixTranspose_dtof",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 3463
+    },
+    {
+      "name": "matrixCopy_ftod",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 3495
+    },
+    {
+      "name": "matrixCopy_dtof",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 3526
+    },
+    {
+      "name": "quadraticDerivativeEvaluationf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 3557
+    },
+    {
+      "name": "quadraticEvaluationf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 3569
+    },
+    {
+      "name": "quadraticRegressionf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3585
+    },
+    {
+      "name": "LookForTrilliumPacketInByteEx",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 7
+    },
+    {
+      "name": "InitChecksum",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 108
+    },
+    {
+      "name": "UpdateChecksum",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 115
+    },
+    {
+      "name": "MakeTrilliumPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 78
+    },
+    {
+      "name": "constructGpsEcefPosVel",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 14
+    },
+    {
+      "name": "constructGpsEcefUncertainty",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 66
+    },
+    {
+      "name": "gravity",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 10
+    },
+    {
+      "name": "gravityFromSinLat",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 24
+    },
+    {
+      "name": "radiusOfEWCurv",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 38
+    },
+    {
+      "name": "radiusOfEWCurvFromSinLat",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 50
+    },
+    {
+      "name": "quaternionToDCM",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 18
+    },
+    {
+      "name": "dcmToQuaternion",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 47
+    },
+    {
+      "name": "quaternionPitch",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 207
+    },
+    {
+      "name": "quaternionSinPitch",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 234
+    },
+    {
+      "name": "quaternionCosPitch",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 219
+    },
+    {
+      "name": "quaternionRoll",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 245
+    },
+    {
+      "name": "quaternionCosRoll",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 257
+    },
+    {
+      "name": "quaternionSinRoll",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 268
+    },
+    {
+      "name": "quaternionApplyRotation",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 281
+    },
+    {
+      "name": "quaternionApplyReverseRotation",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 307
+    },
+    {
+      "name": "quaternionLength",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 331
+    },
+    {
+      "name": "quaternionMultiply",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 346
+    },
+    {
+      "name": "quaternionMultiplyInverseA",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 366
+    },
+    {
+      "name": "quaternionMultiplyInverseB",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 386
+    },
+    {
+      "name": "quaternionToRotVec",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 403
+    },
+    {
+      "name": "rotVecToQuaternion",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 429
+    },
+    {
+      "name": "testQuaternion",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 459
+    },
+    {
+      "name": "quaterniondToDCM",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 562
+    },
+    {
+      "name": "quaterniondToDCMf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 591
+    },
+    {
+      "name": "dcmToQuaterniond",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 605
+    },
+    {
+      "name": "dcmfToQuaterniond",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 683
+    },
+    {
+      "name": "initQuaterniond",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 698
+    },
+    {
+      "name": "setQuaterniondBasedOnRoll",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 712
+    },
+    {
+      "name": "setQuaterniondBasedOnPitch",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 725
+    },
+    {
+      "name": "setQuaterniondBasedOnYaw",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 738
+    },
+    {
+      "name": "setQuaterniondBasedOnEuler",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 754
+    },
+    {
+      "name": "quaterniondYaw",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 769
+    },
+    {
+      "name": "quaterniondPitch",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 781
+    },
+    {
+      "name": "quaterniondSinPitch",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 808
+    },
+    {
+      "name": "quaterniondCosPitch",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 793
+    },
+    {
+      "name": "quaterniondRoll",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 819
+    },
+    {
+      "name": "quaterniondCosRoll",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 831
+    },
+    {
+      "name": "quaterniondSinRoll",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 842
+    },
+    {
+      "name": "quaterniondApplyRotation",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 855
+    },
+    {
+      "name": "quaterniondApplyReverseRotation",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 881
+    },
+    {
+      "name": "quaterniondLength",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 905
+    },
+    {
+      "name": "quaterniondMultiply",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 920
+    },
+    {
+      "name": "quaterniondMultiplyInverseA",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 939
+    },
+    {
+      "name": "quaterniondMultiplyInverseB",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 957
+    },
+    {
+      "name": "quaterniondToRotVec",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 974
+    },
+    {
+      "name": "rotVecToQuaterniond",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1000
+    },
+    {
+      "name": "testQuaterniond",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1030
+    },
+    {
+      "name": "nedToECEF",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 12
+    },
+    {
+      "name": "nedToECEFtrig",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 40
+    },
+    {
+      "name": "ecefToNED",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 25
+    },
+    {
+      "name": "ecefToNEDtrig",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 62
+    },
+    {
+      "name": "nedToECEFdcmd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 81
+    },
+    {
+      "name": "ecefToNEDdcmd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 97
+    },
+    {
+      "name": "gravityToECEFd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 116
+    },
+    {
+      "name": "nedToECEFf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 132
+    },
+    {
+      "name": "nedToECEFtrigf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 160
+    },
+    {
+      "name": "ecefToNEDf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 145
+    },
+    {
+      "name": "ecefToNEDtrigf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 182
+    },
+    {
+      "name": "nedToECEFdcm",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 200
+    },
+    {
+      "name": "ecefToNEDdcm",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 216
+    },
+    {
+      "name": "gravityToECEF",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 235
+    },
+    {
+      "name": "testEarthRotation",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 249
+    },
+    {
+      "name": "packed_stat",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 31
+    },
+    {
+      "name": "packed_list",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 42
+    },
+    {
+      "name": "packed_open",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 63
+    },
+    {
+      "name": "packed_close",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 75
+    },
+    {
+      "name": "packed_read",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 79
+    },
+    {
+      "name": "packed_write",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 87
+    },
+    {
+      "name": "packed_seek",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 92
+    },
+    {
+      "name": "packed_rename",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 99
+    },
+    {
+      "name": "packed_remove",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 104
+    },
+    {
+      "name": "packed_mkdir",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 109
+    },
+    {
+      "name": "mg_unpack",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 15
+    },
+    {
+      "name": "mg_unlist",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 19
+    },
+    {
+      "name": "is_dir_prefix",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 25
+    },
+    {
+      "name": "mg_snprintf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 164
+    },
+    {
+      "name": "mg_vsnprintf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 338
+    },
+    {
+      "name": "is_digit",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 87
+    },
+    {
+      "name": "mg_dtoa",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 507
+    },
+    {
+      "name": "mg_lld",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 276
+    },
+    {
+      "name": "mg_copys",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 298
+    },
+    {
+      "name": "mg_copyq",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 317
+    },
+    {
+      "name": "mg_escape",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 313
+    },
+    {
+      "name": "mg_esc",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 305
+    },
+    {
+      "name": "xisinf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 488
+    },
+    {
+      "name": "xisnan",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 497
+    },
+    {
+      "name": "addexp",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 476
+    },
+    {
+      "name": "p_stat",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 14
+    },
+    {
+      "name": "p_list",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 143
+    },
+    {
+      "name": "p_open",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 159
+    },
+    {
+      "name": "p_close",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 171
+    },
+    {
+      "name": "p_read",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 175
+    },
+    {
+      "name": "p_write",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 179
+    },
+    {
+      "name": "p_seek",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 183
+    },
+    {
+      "name": "p_rename",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 194
+    },
+    {
+      "name": "p_remove",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 198
+    },
+    {
+      "name": "p_mkdir",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 202
+    },
+    {
+      "name": "default_logger",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 5
+    },
+    {
+      "name": "mg_base64_update",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 35
+    },
+    {
+      "name": "mg_b64idx",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 5
+    },
+    {
+      "name": "mg_base64_final",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 51
+    },
+    {
+      "name": "mg_base64_encode",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 62
+    },
+    {
+      "name": "mg_base64_decode",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 69
+    },
+    {
+      "name": "mg_b64rev",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 17
+    },
+    {
+      "name": "mg_resolve_cancel",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 25
+    },
+    {
+      "name": "mg_dns_free",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 19
+    },
+    {
+      "name": "mg_dns_parse_rr",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 75
+    },
+    {
+      "name": "mg_dns_parse_name",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 70
+    },
+    {
+      "name": "mg_dns_parse_name_depth",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 33
+    },
+    {
+      "name": "mg_dns_parse",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 99
+    },
+    {
+      "name": "mg_ntohs",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 36
+    },
+    {
+      "name": "mg_resolve",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 258
+    },
+    {
+      "name": "mg_url_host",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 43
+    },
+    {
+      "name": "mg_url_port",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 57
+    },
+    {
+      "name": "mg_aton",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 136
+    },
+    {
+      "name": "mg_connect_resolved",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 334
+    },
+    {
+      "name": "mg_sendnsreq",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 225
+    },
+    {
+      "name": "mg_error",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 15
+    },
+    {
+      "name": "mg_connect",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 169
+    },
+    {
+      "name": "dns_cb",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 137
+    },
+    {
+      "name": "mg_millis",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 84
+    },
+    {
+      "name": "mg_log_prefix",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 30
+    },
+    {
+      "name": "mg_ntoa",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 34
+    },
+    {
+      "name": "mg_log",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 57
+    },
+    {
+      "name": "mg_dns_send",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 198
+    },
+    {
+      "name": "mg_send",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 163
+    },
+    {
+      "name": "mg_sock_send",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 147
+    },
+    {
+      "name": "iolog",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 114
+    },
+    {
+      "name": "mg_iobuf_add",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 47
+    },
+    {
+      "name": "mg_iobuf_resize",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 15
+    },
+    {
+      "name": "zeromem",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 9
+    },
+    {
+      "name": "tomgaddr",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 71
+    },
+    {
+      "name": "mg_straddr",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 26
+    },
+    {
+      "name": "mg_hexdump",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 74
+    },
+    {
+      "name": "mg_str_n",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 10
+    },
+    {
+      "name": "mg_call",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 7
+    },
+    {
+      "name": "mg_iobuf_del",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 63
+    },
+    {
+      "name": "logs",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 20
+    },
+    {
+      "name": "logc",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 16
+    },
+    {
+      "name": "nibble",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 69
+    },
+    {
+      "name": "tousa",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 54
+    },
+    {
+      "name": "setlocaddr",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 106
+    },
+    {
+      "name": "mg_sock_would_block",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 84
+    },
+    {
+      "name": "mg_vasprintf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 204
+    },
+    {
+      "name": "mg_str_s",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 5
+    },
+    {
+      "name": "mg_commalist",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 160
+    },
+    {
+      "name": "mg_split",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 150
+    },
+    {
+      "name": "mg_nce",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 137
+    },
+    {
+      "name": "mg_alloc_conn",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 142
+    },
+    {
+      "name": "mg_set_non_blocking_mode",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 175
+    },
+    {
+      "name": "setsockopts",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 317
+    },
+    {
+      "name": "mg_atone",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 56
+    },
+    {
+      "name": "mg_atonl",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 49
+    },
+    {
+      "name": "mg_aton4",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 63
+    },
+    {
+      "name": "mg_aton6",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 99
+    },
+    {
+      "name": "mg_v4mapped",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 84
+    },
+    {
+      "name": "mg_unhexn",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 191
+    },
+    {
+      "name": "mg_unhex_nimble",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 185
+    },
+    {
+      "name": "mg_vcasecmp",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 40
+    },
+    {
+      "name": "mg_ntohl",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 29
+    },
+    {
+      "name": "mg_ncasecmp",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 21
+    },
+    {
+      "name": "mg_lower",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 15
+    },
+    {
+      "name": "urlparse",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 15
+    },
+    {
+      "name": "mg_fs_open",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 5
+    },
+    {
+      "name": "mg_fs_close",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 18
+    },
+    {
+      "name": "mg_file_read",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 25
+    },
+    {
+      "name": "mg_file_write",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 46
+    },
+    {
+      "name": "mg_file_printf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 65
+    },
+    {
+      "name": "mg_http_next_multipart",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 24
+    },
+    {
+      "name": "mg_http_get_header_var",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 766
+    },
+    {
+      "name": "stripquotes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 760
+    },
+    {
+      "name": "mg_http_bauth",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 64
+    },
+    {
+      "name": "mg_http_var",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 91
+    },
+    {
+      "name": "mg_http_get_var",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 102
+    },
+    {
+      "name": "mg_url_decode",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 127
+    },
+    {
+      "name": "isx",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 122
+    },
+    {
+      "name": "mg_unhex",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 197
+    },
+    {
+      "name": "mg_http_get_request_len",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 153
+    },
+    {
+      "name": "isok",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 149
+    },
+    {
+      "name": "mg_http_get_header",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 173
+    },
+    {
+      "name": "mg_http_parse",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 200
+    },
+    {
+      "name": "skip",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 164
+    },
+    {
+      "name": "mg_http_parse_headers",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 182
+    },
+    {
+      "name": "mg_to64",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 262
+    },
+    {
+      "name": "mg_http_printf_chunk",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 276
+    },
+    {
+      "name": "mg_http_vprintf_chunk",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 266
+    },
+    {
+      "name": "mg_printf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 17
+    },
+    {
+      "name": "mg_vprintf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 9
+    },
+    {
+      "name": "mg_http_write_chunk",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 283
+    },
+    {
+      "name": "mg_http_reply",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 312
+    },
+    {
+      "name": "mg_http_status_code_str",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 290
+    },
+    {
+      "name": "mg_http_etag",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 334
+    },
+    {
+      "name": "mg_http_serve_file",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 436
+    },
+    {
+      "name": "guess_content_type",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 358
+    },
+    {
+      "name": "getrange",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 416
+    },
+    {
+      "name": "static_cb",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 339
+    },
+    {
+      "name": "restore_http_cb",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 327
+    },
+    {
+      "name": "http_cb",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 894
+    },
+    {
+      "name": "mg_is_chunked",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 840
+    },
+    {
+      "name": "walkchunks",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 800
+    },
+    {
+      "name": "get_chunk_length",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 787
+    },
+    {
+      "name": "mg_strcmp",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 61
+    },
+    {
+      "name": "mg_http_serve_dir",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 700
+    },
+    {
+      "name": "uri_to_path",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 686
+    },
+    {
+      "name": "listdir",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 557
+    },
+    {
+      "name": "mg_globmatch",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 133
+    },
+    {
+      "name": "mg_http_serve_ssi",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 92
+    },
+    {
+      "name": "mg_match",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 101
+    },
+    {
+      "name": "printdirentry",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 526
+    },
+    {
+      "name": "mg_url_encode",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 722
+    },
+    {
+      "name": "mg_is_url_safe",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 717
+    },
+    {
+      "name": "mg_hex",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 173
+    },
+    {
+      "name": "uri_to_path2",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 644
+    },
+    {
+      "name": "remove_double_dots",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 623
+    },
+    {
+      "name": "mg_vcmp",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 33
+    },
+    {
+      "name": "mg_http_creds",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 738
+    },
+    {
+      "name": "mg_http_match_uri",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 783
+    },
+    {
+      "name": "mg_http_delete_chunk",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 846
+    },
+    {
+      "name": "mg_http_upload",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 860
+    },
+    {
+      "name": "mg_http_status",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 890
+    },
+    {
+      "name": "mg_http_connect",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 940
+    },
+    {
+      "name": "mg_http_listen",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 947
+    },
+    {
+      "name": "mg_listen",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 190
+    },
+    {
+      "name": "mg_open_listener",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 208
+    },
+    {
+      "name": "mg_iobuf_init",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 41
+    },
+    {
+      "name": "mg_iobuf_free",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 72
+    },
+    {
+      "name": "mg_json_get",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 30
+    },
+    {
+      "name": "mg_atod",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 430
+    },
+    {
+      "name": "json_esc",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 8
+    },
+    {
+      "name": "escapeseq",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 4
+    },
+    {
+      "name": "mg_json_get_num",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 164
+    },
+    {
+      "name": "mg_json_get_bool",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 174
+    },
+    {
+      "name": "mg_json_get_str",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 209
+    },
+    {
+      "name": "json_unescape",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 184
+    },
+    {
+      "name": "mg_log_set_fn",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 12
+    },
+    {
+      "name": "mg_log_set",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 25
+    },
+    {
+      "name": "mg_md5_init",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 43
+    },
+    {
+      "name": "mg_md5_update",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 135
+    },
+    {
+      "name": "mg_byte_reverse",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 16
+    },
+    {
+      "name": "mg_md5_transform",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 53
+    },
+    {
+      "name": "mg_md5_final",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 170
+    },
+    {
+      "name": "mg_mqtt_send_header",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 18
+    },
+    {
+      "name": "mg_mqtt_login",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 35
+    },
+    {
+      "name": "mg_random",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 10
+    },
+    {
+      "name": "mg_send_u16",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 31
+    },
+    {
+      "name": "mg_mqtt_pub",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 88
+    },
+    {
+      "name": "mg_mqtt_sub",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 105
+    },
+    {
+      "name": "mg_mqtt_parse",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 116
+    },
+    {
+      "name": "mg_mqtt_next_sub",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 195
+    },
+    {
+      "name": "mg_mqtt_next_topic",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 180
+    },
+    {
+      "name": "mg_mqtt_next_unsub",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 201
+    },
+    {
+      "name": "mg_mqtt_ping",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 252
+    },
+    {
+      "name": "mg_mqtt_pong",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 256
+    },
+    {
+      "name": "mg_mqtt_disconnect",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 260
+    },
+    {
+      "name": "mg_mqtt_connect",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 264
+    },
+    {
+      "name": "mqtt_cb",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 206
+    },
+    {
+      "name": "mg_mqtt_listen",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 277
+    },
+    {
+      "name": "mg_close_conn",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 152
+    },
+    {
+      "name": "mg_tls_free",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 13
+    },
+    {
+      "name": "mg_wrapfd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 211
+    },
+    {
+      "name": "mg_timer_add",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 224
+    },
+    {
+      "name": "mg_timer_init",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 10
+    },
+    {
+      "name": "mg_mgr_free",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 231
+    },
+    {
+      "name": "mg_mgr_poll",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 595
+    },
+    {
+      "name": "mg_iotest",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 486
+    },
+    {
+      "name": "mg_timer_poll",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 22
+    },
+    {
+      "name": "accept_conn",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 372
+    },
+    {
+      "name": "connect_conn",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 577
+    },
+    {
+      "name": "mg_tls_handshake",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 56
+    },
+    {
+      "name": "read_conn",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 280
+    },
+    {
+      "name": "write_conn",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 297
+    },
+    {
+      "name": "close_conn",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 306
+    },
+    {
+      "name": "mg_tls_send",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 209
+    },
+    {
+      "name": "mg_tls_recv",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 203
+    },
+    {
+      "name": "mg_sock_recv",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 265
+    },
+    {
+      "name": "mg_net_send",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 30
+    },
+    {
+      "name": "mg_net_recv",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 43
+    },
+    {
+      "name": "mg_sock_conn_reset",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 97
+    },
+    {
+      "name": "raccept",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 363
+    },
+    {
+      "name": "skip_iotest",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 481
+    },
+    {
+      "name": "can_read",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 473
+    },
+    {
+      "name": "can_write",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 477
+    },
+    {
+      "name": "mg_tls_pending",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 198
+    },
+    {
+      "name": "mg_mgr_init",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 244
+    },
+    {
+      "name": "mg_sha1_init",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 173
+    },
+    {
+      "name": "mg_sha1_update",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 182
+    },
+    {
+      "name": "mg_sha1_transform",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 66
+    },
+    {
+      "name": "blk0",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 29
+    },
+    {
+      "name": "mg_sha1_final",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 202
+    },
+    {
+      "name": "mg_sntp_parse",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 11
+    },
+    {
+      "name": "mg_sntp_request",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 49
+    },
+    {
+      "name": "mg_sntp_connect",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 59
+    },
+    {
+      "name": "sntp_cb",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 32
+    },
+    {
+      "name": "mg_mkpipe",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 455
+    },
+    {
+      "name": "mg_socketpair",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 415
+    },
+    {
+      "name": "mg_casecmp",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 29
+    },
+    {
+      "name": "mg_strdup",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 47
+    },
+    {
+      "name": "mg_strstr",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 75
+    },
+    {
+      "name": "mg_strstrip",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 95
+    },
+    {
+      "name": "is_space",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 91
+    },
+    {
+      "name": "mg_asprintf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 226
+    },
+    {
+      "name": "mg_vmprintf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 235
+    },
+    {
+      "name": "mg_mprintf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 241
+    },
+    {
+      "name": "mg_tou64",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 250
+    },
+    {
+      "name": "mg_timer_free",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 17
+    },
+    {
+      "name": "mg_tls_init",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 100
+    },
+    {
+      "name": "debug_cb",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 79
+    },
+    {
+      "name": "mbed_rng",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 73
+    },
+    {
+      "name": "mg_loadfile",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 93
+    },
+    {
+      "name": "mg_url_is_ssl",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 9
+    },
+    {
+      "name": "mg_url_uri",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 52
+    },
+    {
+      "name": "mg_url_user",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 69
+    },
+    {
+      "name": "mg_url_pass",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 79
+    },
+    {
+      "name": "mg_crc32",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 42
+    },
+    {
+      "name": "mg_check_ip_acl",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 70
+    },
+    {
+      "name": "parse_net",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 56
+    },
+    {
+      "name": "isbyte",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 52
+    },
+    {
+      "name": "mg_ws_vprintf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 17
+    },
+    {
+      "name": "mg_ws_send",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 132
+    },
+    {
+      "name": "mkhdr",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 96
+    },
+    {
+      "name": "mg_ws_mask",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 124
+    },
+    {
+      "name": "mg_ws_printf",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 26
+    },
+    {
+      "name": "mg_ws_connect",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 231
+    },
+    {
+      "name": "mg_ws_cb",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 143
+    },
+    {
+      "name": "ws_process",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 65
+    },
+    {
+      "name": "mg_ws_upgrade",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 269
+    },
+    {
+      "name": "ws_handshake",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 35
+    },
+    {
+      "name": "mg_ws_wrap",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 288
+    },
+    {
+      "name": "stringToBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 19
+    },
+    {
+      "name": "bytesToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 59
+    },
+    {
+      "name": "bytesToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 85
+    },
+    {
+      "name": "uint64ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 114
+    },
+    {
+      "name": "uint64ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 146
+    },
+    {
+      "name": "int64ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 178
+    },
+    {
+      "name": "int64ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 210
+    },
+    {
+      "name": "uint56ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 242
+    },
+    {
+      "name": "uint56ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 272
+    },
+    {
+      "name": "int56ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 302
+    },
+    {
+      "name": "int56ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 332
+    },
+    {
+      "name": "uint48ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 362
+    },
+    {
+      "name": "uint48ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 390
+    },
+    {
+      "name": "int48ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 418
+    },
+    {
+      "name": "int48ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 446
+    },
+    {
+      "name": "uint40ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 474
+    },
+    {
+      "name": "uint40ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 500
+    },
+    {
+      "name": "int40ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 526
+    },
+    {
+      "name": "int40ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 552
+    },
+    {
+      "name": "float32ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 579
+    },
+    {
+      "name": "uint32ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 621
+    },
+    {
+      "name": "float32ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 600
+    },
+    {
+      "name": "uint32ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 645
+    },
+    {
+      "name": "int32ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 669
+    },
+    {
+      "name": "int32ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 693
+    },
+    {
+      "name": "uint24ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 717
+    },
+    {
+      "name": "uint24ToLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 739
+    },
+    {
+      "name": "int24ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 761
+    },
+    {
+      "name": "int24ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 783
+    },
+    {
+      "name": "uint16ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 805
+    },
+    {
+      "name": "uint16ToLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 825
+    },
+    {
+      "name": "int16ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 845
+    },
+    {
+      "name": "int16ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 865
+    },
+    {
+      "name": "uint8ToBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 885
+    },
+    {
+      "name": "int8ToBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 898
+    },
+    {
+      "name": "float64ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 911
+    },
+    {
+      "name": "float64ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 932
+    },
+    {
+      "name": "float24ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 954
+    },
+    {
+      "name": "float24ToLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 968
+    },
+    {
+      "name": "float16ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 982
+    },
+    {
+      "name": "float16ToLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 996
+    },
+    {
+      "name": "float32ScaledFromBitfield",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 15
+    },
+    {
+      "name": "float64ScaledFromBitfield",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 29
+    },
+    {
+      "name": "float32ScaledFromLongBitfield",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 44
+    },
+    {
+      "name": "float64ScaledFromLongBitfield",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 58
+    },
+    {
+      "name": "float64ScaledFrom8UnsignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 74
+    },
+    {
+      "name": "float64ScaledFrom8UnsignedLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 90
+    },
+    {
+      "name": "float64ScaledFrom8SignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 105
+    },
+    {
+      "name": "float64ScaledFrom8SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 120
+    },
+    {
+      "name": "float64ScaledFrom7UnsignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 136
+    },
+    {
+      "name": "float64ScaledFrom7UnsignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 152
+    },
+    {
+      "name": "float64ScaledFrom7SignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 167
+    },
+    {
+      "name": "float64ScaledFrom7SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 182
+    },
+    {
+      "name": "float64ScaledFrom6UnsignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 198
+    },
+    {
+      "name": "float64ScaledFrom6UnsignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 214
+    },
+    {
+      "name": "float64ScaledFrom6SignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 229
+    },
+    {
+      "name": "float64ScaledFrom6SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 244
+    },
+    {
+      "name": "float64ScaledFrom5UnsignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 260
+    },
+    {
+      "name": "float64ScaledFrom5UnsignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 276
+    },
+    {
+      "name": "float64ScaledFrom5SignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 291
+    },
+    {
+      "name": "float64ScaledFrom5SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 306
+    },
+    {
+      "name": "float64ScaledFrom4UnsignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 323
+    },
+    {
+      "name": "float64ScaledFrom4UnsignedLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 339
+    },
+    {
+      "name": "float64ScaledFrom4SignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 354
+    },
+    {
+      "name": "float64ScaledFrom4SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 369
+    },
+    {
+      "name": "float64ScaledFrom3UnsignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 385
+    },
+    {
+      "name": "float64ScaledFrom3UnsignedLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 401
+    },
+    {
+      "name": "float64ScaledFrom3SignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 416
+    },
+    {
+      "name": "float64ScaledFrom3SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 431
+    },
+    {
+      "name": "float64ScaledFrom2UnsignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 447
+    },
+    {
+      "name": "float64ScaledFrom2UnsignedLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 463
+    },
+    {
+      "name": "float64ScaledFrom2SignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 478
+    },
+    {
+      "name": "float64ScaledFrom2SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 493
+    },
+    {
+      "name": "float64ScaledFrom1UnsignedBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 509
+    },
+    {
+      "name": "float64ScaledFrom1SignedBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 524
+    },
+    {
+      "name": "float32ScaledFrom4UnsignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 540
+    },
+    {
+      "name": "float32ScaledFrom4UnsignedLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 556
+    },
+    {
+      "name": "float32ScaledFrom4SignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 571
+    },
+    {
+      "name": "float32ScaledFrom4SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 586
+    },
+    {
+      "name": "float32ScaledFrom3UnsignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 602
+    },
+    {
+      "name": "float32ScaledFrom3UnsignedLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 618
+    },
+    {
+      "name": "float32ScaledFrom3SignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 633
+    },
+    {
+      "name": "float32ScaledFrom3SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 648
+    },
+    {
+      "name": "float32ScaledFrom2UnsignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 664
+    },
+    {
+      "name": "float32ScaledFrom2UnsignedLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 680
+    },
+    {
+      "name": "float32ScaledFrom2SignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 695
+    },
+    {
+      "name": "float32ScaledFrom2SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 710
+    },
+    {
+      "name": "float32ScaledFrom1UnsignedBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 726
+    },
+    {
+      "name": "float32ScaledFrom1SignedBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 741
+    },
+    {
+      "name": "stringFromBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 19
+    },
+    {
+      "name": "bytesFromBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 53
+    },
+    {
+      "name": "bytesFromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 79
+    },
+    {
+      "name": "uint64FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 108
+    },
+    {
+      "name": "uint64FromLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 137
+    },
+    {
+      "name": "int64FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 166
+    },
+    {
+      "name": "int64FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 195
+    },
+    {
+      "name": "uint56FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 224
+    },
+    {
+      "name": "uint56FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 252
+    },
+    {
+      "name": "int56FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 280
+    },
+    {
+      "name": "int56FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 311
+    },
+    {
+      "name": "uint48FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 342
+    },
+    {
+      "name": "uint48FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 369
+    },
+    {
+      "name": "int48FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 396
+    },
+    {
+      "name": "int48FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 426
+    },
+    {
+      "name": "uint40FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 456
+    },
+    {
+      "name": "uint40FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 482
+    },
+    {
+      "name": "int40FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 508
+    },
+    {
+      "name": "int40FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 537
+    },
+    {
+      "name": "float32FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 567
+    },
+    {
+      "name": "uint32FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 615
+    },
+    {
+      "name": "float32FromLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 591
+    },
+    {
+      "name": "uint32FromLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 640
+    },
+    {
+      "name": "int32FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 665
+    },
+    {
+      "name": "int32FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 690
+    },
+    {
+      "name": "uint24FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 715
+    },
+    {
+      "name": "uint24FromLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 739
+    },
+    {
+      "name": "int24FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 763
+    },
+    {
+      "name": "int24FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 790
+    },
+    {
+      "name": "uint16FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 817
+    },
+    {
+      "name": "uint16FromLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 840
+    },
+    {
+      "name": "int16FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 863
+    },
+    {
+      "name": "int16FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 886
+    },
+    {
+      "name": "uint8FromBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 909
+    },
+    {
+      "name": "int8FromBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 922
+    },
+    {
+      "name": "float64FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 935
+    },
+    {
+      "name": "float64FromLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 959
+    },
+    {
+      "name": "float24FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 984
+    },
+    {
+      "name": "float24FromLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 998
+    },
+    {
+      "name": "float16FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1012
+    },
+    {
+      "name": "float16FromLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1026
+    },
+    {
+      "name": "encodeDate_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 18
+    },
+    {
+      "name": "decodeDate_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 50
+    },
+    {
+      "name": "encodeOrionCmd_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 84
+    },
+    {
+      "name": "decodeOrionCmd_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 117
+    },
+    {
+      "name": "encodeOrionLaserState_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 151
+    },
+    {
+      "name": "decodeOrionLaserState_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 209
+    },
+    {
+      "name": "encodeGeolocateTelemetryCorePacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 276
+    },
+    {
+      "name": "decodeGeolocateTelemetryCorePacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 423
+    },
+    {
+      "name": "encodeOrionPerformancePacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 660
+    },
+    {
+      "name": "decodeOrionPerformancePacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 704
+    },
+    {
+      "name": "encodeOrionDiagnosticsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 759
+    },
+    {
+      "name": "decodeOrionDiagnosticsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 846
+    },
+    {
+      "name": "encodeThreadLoading_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 960
+    },
+    {
+      "name": "encodeCoreLoading_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1000
+    },
+    {
+      "name": "decodeThreadLoading_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1046
+    },
+    {
+      "name": "decodeCoreLoading_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1089
+    },
+    {
+      "name": "encodeOrionSoftwareDiagnosticsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1133
+    },
+    {
+      "name": "decodeOrionSoftwareDiagnosticsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1165
+    },
+    {
+      "name": "encodeFftData_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1218
+    },
+    {
+      "name": "decodeFftData_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1253
+    },
+    {
+      "name": "encodeOrionVibrationPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1286
+    },
+    {
+      "name": "decodeOrionVibrationPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1319
+    },
+    {
+      "name": "encodeNetworkDiagnosticsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1365
+    },
+    {
+      "name": "decodeNetworkDiagnosticsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1424
+    },
+    {
+      "name": "encodeOrionRetractStatusPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1498
+    },
+    {
+      "name": "decodeOrionRetractStatusPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1532
+    },
+    {
+      "name": "encodeStareStartPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1575
+    },
+    {
+      "name": "decodeStareStartPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1683
+    },
+    {
+      "name": "encodeOrionResetSourcePacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1841
+    },
+    {
+      "name": "decodeOrionResetSourcePacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1870
+    },
+    {
+      "name": "encodeDebugStringPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1909
+    },
+    {
+      "name": "decodeDebugStringPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1940
+    },
+    {
+      "name": "encodeKlvUserDataPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1984
+    },
+    {
+      "name": "decodeKlvUserDataPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2018
+    },
+    {
+      "name": "encodeGpsDataPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2067
+    },
+    {
+      "name": "decodeGpsDataPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2191
+    },
+    {
+      "name": "encodeInsQualityPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2346
+    },
+    {
+      "name": "decodeInsQualityPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2560
+    },
+    {
+      "name": "encodeOrionCmdPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2783
+    },
+    {
+      "name": "decodeOrionCmdPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2808
+    },
+    {
+      "name": "encodeOrionStartupCmdPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2835
+    },
+    {
+      "name": "decodeOrionStartupCmdPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2855
+    },
+    {
+      "name": "encodeOrionStartupCmdPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2887
+    },
+    {
+      "name": "decodeOrionStartupCmdPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2907
+    },
+    {
+      "name": "encodePosPreset_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2938
+    },
+    {
+      "name": "decodePosPreset_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 2982
+    },
+    {
+      "name": "encodeOrionPositionsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3012
+    },
+    {
+      "name": "decodeOrionPositionsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3036
+    },
+    {
+      "name": "encodeGeopointCmdPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3087
+    },
+    {
+      "name": "decodeGeopointCmdPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3138
+    },
+    {
+      "name": "encodePoint_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3200
+    },
+    {
+      "name": "decodePoint_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3226
+    },
+    {
+      "name": "encodeOrionPathPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3252
+    },
+    {
+      "name": "decodeOrionPathPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3297
+    },
+    {
+      "name": "encodeStareAckPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3368
+    },
+    {
+      "name": "decodeStareAckPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3389
+    },
+    {
+      "name": "encodeGeoidUndulationPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3416
+    },
+    {
+      "name": "decodeGeoidUndulationPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3437
+    },
+    {
+      "name": "encodeOrionCameraSwitchPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3463
+    },
+    {
+      "name": "decodeOrionCameraSwitchPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3483
+    },
+    {
+      "name": "encodeOrionCameraStatePacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3511
+    },
+    {
+      "name": "decodeOrionCameraStatePacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3541
+    },
+    {
+      "name": "encodeOrionFlirSettingsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3585
+    },
+    {
+      "name": "decodeOrionFlirSettingsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3639
+    },
+    {
+      "name": "encodeOrionAptinaSettingsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3713
+    },
+    {
+      "name": "decodeOrionAptinaSettingsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3783
+    },
+    {
+      "name": "encodeOrionZafiroSettingsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3886
+    },
+    {
+      "name": "decodeOrionZafiroSettingsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3927
+    },
+    {
+      "name": "encodeOrionHitachiSettingsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 3985
+    },
+    {
+      "name": "decodeOrionHitachiSettingsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4019
+    },
+    {
+      "name": "encodeOrionSonySettingsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4074
+    },
+    {
+      "name": "decodeOrionSonySettingsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4127
+    },
+    {
+      "name": "encodeOrionKtncSettingsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4191
+    },
+    {
+      "name": "decodeOrionKtncSettingsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4260
+    },
+    {
+      "name": "encodeOrionRetractCommandPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4384
+    },
+    {
+      "name": "decodeOrionRetractCommandPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4407
+    },
+    {
+      "name": "encodeOrionUserDataPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4437
+    },
+    {
+      "name": "decodeOrionUserDataPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4469
+    },
+    {
+      "name": "encodeOrionLaserCommandPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4515
+    },
+    {
+      "name": "decodeOrionLaserCommandPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4562
+    },
+    {
+      "name": "encodeOrionLaserStatesPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4630
+    },
+    {
+      "name": "decodeOrionLaserStatesPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4654
+    },
+    {
+      "name": "encodeOrionUartConfigPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4704
+    },
+    {
+      "name": "decodeOrionUartConfigPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4744
+    },
+    {
+      "name": "encodeOrionLimitsDataPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4798
+    },
+    {
+      "name": "decodeOrionLimitsDataPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4862
+    },
+    {
+      "name": "encodeInsOptionsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4951
+    },
+    {
+      "name": "decodeInsOptionsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5075
+    },
+    {
+      "name": "encodeOrionNetworkSettingsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5224
+    },
+    {
+      "name": "decodeOrionNetworkSettingsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5262
+    },
+    {
+      "name": "encodeOrionNetworkByteSettingsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5329
+    },
+    {
+      "name": "decodeOrionNetworkByteSettingsPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5371
+    },
+    {
+      "name": "encodeOrionNetworkVideoPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5442
+    },
+    {
+      "name": "decodeOrionNetworkVideoPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5487
+    },
+    {
+      "name": "encodeOrionNetworkByteVideoPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5567
+    },
+    {
+      "name": "decodeOrionNetworkByteVideoPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5614
+    },
+    {
+      "name": "encodeOrionCamSettings_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5700
+    },
+    {
+      "name": "decodeOrionCamSettings_t",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5755
+    },
+    {
+      "name": "encodeOrionCamerasPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5807
+    },
+    {
+      "name": "decodeOrionCamerasPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5836
+    },
+    {
+      "name": "encodeOrionClevisVersionPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5882
+    },
+    {
+      "name": "decodeOrionClevisVersionPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5908
+    },
+    {
+      "name": "encodeOrionCrownVersionPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5951
+    },
+    {
+      "name": "decodeOrionCrownVersionPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 5977
+    },
+    {
+      "name": "encodeOrionPayloadVersionPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6020
+    },
+    {
+      "name": "decodeOrionPayloadVersionPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6046
+    },
+    {
+      "name": "encodeOrionTrackerVersionPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6089
+    },
+    {
+      "name": "decodeOrionTrackerVersionPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6115
+    },
+    {
+      "name": "encodeOrionTrackerVersionPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6160
+    },
+    {
+      "name": "decodeOrionTrackerVersionPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6188
+    },
+    {
+      "name": "encodeOrionRetractVersionPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6226
+    },
+    {
+      "name": "decodeOrionRetractVersionPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6246
+    },
+    {
+      "name": "encodeOrionRetractVersionPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6277
+    },
+    {
+      "name": "decodeOrionRetractVersionPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6297
+    },
+    {
+      "name": "encodeOrionLensCtlVersionPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6323
+    },
+    {
+      "name": "decodeOrionLensCtlVersionPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6343
+    },
+    {
+      "name": "encodeOrionLensCtlVersionPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6374
+    },
+    {
+      "name": "decodeOrionLensCtlVersionPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6394
+    },
+    {
+      "name": "encodeOrionBoardPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6420
+    },
+    {
+      "name": "decodeOrionBoardPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6460
+    },
+    {
+      "name": "encodeOrionAutopilotDataPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6513
+    },
+    {
+      "name": "decodeOrionAutopilotDataPacketStructure",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6541
+    },
+    {
+      "name": "encodeOrionExtHeadingDataPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6584
+    },
+    {
+      "name": "decodeOrionExtHeadingDataPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6629
+    },
+    {
+      "name": "encodeOrionRangeDataPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6682
+    },
+    {
+      "name": "decodeOrionRangeDataPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 6713
+    },
+    {
+      "name": "OrionCommOpen",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 4
+    },
+    {
+      "name": "float32ScaledToBitfield",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 14
+    },
+    {
+      "name": "float64ScaledToBitfield",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 35
+    },
+    {
+      "name": "float32ScaledToLongBitfield",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 57
+    },
+    {
+      "name": "float64ScaledToLongBitfield",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 78
+    },
+    {
+      "name": "float64ScaledTo8UnsignedBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 102
+    },
+    {
+      "name": "float64ScaledTo8UnsignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 130
+    },
+    {
+      "name": "float64ScaledTo8SignedBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 157
+    },
+    {
+      "name": "float64ScaledTo8SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 192
+    },
+    {
+      "name": "float64ScaledTo7UnsignedBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 228
+    },
+    {
+      "name": "float64ScaledTo7UnsignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 256
+    },
+    {
+      "name": "float64ScaledTo7SignedBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 283
+    },
+    {
+      "name": "float64ScaledTo7SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 318
+    },
+    {
+      "name": "float64ScaledTo6UnsignedBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 354
+    },
+    {
+      "name": "float64ScaledTo6UnsignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 382
+    },
+    {
+      "name": "float64ScaledTo6SignedBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 409
+    },
+    {
+      "name": "float64ScaledTo6SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 444
+    },
+    {
+      "name": "float64ScaledTo5UnsignedBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 480
+    },
+    {
+      "name": "float64ScaledTo5UnsignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 508
+    },
+    {
+      "name": "float64ScaledTo5SignedBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 535
+    },
+    {
+      "name": "float64ScaledTo5SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 570
+    },
+    {
+      "name": "float64ScaledTo4UnsignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 607
+    },
+    {
+      "name": "float64ScaledTo4UnsignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 635
+    },
+    {
+      "name": "float64ScaledTo4SignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 662
+    },
+    {
+      "name": "float64ScaledTo4SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 697
+    },
+    {
+      "name": "float64ScaledTo3UnsignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 733
+    },
+    {
+      "name": "float64ScaledTo3UnsignedLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 761
+    },
+    {
+      "name": "float64ScaledTo3SignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 788
+    },
+    {
+      "name": "float64ScaledTo3SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 823
+    },
+    {
+      "name": "float64ScaledTo2UnsignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 859
+    },
+    {
+      "name": "float64ScaledTo2UnsignedLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 887
+    },
+    {
+      "name": "float64ScaledTo2SignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 914
+    },
+    {
+      "name": "float64ScaledTo2SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 949
+    },
+    {
+      "name": "float64ScaledTo1UnsignedBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 984
+    },
+    {
+      "name": "float64ScaledTo1SignedBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1010
+    },
+    {
+      "name": "float32ScaledTo4UnsignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1046
+    },
+    {
+      "name": "float32ScaledTo4UnsignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1074
+    },
+    {
+      "name": "float32ScaledTo4SignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1101
+    },
+    {
+      "name": "float32ScaledTo4SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1136
+    },
+    {
+      "name": "float32ScaledTo3UnsignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1172
+    },
+    {
+      "name": "float32ScaledTo3UnsignedLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1200
+    },
+    {
+      "name": "float32ScaledTo3SignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1227
+    },
+    {
+      "name": "float32ScaledTo3SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1262
+    },
+    {
+      "name": "float32ScaledTo2UnsignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1298
+    },
+    {
+      "name": "float32ScaledTo2UnsignedLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1326
+    },
+    {
+      "name": "float32ScaledTo2SignedBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1353
+    },
+    {
+      "name": "float32ScaledTo2SignedLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1388
+    },
+    {
+      "name": "float32ScaledTo1UnsignedBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1423
+    },
+    {
+      "name": "float32ScaledTo1SignedBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1449
+    },
+    {
+      "name": "OrionCommOpenSerial",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 22
+    },
+    {
+      "name": "OrionCommIpStringValid",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 68
+    },
+    {
+      "name": "OrionCommSerialPathValid",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 77
+    },
+    {
+      "name": "OrionCommOpenNetworkIp",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 84
+    },
+    {
+      "name": "GetSockAddr",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 234
+    },
+    {
+      "name": "OrionCommClose",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 187
+    },
+    {
+      "name": "OrionCommSend",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 195
+    },
+    {
+      "name": "OrionCommReceive",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 202
+    },
+    {
+      "name": "OrionCommIsOpen",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 224
+    },
+    {
+      "name": "isFloat32Valid",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 13
+    },
+    {
+      "name": "isFloat64Valid",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 51
+    },
+    {
+      "name": "float32ToFloat24",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 90
+    },
+    {
+      "name": "float32ToFloat24ex",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 104
+    },
+    {
+      "name": "float24ToFloat32",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 184
+    },
+    {
+      "name": "float24ToFloat32ex",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 197
+    },
+    {
+      "name": "float32ToFloat16",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 250
+    },
+    {
+      "name": "float32ToFloat16ex",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 279
+    },
+    {
+      "name": "float16ToFloat32",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 264
+    },
+    {
+      "name": "float16ToFloat32ex",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 379
+    },
+    {
+      "name": "testSpecialFloat",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 428
+    },
+    {
+      "name": "handle_camera_command",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 110
+    },
+    {
+      "name": "handle_get_metadata",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 146
+    },
+    {
+      "name": "websrv_main",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 219
+    },
+    {
+      "name": "run_webserver",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 204
+    },
+    {
+      "name": "webfn",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 179
+    },
+    {
+      "name": "wsend_video",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 161
+    },
+    {
+      "name": "main",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 229
+    }
+  ],
+  "global_scoped_vars": [
+    {
+      "name": "s_log_func",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 10
+    },
+    {
+      "name": "month_day_norm",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 9
+    },
+    {
+      "name": "month_day_leap",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 12
+    },
+    {
+      "name": "mg_fs_packed",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 114
+    },
+    {
+      "name": "mg_fs_posix",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 249
+    },
+    {
+      "name": "s_spec",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 9
+    },
+    {
+      "name": "Handle",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 20
+    },
+    {
+      "name": "pDecodeContext",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 37
+    },
+    {
+      "name": "pEncodeContext",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 38
+    },
+    {
+      "name": "pFrame",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 39
+    },
+    {
+      "name": "VideoStream",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 42
+    },
+    {
+      "name": "DataStream",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 43
+    },
+    {
+      "name": "Packet",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 40
+    },
+    {
+      "name": "OutPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 41
+    },
+    {
+      "name": "PktOut",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 34
+    },
+    {
+      "name": "PktIn",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 35
+    },
+    {
+      "name": "pInputContext",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 36
+    },
+    {
+      "name": "TagInfo",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 47
+    },
+    {
+      "name": "pHeadTag",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 19
+    }
+  ]
+}

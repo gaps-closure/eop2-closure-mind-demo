@@ -1,0 +1,59 @@
+{
+"gedl": [
+	{
+		"caller": "green",
+		"callee": "orange",
+		"calls": [
+			{
+				"func":		"get_frame",
+				"return":	{"type": "int"},
+				"clelabel":	"XDLINKAGE_GET_FRAME",
+				"params": [
+					{"type": "char", "name": "buf", "dir": "out", "sz":64000}
+				],
+				"occurs": [
+					{"file": "/workspaces/eop2-closure-mind-demo/websrv/./divvied-working/green/websrv.c", "lines": [167]}
+				]
+			},
+			{
+				"func":		"get_metadata",
+				"return":	{"type": "int"},
+				"clelabel":	"XDLINKAGE_GET_METADATA",
+				"params": [
+					{"type": "double", "name": "lat", "dir": "out", "sz":1}, 
+					{"type": "double", "name": "lon", "dir": "out", "sz":1}, 
+					{"type": "double", "name": "alt", "dir": "out", "sz":1}, 
+					{"type": "double", "name": "ts", "dir": "out", "sz":1}
+				],
+				"occurs": [
+					{"file": "/workspaces/eop2-closure-mind-demo/websrv/./divvied-working/green/websrv.c", "lines": [152]}
+				]
+			},
+			{
+				"func":		"run_videoproc",
+				"return":	{"type": "int"},
+				"clelabel":	"XDLINKAGE_RUN_VIDEOPROC",
+				"params": [
+				],
+				"occurs": [
+					{"file": "/workspaces/eop2-closure-mind-demo/websrv/./divvied-working/green/websrv.c", "lines": [222]}
+				]
+			},
+			{
+				"func":		"send_camcmd",
+				"return":	{"type": "int"},
+				"clelabel":	"XDLINKAGE_SEND_CAMCMD",
+				"params": [
+					{"type": "double", "name": "pan", "dir": "in"}, 
+					{"type": "double", "name": "tilt", "dir": "in"}, 
+					{"type": "double", "name": "imptime", "dir": "in"}, 
+					{"type": "char", "name": "mode", "dir": "in"}, 
+					{"type": "char", "name": "stab", "dir": "in"}
+				],
+				"occurs": [
+					{"file": "/workspaces/eop2-closure-mind-demo/websrv/./divvied-working/green/websrv.c", "lines": [136]}
+				]
+			}
+		]
+	}
+]}

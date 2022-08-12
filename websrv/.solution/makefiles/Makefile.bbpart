@@ -27,7 +27,7 @@ $(PROG): $(SRCS) $(SLIBS)
 ../autogen/libcodecs.a: $(CDCOBJS)
 	$(AR) -crs $@ $^
 	rm -f $^
-	
+
 Utils/libOrionUtils.a: $(UTIOBJS)
 	$(AR) -crs $@ $^
 	rm -f $^
@@ -35,6 +35,9 @@ Utils/libOrionUtils.a: $(UTIOBJS)
 Communications/libOrionComm.a: $(COMOBJS)
 	$(AR) -crs $@ $^
 	rm -f $^
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
 	rm -rf $(PROG) $(SLIBS) *.o */*.o 

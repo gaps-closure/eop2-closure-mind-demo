@@ -61,6 +61,10 @@ cd ~/gaps/xdcomms-dma/pseudo
 make clean; make
 sudo ./sue_donimous_load
 
+# optionally test the drive with dma-proxy-test
+cd ~/gaps/xdcomms-dma/test
+./run.sh
+
 # In one window
 cd ~/gaps/eop2-closure-mind-demo/websrv/.solution/partitioned/multithreaded/orange/
 XDCLOGLEVEL=0 LD_LIBRARY_PATH=~/gaps/xdcomms-dma/api DMARXDEV=sue_donimous_rx0 DMATXDEV=sue_donimous_tx1 ./websrv

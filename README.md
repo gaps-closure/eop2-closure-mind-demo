@@ -79,12 +79,12 @@ dmesg
 
 # In one window run the orange application
 cd ~/gaps/eop2-closure-mind-demo/websrv/.solution/partitioned/multithreaded/orange/
-XDCLOGLEVEL=0 LD_LIBRARY_PATH=~/gaps/xdcomms-dma/api DMARXDEV=sue_donimous_rx0 DMATXDEV=sue_donimous_tx0 ./websrv
+XDCLOGLEVEL=0 LD_LIBRARY_PATH=~/gaps/xdcomms-dma/api DMARXDEV=sue_donimous_rx0 DMATXDEV=sue_donimous_tx0 MYADDR=10.50.0.1 CAMADDR=10.50.0.2 ./websrv
 
 # In one window run the green application
 # In another window, use correct addresses 
 cd ~/gaps/eop2-closure-mind-demo/websrv/.solution/partitioned/multithreaded/green/
-XDCLOGLEVEL=0 LD_LIBRARY_PATH=~/gaps/xdcomms-dma/api DMARXDEV=sue_donimous_rx1 DMATXDEV=sue_donimous_tx1 MYADDR=10.50.0.1 CAMADDR=10.50.0.2 ./websrv
+XDCLOGLEVEL=0 LD_LIBRARY_PATH=~/gaps/xdcomms-dma/api DMARXDEV=sue_donimous_rx1 DMATXDEV=sue_donimous_tx1 ./websrv
 
 # Unload the driver
 cd ~/gaps/xdcomms-dma/pseudo

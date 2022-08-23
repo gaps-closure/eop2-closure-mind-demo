@@ -1,35 +1,35 @@
 # Demonstration application for ZCU102 with Trillium camera
 
-## Prerequisites
+## For building and testing on hardware
 
-The following development tools and libraries are required.
- * GNU gcc toolchain with libm and lpthread
- * libz, liblzma, llibbz2
- * mbedtls
- * ffmpeg
- * ProtoGen, if using an architecture other than what orion-sdk includes binaries for
-   and you are generating the C from the XML protogen spec (no longer needed)
+First install Xilinx Petalinux tools 2021.1. In my case, it is under `~/gaps/misc/xilinx`.
 
-The prerequisties se can be installed using:
-```
-sudo apt install build-essential
-sudo apt install libmbedtls-dev
-sudo apt install zlib1g-dev liblzma-dev libbz2-dev
-sudo apt install libavformat-dev libavcodec-dev libavutil-dev libavfilter-dev libavdevice-dev libpostproc-dev 
-sudo apt install libswscale-dev libswresample-dev 
-sudo apt install qt5-qmake     # orion-sdk build needs this, but no longer need
-```
+```bash
+cd ~/gaps
+git clone git@github.com:gaps-closure/eop2-closure-mind-demo.git
+git checkout main
 
-Additionally, we require mongoose and orion-sdk, which are included in the sources.
+cd ~/gaps/misc/xilinx/demo-images
+source ../settings.sh 
 
-# Building
+petalinux-create -t project -s ~/gaps/eop2-closure-mind-demo/bsp/zcu102_peraton_a53_20220823.bsp -n a53
+petalinux-create -t project -s ~/gaps/eop2-closure-mind-demo/bsp/zcu102_peraton_mb_20220823.bsp -n mb
 
-```
-cd orion-sdk
-make
-cd ../demoapp/plain
-make
-```
+cd a53
+petalinux-build
+petalinux-boot --qemu --kernel
+
+cd ../mb
+petalinux-build
+petalinux-boot --qemu --kernel images/linux/
+
+# gets copied to /srv/tftp/a53 and /srv/tftp/mb for reflashing ZCU102+ and booting A53 and MB
+
+# Commands for generating BSP if you modify the projects
+cd ../a53
+petalinux-package --bsp --clean -p . --output ~/gaps/eop2-closure-mind-demo/bsp/zcu102_peraton_a53_20220823.bsp
+cd ../mb
+petalinux-package --bsp --clean -p . --output ~/gaps/eop2-closure-mind-demo/bsp/zcu102_peraton_mb_20220823.bsp
 
 ## Steps for local testing of partitioned code with pseudo driver on x86/Linux
 
@@ -49,7 +49,7 @@ git checkout rk
 
 # Check out websrv application
 git clone git@github.com:gaps-closure/eop2-closure-mind-demo.git
-git checkout develop
+git checkout main
 
 # Build xdcomms-dma dynamic library -- fix code, redo as needed
 cd ~/gaps/xdcomms-dma/api
@@ -94,3 +94,35 @@ ls /dev/sue_donim*
 dmesg
 
 ```
+
+## For development using the CLOSURE toolchain
+
+The following development tools and libraries are required.
+ * GNU gcc toolchain with libm and lpthread
+ * libz, liblzma, llibbz2
+ * mbedtls
+ * ffmpeg
+ * ProtoGen, if using an architecture other than what orion-sdk includes binaries for
+   and you are generating the C from the XML protogen spec (no longer needed)
+
+The prerequisties se can be installed using:
+```
+sudo apt install build-essential
+sudo apt install libmbedtls-dev
+sudo apt install zlib1g-dev liblzma-dev libbz2-dev
+sudo apt install libavformat-dev libavcodec-dev libavutil-dev libavfilter-dev libavdevice-dev libpostproc-dev 
+sudo apt install libswscale-dev libswresample-dev 
+sudo apt install qt5-qmake     # orion-sdk build needs this, but no longer need
+```
+
+Additionally, we require mongoose and orion-sdk, which are included in the sources.
+
+# Building
+
+```
+cd orion-sdk
+make
+cd ../demoapp/plain
+make
+```
+

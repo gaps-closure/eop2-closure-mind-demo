@@ -21,7 +21,7 @@ petalinux-boot --qemu --kernel
 
 cd ../mb
 petalinux-build
-petalinux-boot --qemu --kernel images/linux/
+petalinux-boot --qemu --kernel images/linux/linux.bin.ub
 
 # gets copied to /srv/tftp/a53 and /srv/tftp/mb for reflashing ZCU102+ and booting A53 and MB
 

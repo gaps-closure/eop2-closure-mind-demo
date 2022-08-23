@@ -32,6 +32,34 @@ cd ../mb
 petalinux-package --bsp --clean -p . --output ~/gaps/eop2-closure-mind-demo/bsp/zcu102_peraton_mb_20220823.bsp
 ```
 
+Now, reflash the hardware, boot and test as follows:
+```
+#######################################
+# Test unpartitioned application on A53
+#######################################
+# Configure Trillium camera with static IP and also to send video to a53's IP address using Skylink
+# Point firefox to http://<a53-addr>:8443
+
+cd /opt/closure/websrv
+MYADDR=<a53-addr> CAMADDR=<trillium-addr> ./websrv
+
+#################################################
+# Test partitioned application on both A53 and MB
+#################################################
+# Configure Trillium camera with static IP and also to send video to a53's IP address using Skylink
+# Point firefox to http://<-addr>:8443 -- now web server runs on MB
+
+# Video processor in A53, start this first
+cd /opt/closure/websrv
+XDCLOGLEVEL=2 MYADDR=<a53-addr> CAMADDR=<trillium-addr> ./websrv-vid
+
+# Web server on MB, start this next
+cd /opt/closure/websrv
+XDCLOGLEVEL=2 ./websrv-web
+
+# You can optionally specify XDCLOGLEVEL to 1 for DEBUG and 0 for TRACE level verbose logs (kills performance). 
+```
+
 ## Steps for local testing of partitioned code with pseudo driver on x86/Linux
 
 ```bash

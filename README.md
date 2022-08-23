@@ -124,7 +124,7 @@ dmesg
 
 ```
 
-## For development using the CLOSURE toolchain
+## For cross-domain application development using the CLOSURE toolchain
 
 The following development tools and libraries are required.
  * GNU gcc toolchain with libm and lpthread
@@ -133,6 +133,7 @@ The following development tools and libraries are required.
  * ffmpeg
  * ProtoGen, if using an architecture other than what orion-sdk includes binaries for
    and you are generating the C from the XML protogen spec (no longer needed)
+ * Ubuntu 20.04 Linux/x86 system with VSCode and Docker installed.
 
 The prerequisties se can be installed using:
 ```
@@ -141,17 +142,15 @@ sudo apt install libmbedtls-dev
 sudo apt install zlib1g-dev liblzma-dev libbz2-dev
 sudo apt install libavformat-dev libavcodec-dev libavutil-dev libavfilter-dev libavdevice-dev libpostproc-dev 
 sudo apt install libswscale-dev libswresample-dev 
-sudo apt install qt5-qmake     # orion-sdk build needs this, but no longer need
+sudo apt install qt5-qmake     # orion-sdk build needs this, but our build no longer needs this
 ```
 
-Additionally, we require mongoose and orion-sdk, which are included in the sources.
-
-# Building
+Additionally, we require mongoose and orion-sdk, which are now included in the sources.
+To build the unpartitioned application:
 
 ```
-cd orion-sdk
-make
-cd ../demoapp/plain
+cd websrv/plain
 make
 ```
 
+There is an annotated, refactored, and partitioned solution checked in the `.solution` directory, but for the process of using the CLOSURE toolchain, see: teh [documentation](https://gaps-closure.github.io/)

@@ -30,3 +30,42 @@ make
 cd ../demoapp/plain
 make
 ```
+
+## Steps for local testing of partitioned code with pseudo driver on x86/Linux
+
+```bash
+sudo apt build-essential linux-headers-`uname -r`
+sudo apt install cmake software-properties-common
+sudo apt install libmbedtls-dev
+sudo apt install zlib1g-dev liblzma-dev libbz2-dev 
+sudo apt install libavformat-dev libavcodec-dev libavutil-dev libavfilter-dev 
+sudo apt install libavdevice-dev libpostproc-dev libswscale-dev libswresample-dev
+
+cd ~/gaps
+git clone git@github.com:gaps-closure/xdcomms-dma.git
+git checkout rk
+
+git clone git@github.com:gaps-closure/eop2-closure-mind-demo.git
+git checkout develop
+
+cd ~/gaps/xdcomms-dma/api
+make -f Makefile.pseudo
+
+cd ~/gaps/eop2-closure-mind-demo/websrv/.solution/partitioned/multithreaded/green/
+make -f ../../../makefiles/Makefile.pseudo 
+
+cd ~/gaps/eop2-closure-mind-demo/websrv/.solution/partitioned/multithreaded/orange/
+make -f ../../../makefiles/Makefile.pseudo 
+
+cd ~/gaps/xdcomms-dma/pseudo
+make clean; make
+sudo ./sue_donimous_load
+
+# In one window
+cd ~/gaps/eop2-closure-mind-demo/websrv/.solution/partitioned/multithreaded/orange/
+XDCLOGLEVEL=0 LD_LIBRARY_PATH=~/gaps/xdcomms-dma/api DMARXDEV=sue_donimous_rx0 DMATXDEV=sue_donimous_tx1 ./websrv
+
+# In another window, use correct addresses 
+cd ~/gaps/eop2-closure-mind-demo/websrv/.solution/partitioned/multithreaded/green/
+XDCLOGLEVEL=0 LD_LIBRARY_PATH=~/gaps/xdcomms-dma/api DMARXDEV=sue_donimous_rx1 DMATXDEV=sue_donimous_tx0 MYADDR=10.50.0.1 CAMADDR=10.50.0.2 ./websrv
+```

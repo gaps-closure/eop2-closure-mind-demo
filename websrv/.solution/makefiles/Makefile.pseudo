@@ -3,15 +3,17 @@ SRCS     = $(wildcard *.c)
 CFLAGS   = -I ./Communications -I ./Utils \
            -Wno-unused-result -Wno-deprecated-declarations \
            -D_GNU_SOURCE -DMG_ENABLE_MBEDTLS=1 -DMG_ENABLE_MD5=1 -DMG_ENABLE_LINES=1 \
-           -DORION_COMM_=1
+           -DORION_COMM_=1 \
+           -DSUE_DONIMOUS=1 -I ~/gaps/xdcomms-dma/api -I ~/gaps/xdcomms-dma/log -I ~/gaps/xdcomms-dma/crc
 LDFLAGS  = -L ./Communications -lOrionComm -L ./Utils -lOrionUtils \
            -lavformat -lavcodec -lavutil -lswscale -lswresample \
            -lmbedtls -lmbedcrypto -lmbedx509 \
-           -lz -lpthread -lm
+           -lz -lpthread -lm \
 
 CFLAGS  += -I../autogen
 CFLAGS  += -D__LEGACY_XDCOMMS__=1
-LDFLAGS += ../autogen/libcodecs.a -lxdcomms
+#LDFLAGS += ../autogen/libcodecs.a -lxdcomms
+LDFLAGS += ../autogen/libcodecs.a -L ~/gaps/xdcomms-dma/api -lxdcomms
 
 SLIBS    = Utils/libOrionUtils.a Communications/libOrionComm.a ../autogen/libcodecs.a
 COMSRCS  = $(wildcard Communications/*.c)

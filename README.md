@@ -30,6 +30,7 @@ cd ../a53
 petalinux-package --bsp --clean -p . --output ~/gaps/eop2-closure-mind-demo/bsp/zcu102_peraton_a53_20220823.bsp
 cd ../mb
 petalinux-package --bsp --clean -p . --output ~/gaps/eop2-closure-mind-demo/bsp/zcu102_peraton_mb_20220823.bsp
+```
 
 ## Steps for local testing of partitioned code with pseudo driver on x86/Linux
 

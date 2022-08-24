@@ -2,7 +2,7 @@
 #include "cameractl.h"
 #include <unistd.h>
 
-#define FRAME_INTERVAL  20
+#define FRAME_INTERVAL  40
 #define POLL_INTERVAL   5
 //XXX: mbedtls on MB not working as expected
 // #define WSS_URL         "wss://0.0.0.0:8443"   

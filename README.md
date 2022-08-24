@@ -30,6 +30,35 @@ cd ../a53
 petalinux-package --bsp --clean -p . --output ~/gaps/eop2-closure-mind-demo/bsp/zcu102_peraton_a53_20220823.bsp
 cd ../mb
 petalinux-package --bsp --clean -p . --output ~/gaps/eop2-closure-mind-demo/bsp/zcu102_peraton_mb_20220823.bsp
+```
+
+Now, reflash the hardware, boot and test as follows:
+```
+#######################################
+# Test unpartitioned application on A53
+#######################################
+# Configure Trillium camera with static IP and also to send video to a53's IP address using Skylink
+# Point firefox to http://<a53-addr>:8443
+
+cd /opt/closure/websrv
+MYADDR=<a53-addr> CAMADDR=<trillium-addr> ./websrv
+
+#################################################
+# Test partitioned application on both A53 and MB
+#################################################
+# Configure Trillium camera with static IP and also to send video to a53's IP address using Skylink
+# Point firefox to http://<-addr>:8443 -- now web server runs on MB
+
+# Video processor in A53, start this first
+cd /opt/closure/websrv
+XDCLOGLEVEL=2 MYADDR=<a53-addr> CAMADDR=<trillium-addr> ./websrv-vid
+
+# Web server on MB, start this next
+cd /opt/closure/websrv
+XDCLOGLEVEL=2 ./websrv-web
+
+# You can optionally specify XDCLOGLEVEL to 1 for DEBUG and 0 for TRACE level verbose logs (kills performance). 
+```
 
 ## Steps for local testing of partitioned code with pseudo driver on x86/Linux
 
@@ -95,7 +124,7 @@ dmesg
 
 ```
 
-## For development using the CLOSURE toolchain
+## For cross-domain application development using the CLOSURE toolchain
 
 The following development tools and libraries are required.
  * GNU gcc toolchain with libm and lpthread
@@ -104,6 +133,7 @@ The following development tools and libraries are required.
  * ffmpeg
  * ProtoGen, if using an architecture other than what orion-sdk includes binaries for
    and you are generating the C from the XML protogen spec (no longer needed)
+ * Ubuntu 20.04 Linux/x86 system with VSCode and Docker installed.
 
 The prerequisties se can be installed using:
 ```
@@ -112,17 +142,15 @@ sudo apt install libmbedtls-dev
 sudo apt install zlib1g-dev liblzma-dev libbz2-dev
 sudo apt install libavformat-dev libavcodec-dev libavutil-dev libavfilter-dev libavdevice-dev libpostproc-dev 
 sudo apt install libswscale-dev libswresample-dev 
-sudo apt install qt5-qmake     # orion-sdk build needs this, but no longer need
+sudo apt install qt5-qmake     # orion-sdk build needs this, but our build no longer needs this
 ```
 
-Additionally, we require mongoose and orion-sdk, which are included in the sources.
-
-# Building
+Additionally, we require mongoose and orion-sdk, which are now included in the sources.
+To build the unpartitioned application:
 
 ```
-cd orion-sdk
-make
-cd ../demoapp/plain
+cd websrv/plain
 make
 ```
 
+There is an annotated, refactored, and partitioned solution checked in the `.solution` directory, but for the process of using the CLOSURE toolchain, see: teh [documentation](https://gaps-closure.github.io/)

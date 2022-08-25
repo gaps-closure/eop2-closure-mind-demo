@@ -32,13 +32,36 @@ cd ../mb
 petalinux-package --bsp --clean -p . --output ~/gaps/eop2-closure-mind-demo/bsp/zcu102_peraton_mb_20220823.bsp
 ```
 
-Now, reflash the hardware, boot and test as follows:
+Now, get the ZCU102 to ZyncMP/U-Boot prompts, and reflash the hardware:
+
+```
+# A53 boot image via tftp from 10.109.23.126:/srv/tftp/a53 
+setenv ipaddr 10.109.23.246
+setenv serverip 10.109.23.126
+sf probe 0 0 0
+sf erase 0x1E40000 0x6040000
+tftpboot 0x10000000 a53/image.ub
+sf write 0x10000000 0x1E40000 0x6040000
+reset
+
+# MB boot image via tftp from 10.109.23.126:/srv/tftp/mb
+setenv ipaddr 10.109.23.248
+setenv serverip 10.109.23.126
+sf prget the ZCU102 to ZyncMP/U-Boot prompts, and obe 0 0 0
+sf erase 0x100000 0x1E00000
+tftpboot 0x90000000 mb/image.ub
+sf write 0x90000000 0x100000 0x```1E00000
+reset
+```
+
+Log into the A53 and MB and test as follows:
+
 ```
 #######################################
 # Test unpartitioned application on A53
 #######################################
-# Configure Trillium camera with static IP and also to send video to a53's IP address using Skylink
-# Point firefox to http://<a53-addr>:8443
+# Configure 1via tftp 0.109.23.126lium camera with static IP and also to send video to a53's IP address using Skylink
+# Point firefox to p://<a53-addr>:8443
 
 cd /opt/closure/websrv
 MYADDR=<a53-addr> CAMADDR=<trillium-addr> ./websrv
@@ -47,17 +70,24 @@ MYADDR=<a53-addr> CAMADDR=<trillium-addr> ./websrv
 # Test partitioned application on both A53 and MB
 #################################################
 # Configure Trillium camera with static IP and also to send video to a53's IP address using Skylink
-# Point firefox to http://<-addr>:8443 -- now web server runs on MB
+# Point firefox to http://<mb-addr>:8443 -- now web server runs on MB
 
-# Video processor in A53, start this first
+# On MB
+modprobe -r dma_proxy
+modprobe dma_proxy
+ifconfig
 cd /opt/closure/websrv
-XDCLOGLEVEL=2 MYADDR=<a53-addr> CAMADDR=<trillium-addr> ./websrv-vid
+XDCLOGLEVEL=1 DMARXDEV=dma_proxy_rx DMATXDEV=dma_proxy_tx ./websrv-web 2>/tmp/err
 
-# Web server on MB, start this next
+# on A53
+modprobe -r dma_proxy
+modprobe dma_proxy
+ifconfig
 cd /opt/closure/websrv
-XDCLOGLEVEL=2 ./websrv-web
+#  use current ip address of A53 and address of Trillium camera
+XDCLOGLEVEL=1 DMARXDEV=dma_proxy_rx DMATXDEV=dma_proxy_tx MYADDR=10.109.23.229 CAMADDR=10.109.23.151 ./websrv-vid 2>/tmp/err
 
-# You can optionally specify XDCLOGLEVEL to 1 for DEBUG and 0 for TRACE level verbose logs (kills performance). 
+# You can optionally specify XDCLOGLEVEL to 2 for QUIET and 0 for TRACE level verbose logs (kills performance). 
 ```
 
 ## Steps for local testing of partitioned code with pseudo driver on x86/Linux

@@ -183,4 +183,4 @@ cd websrv/plain
 make
 ```
 
-There is an annotated, refactored, and partitioned solution checked in the `.solution` directory, but for the process of using the CLOSURE toolchain, see: teh [documentation](https://gaps-closure.github.io/)
+There is an annotated, refactored, and partitioned solution checked in the `.solution` directory, but for the process of using the CLOSURE toolchain, see the [documentation](https://gaps-closure.github.io/)

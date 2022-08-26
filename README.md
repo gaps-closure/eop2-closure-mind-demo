@@ -1,6 +1,8 @@
-# Demonstration application for ZCU102 with Trillium camera
+# GAPS demo application
 
-## For building and testing on hardware
+This is a demonstration application to showcase some features of the CLOSURE and MIND toolchains. The application processes video from a gimbal mounted Trillium camera, transcodes it (using FFMPEG libraries) and serves it to a browser (currently Firefox) using a webserver (based on Mongoose) to a browser. Position metadata from the camera and commands to the camera (based on the Orion SDK) from the browser are also proessed. The functionality is split into the video processing running on the A53 on the ZCU102 FPGA board and the webserver on a MicroBlaze softcore processor on the FPGA.
+
+## For building and testing the application on hardware
 
 First install Xilinx Petalinux tools 2021.1. In my case, it is under `~/gaps/misc/xilinx`.
 
@@ -60,7 +62,7 @@ Log into the A53 and MB and test as follows:
 #######################################
 # Test unpartitioned application on A53
 #######################################
-# Configure 1via tftp 0.109.23.126lium camera with static IP and also to send video to a53's IP address using Skylink
+# Configure Trillium camera with static IP and also to send video to a53's IP address using Skylink
 # Point firefox to p://<a53-addr>:8443
 
 cd /opt/closure/websrv
@@ -184,3 +186,5 @@ make
 ```
 
 There is an annotated, refactored, and partitioned solution checked in the `.solution` directory, but for the process of using the CLOSURE toolchain, see the [documentation](https://gaps-closure.github.io/)
+
+

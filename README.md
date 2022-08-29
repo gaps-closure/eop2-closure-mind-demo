@@ -49,10 +49,10 @@ reset
 # MB boot image via tftp from 10.109.23.126:/srv/tftp/mb
 setenv ipaddr 10.109.23.248
 setenv serverip 10.109.23.126
-sf prget the ZCU102 to ZyncMP/U-Boot prompts, and obe 0 0 0
+sf probe 0 0 0
 sf erase 0x100000 0x1E00000
 tftpboot 0x90000000 mb/image.ub
-sf write 0x90000000 0x100000 0x```1E00000
+sf write 0x90000000 0x100000 0x1E00000
 reset
 ```
 

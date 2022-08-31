@@ -8,6 +8,7 @@ The MIND VHDL pipeline is generated from the websrv DFDL, so it is
 important that the on-wire payloads and the DFDL spec match. 
 
 ### Run the Script
+
 The 'validate.bash' script validates packet instances stored in hex
 format in the p*.txt files:
 ```
@@ -29,9 +30,10 @@ Clean up the generated files using:
 More details are given below:
 
 ### PACKET LOG GENERATION (Creation of the p*.txt files)
-We run the websrv application (with camera). This can be done using the MIND
-ZCU102 board or using the pseudo driver. For the latter, we create four pseudo 
-devices:
+
+We run the websrv application (with camera and browser). This can be done using the MIND
+ZCU102 board or using the pseudo driver. For the latter, we create four pseudo devices:
+
 ```
   $ cd ~/gaps/xdcomms-dma/pseudo
   $ sudo ./sue_donimous_unload
@@ -73,6 +75,7 @@ in the xdcomms API source code. For example:
 ```
 
 ### Eight Types of Packet used in the Websrv demo
+
 The table below summarizes the eight types are packet (and CLOSURE assigned tags) used
 in the websrv application:
 
@@ -141,6 +144,7 @@ TX_PKT (len=28) 0002020A 0014FDAE 00000000 00000000 00000000 00000000 00000000
 ```
 
 ### VALIDATION Script High-level Description
+
 The 'validate.bash' script script takes as input the saved (hex formatted) packets,
 then runs the following:
 ```

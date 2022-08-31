@@ -39,9 +39,17 @@ devices:
   $ lsmod | grep sue
 ```
 
-Then we run the webserv video processor (orange enclave) and server (green enclave),
-setting the debug-level to 0 using an environmental variable: XDCLOGLEVEL=0:
-For example, we can type the following in two separate shell windows, 
+Next, we run the webserv video processor (orange enclave) and server (green enclave):
+
+```
+              Vid-Proc         Web-srv         Web-client
+CAMERA  -->  SEND_VIDEO  -->  GET_FRAME  <--  Get_metadata
+             ORANGE A53       GREEN  MB         Firefox
+```
+
+We start the Vid-Proc and Web-srv, setting the debug-level to 0 using an 
+environmental variable: XDCLOGLEVEL=0. For example, we can type the following in two 
+separate shell windows.
 
  Window 1:
 ```
@@ -65,7 +73,24 @@ in the xdcomms API source code. For example:
 ```
 
 ### Eight Types of Packet used in the Websrv demo
-The types are packet (and CLOSURE assigned tags) are stored in the generated RPC code:
+The table below summarizes the eight types are packet (and CLOSURE assigned tags) used
+in the websrv application:
+
+```
+Message      Mux  Sec  Typ  From  To  Comments
+------------------------------------------------------------------------
+Request_get_frame  1  1  3  Green  Orange  
+Response_get_frame  2  2  4  Orange  Green  Large (64028 < 65536 B)
+Request_get_metadata  1  1  5  Green  Orange  
+Response_get_metadata  2  2  6  Orange  Green  Has Lat/Lon 
+Request_run_videoproc  1  1  7  Green  Orange  Start command
+Response_run_videoproc  2  2  8  Orange  Green  
+Request_send_camcmd  1  1  9  Green  Orange  Camera command 
+Response_send_camcmd  2  2  10  Orange  Green  
+```
+
+The pragmas below (from the generated RPC code) give the rules for each flow:
+
 ```
 ~/gaps/eop2-closure-mind-demo/websrv/.solution/partitioned/multithreaded/orange/orange_rpc.h
 ~/gaps/eop2-closure-mind-demo/websrv/.solution/partitioned/multithreaded/green/green_rpc.h

@@ -77,18 +77,16 @@ The table below summarizes the eight types are packet (and CLOSURE assigned tags
 in the websrv application:
 
 ```
-<span style="font-family:Courier">
-Message      Mux  Sec  Typ  From  To  Comments
+Message                 Mux  Sec  Typ  From    To  Comments
 ------------------------------------------------------------------------
-Request_get_frame  1  1  3  Green  Orange  
-Response_get_frame  2  2  4  Orange  Green  Large (64028 < 65536 B)
-Request_get_metadata  1  1  5  Green  Orange  
-Response_get_metadata  2  2  6  Orange  Green  Has Lat/Lon 
-Request_run_videoproc  1  1  7  Green  Orange  Start command
-Response_run_videoproc  2  2  8  Orange  Green  
-Request_send_camcmd  1  1  9  Green  Orange  Camera command 
-Response_send_camcmd  2  2  10  Orange  Green  
-</span>
+Request_get_frame       1    1     3   Green   Orange  
+Response_get_frame      2    2     4   Orange  Green   Large (64028 < 65536 B)
+Request_get_metadata    1    1     5   Green   Orange  
+Response_get_metadata   2    2     6   Orange  Green   Has Lat/Lon 
+Request_run_videoproc   1    1     7   Green   Orange  Start command
+Response_run_videoproc  2    2     8   Orange  Green  
+Request_send_camcmd     1    1     9   Green   Orange  Camera command 
+Response_send_camcmd    2    2    10   Orange  Green  
 ```
 
 The pragmas below (from the generated RPC code) give the rules for each flow:

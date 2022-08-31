@@ -76,6 +76,7 @@ in the xdcomms API source code. For example:
 The table below summarizes the eight types are packet (and CLOSURE assigned tags) used
 in the websrv application:
 
+<span style="font-family:Courier">
 ```
 Message      Mux  Sec  Typ  From  To  Comments
 ------------------------------------------------------------------------
@@ -88,6 +89,7 @@ Response_run_videoproc  2  2  8  Orange  Green
 Request_send_camcmd  1  1  9  Green  Orange  Camera command 
 Response_send_camcmd  2  2  10  Orange  Green  
 ```
+</span>
 
 The pragmas below (from the generated RPC code) give the rules for each flow:
 

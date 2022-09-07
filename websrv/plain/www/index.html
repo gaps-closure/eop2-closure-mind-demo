@@ -124,8 +124,10 @@ function incMessages(size) {
   var time = ('0' + now.getHours()).slice(-2) + ':' +
              ('0' + now.getMinutes()).slice(-2) + ":" +
              ('0' + now.getSeconds()).slice(-2);
-  $("#msgs").val("#Messages: " + messages + "\tLast At: " + time);
-  $("#stats").val("Frames/sec: " + fps + "\tKBytes/sec: " + kbps);
+    $("#msgs").val("#Messages: ".padStart(12) + messages.toString().padStart(6) +
+		   "Last At: ".padStart(14) + time);
+    $("#stats").val("Frames/sec: ".padStart(12) + fps.toString().padStart(6) +
+		    "KBytes/sec: ".padStart(14) + kbps.toString().padStart(8));
 }
   
 function postCommand() {

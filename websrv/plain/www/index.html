@@ -15,11 +15,13 @@
 <body>
 <H1>GAPS Demonstration</H1>
 <table><tr>
-<td><div id="map" style="width: 600px; height: 400px;"></div></td>
+<td><div id="map" style="width: 600px; height: 470px;"></div></td>
 <td>
   <br />
   <video style="border: 1px solid #333;" controls poster="loader-thumb.jpg" id="player"></video> 
   <br />
+  <textarea id="msgs" name="msgs" rows=1 cols=40 style="overflow:hidden;resize:none;border:none;outline:none;"></textarea>
+  <textarea id="stats" name="stats" rows=1 cols=40 style="overflow:hidden;resize:none;border:none;outline:none;"></textarea>
   <textarea id="llat" name="llat" rows=4 cols=40 style="overflow:hidden;resize:none;border:none;outline:none;"></textarea>
   <br />
   <form name="camcmd" id="camcmd" onsubmit="postCommand(); return false;">
@@ -62,6 +64,9 @@
 </td>
 </tr></table>
 <script>
+var messages     = 0;
+var bytes        = 0;
+var startDate    = null;
 var jm           = null;
 var ws           = null;
 var llatInterval = null;
@@ -91,6 +96,38 @@ function getLLAT() {
   });
 }
 
+function incMessages(size) {
+  var now;
+  var kbps;
+  var fps;
+  if (!startDate) {
+      bytes = 0 ;  // the first message servers to start the counter
+      messages = 0;
+
+      startDate = new Date();
+      now = startDate;
+      kbps = "N/A";
+      fps = "N/A";
+  }
+  else {
+      bytes += size;
+      messages++;
+
+      now = new Date();
+      var diff = now.getTime() - startDate.getTime();
+      var rate = (messages * 1000) / diff;
+      fps = rate.toFixed(2);
+
+      rate = (bytes) / diff;
+      kbps = rate.toFixed(2);
+  }
+  var time = ('0' + now.getHours()).slice(-2) + ':' +
+             ('0' + now.getMinutes()).slice(-2) + ":" +
+             ('0' + now.getSeconds()).slice(-2);
+  $("#msgs").val("#Messages: " + messages + "\tLast At: " + time);
+  $("#stats").val("Frames/sec: " + fps + "\tKBytes/sec: " + kbps);
+}
+  
 function postCommand() {
   var result = { };
   $.each($("#camcmd").serializeArray(), function() {
@@ -123,7 +160,10 @@ function renews() {
   });
   ws = new WebSocket(socketURL);
   ws.binaryType = 'arraybuffer';
-  ws.addEventListener('message', function(e) { jm.feed({video: new Uint8Array(e.data)}); });
+    ws.addEventListener('message', function(e) {
+        jm.feed({video: new Uint8Array(e.data)});
+        incMessages(e.data.size);
+    });
   ws.addEventListener('error',   function(e) { console.log('Socket Error'); });
 };
 
@@ -138,6 +178,7 @@ window.onload = function() {
     location.reload(); //XXX: not working as expected without reload
   });
 };
+
 </script>
 
 </body>

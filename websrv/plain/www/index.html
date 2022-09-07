@@ -20,8 +20,8 @@
   <br />
   <video style="border: 1px solid #333;" controls poster="loader-thumb.jpg" id="player"></video> 
   <br />
-  <textarea id="msgs" name="msgs" rows=1 cols=40 style="overflow:hidden;resize:none;border:none;outline:none;"></textarea>
-  <textarea id="stats" name="stats" rows=1 cols=40 style="overflow:hidden;resize:none;border:none;outline:none;"></textarea>
+  <textarea id="msgs" name="msgs" rows=1 cols=50 style="overflow:hidden;resize:none;border:none;outline:none;"></textarea>
+  <textarea id="stats" name="stats" rows=1 cols=50 style="overflow:hidden;resize:none;border:none;outline:none;"></textarea>
   <textarea id="llat" name="llat" rows=4 cols=40 style="overflow:hidden;resize:none;border:none;outline:none;"></textarea>
   <br />
   <form name="camcmd" id="camcmd" onsubmit="postCommand(); return false;">
@@ -124,10 +124,10 @@ function incMessages(size) {
   var time = ('0' + now.getHours()).slice(-2) + ':' +
              ('0' + now.getMinutes()).slice(-2) + ":" +
              ('0' + now.getSeconds()).slice(-2);
-    $("#msgs").val("#Messages: ".padStart(12) + messages.toString().padStart(6) +
-		   "Last At: ".padStart(14) + time);
-    $("#stats").val("Frames/sec: ".padStart(12) + fps.toString().padStart(6) +
-		    "KBytes/sec: ".padStart(14) + kbps.toString().padStart(8));
+    $("#msgs").val("Message Count: ".padStart(15) + messages.toString().padStart(6) +
+		   "Last At: ".padStart(16) + time);
+    $("#stats").val("Frames/sec: ".padStart(15) + fps.toString().padStart(6) +
+		    "KBytes/sec: ".padStart(16) + kbps.toString().padStart(8));
 }
   
 function postCommand() {
@@ -180,7 +180,8 @@ window.onload = function() {
     location.reload(); //XXX: not working as expected without reload
   });
 };
-
+//  setInterval(function() { incMessages(10); }, 1000);
+  
 </script>
 
 </body>

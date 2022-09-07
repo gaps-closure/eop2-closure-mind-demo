@@ -117,7 +117,6 @@ function incMessages(size) {
       var diff = now.getTime() - startDate.getTime();
       var rate = (messages * 1000) / diff;
       fps = rate.toFixed(2);
-
       rate = (bytes) / diff;
       kbps = rate.toFixed(2);
   }
@@ -164,7 +163,7 @@ function renews() {
   ws.binaryType = 'arraybuffer';
     ws.addEventListener('message', function(e) {
         jm.feed({video: new Uint8Array(e.data)});
-        incMessages(e.data.size);
+        incMessages(e.data.byteLength);
     });
   ws.addEventListener('error',   function(e) { console.log('Socket Error'); });
 };

@@ -97,7 +97,8 @@
      "rettaints": ["GREEN"]} \
   ]}
 
-#define FRAME_INTERVAL  40
+//#define FRAME_INTERVAL  40
+#define FRAME_INTERVAL  20
 #define POLL_INTERVAL   5
 //XXX: mbedtls on MB not working as expected
 // #define WSS_URL         "wss://0.0.0.0:8443"   
@@ -165,7 +166,9 @@ void wsend_video(void *arg) {
   static char buf[MAX_FRAME_BUF];
   #pragma cle end GREEN_SHARE
   int sz;
+  time_trace("%s step1", __func__);
   sz = _err_handle_rpc_get_frame(buf);
+  time_trace("%s step2", __func__);
   if (sz > 0) {
     for (struct mg_connection *c = mgr->conns; c != NULL; c = c->next) { // send next frame to each live stream
       if (c->label[0] == 'S') {
@@ -174,6 +177,7 @@ void wsend_video(void *arg) {
       }
     }
   }
+  time_trace("%s step3", __func__);
   return;
 }
 
@@ -220,7 +224,7 @@ void run_webserver() {
 int websrv_main(void) {
 #pragma clang attribute pop
 #pragma cle end FUN_WEBSRV_MAIN 
-  if (_err_handle_rpc_run_videoproc() != 0) {
+  while (_err_handle_rpc_run_videoproc() != 0) {
     fprintf(stderr, "Failed to run video processing\n");
   }
   run_webserver();

@@ -108,7 +108,7 @@ void run_webserver() {
 }
 
 int websrv_main(void) {
-  if (run_videoproc() != 0) {
+  while (run_videoproc() != 0) {
     fprintf(stderr, "Failed to run video processing\n");
   }
   run_webserver();

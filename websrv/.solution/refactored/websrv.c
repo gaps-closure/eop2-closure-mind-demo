@@ -213,7 +213,7 @@ void run_webserver() {
 #pragma cle begin FUN_WEBSRV_MAIN 
 int websrv_main(void) {
 #pragma cle end FUN_WEBSRV_MAIN 
-  if (run_videoproc() != 0) {
+  while (run_videoproc() != 0) {
     fprintf(stderr, "Failed to run video processing\n");
   }
   run_webserver();

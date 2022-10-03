@@ -21,6 +21,8 @@
 #include "libavutil/imgutils.h"
 #include "libswscale/swscale.h"
 
+#include "orange_rpc.h"
+
 #if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(55,28,1)
 #error "libavcodec version >= 55.28.1 required"
 #endif

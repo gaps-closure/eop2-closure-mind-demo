@@ -223,6 +223,7 @@ int get_frame(char buf[static MAX_FRAME_BUF]) {
   } else {
      sz = 0;
   }
+  time_trace("Oapp_vid got frame sz=%d", sz);
   pthread_mutex_unlock(&wp->flk);
   return sz;
 }

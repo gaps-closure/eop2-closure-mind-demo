@@ -165,18 +165,22 @@ void wsend_video(void *arg) {
   static char buf[MAX_FRAME_BUF];
   #pragma cle end GREEN_SHARE
   int sz;
-  time_trace("%s step1", __func__);
+  char str_loc[INET_ADDRSTRLEN], str_rem[INET_ADDRSTRLEN];
+
+  time_trace("Gapp_vid1 start of req-res loop");
   sz = _err_handle_rpc_get_frame(buf);
-  time_trace("%s step2", __func__);
+  time_trace("Gapp_vid2 got frame sz=%d", sz);
   if (sz > 0) {
     for (struct mg_connection *c = mgr->conns; c != NULL; c = c->next) { // send next frame to each live stream
       if (c->label[0] == 'S') {
-          mg_ws_send(c, buf, sz, WEBSOCKET_OP_BINARY);
-          // fprintf(stderr, "Sent frame to websock: %d\n", sz);
+        mg_ws_send(c, buf, sz, WEBSOCKET_OP_BINARY);
+        inet_ntop(AF_INET, (void *) &(c->loc.ip), str_loc, INET_ADDRSTRLEN);
+        inet_ntop(AF_INET, (void *) &(c->rem.ip), str_rem, INET_ADDRSTRLEN);
+        time_trace("Gapp_vid3 Sent Frame to Browser sz=%d (u=%d %s:%d > %s:%d)", sz, c->is_udp, str_loc, c->loc.port, str_rem, c->rem.port);
       }
     }
   }
-  time_trace("%s step3", __func__);
+  time_trace("Gapp_vid4 End of req-res loop");
   return;
 }
 

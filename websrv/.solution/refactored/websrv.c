@@ -155,7 +155,7 @@ int handle_get_metadata(struct mg_connection *c, struct mg_http_message *hm) {
 }
 
 #pragma cle begin FUN_WSEND_VIDEO
-void wsend_video(void *arg) {
+int wsend_video(void *arg) {
 #pragma cle end FUN_WSEND_VIDEO
   struct mg_mgr *mgr = (struct mg_mgr *) arg;
 #pragma cle begin GREEN_SHARE
@@ -171,7 +171,7 @@ void wsend_video(void *arg) {
       }
     }
   }
-  return;
+  return 0;
 }
 
 void webfn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {

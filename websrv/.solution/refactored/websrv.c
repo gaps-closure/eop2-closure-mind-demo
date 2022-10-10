@@ -108,10 +108,10 @@
 #pragma cle begin FUN_HANDLE_CAMERA_COMMAND 
 int handle_camera_command(struct mg_connection *c, struct mg_http_message *hm) {
 #pragma cle end FUN_HANDLE_CAMERA_COMMAND 
-  #pragma cle begin GREEN_SHARE
+#pragma cle begin GREEN_SHARE
   double pan, tilt, imptime;
   char   mode, stab;
-  #pragma cle end GREEN_SHARE
+#pragma cle end GREEN_SHARE
   if (hm != NULL) {
     struct mg_str json = mg_str("");
     json = mg_str_n(hm->body.ptr, hm->body.len);
@@ -142,9 +142,9 @@ int handle_camera_command(struct mg_connection *c, struct mg_http_message *hm) {
 #pragma cle begin FUN_HANDLE_GET_METADATA
 int handle_get_metadata(struct mg_connection *c, struct mg_http_message *hm) {
 #pragma cle end FUN_HANDLE_GET_METADATA
-  #pragma cle begin GREEN_SHARE
+#pragma cle begin GREEN_SHARE
   double lat, lon, alt, ts;
-  #pragma cle end GREEN_SHARE
+#pragma cle end GREEN_SHARE
   if (get_metadata(&lat, &lon, &alt, &ts) != 1) {
     lat = 0.0; lon = 0.0; alt = 0.0; ts = 0.0;
   }
@@ -154,11 +154,13 @@ int handle_get_metadata(struct mg_connection *c, struct mg_http_message *hm) {
   return 0;
 }
 
+#pragma cle begin FUN_WSEND_VIDEO
 void wsend_video(void *arg) {
+#pragma cle end FUN_WSEND_VIDEO
   struct mg_mgr *mgr = (struct mg_mgr *) arg;
-  #pragma cle begin GREEN_SHARE
+#pragma cle begin GREEN_SHARE
   static char buf[MAX_FRAME_BUF];
-  #pragma cle end GREEN_SHARE
+#pragma cle end GREEN_SHARE
   int sz;
   sz = get_frame(buf);
   if (sz > 0) {

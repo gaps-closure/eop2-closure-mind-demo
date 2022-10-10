@@ -206,9 +206,11 @@ struct llat_st * get_mdatabuf() {
 #pragma cle begin XDLINKAGE_GET_FRAME
 int get_frame(char buf[static MAX_FRAME_BUF]) {
 #pragma cle end XDLINKAGE_GET_FRAME
-  #pragma cle begin ORANGE_SHARE
+#pragma cle begin ORANGE_SHARE
   int sz;
   struct framebuf_st *wp;
+#pragma cle end ORANGE_SHARE
+  
   outhint(buf, NULL, MAX_FRAME_BUF); // only a hint for GEDL
   wp = get_framebuf();
   pthread_mutex_lock(&wp->flk);
@@ -226,10 +228,10 @@ int get_frame(char buf[static MAX_FRAME_BUF]) {
 #pragma cle begin XDLINKAGE_GET_METADATA
 int get_metadata(double *lat, double *lon, double *alt, double *ts) {
 #pragma cle end XDLINKAGE_GET_METADATA
-  #pragma cle begin ORANGE_SHARE
+#pragma cle begin ORANGE_SHARE
   struct llat_st *wp;
   int ret = 0;
-  #pragma cle end ORANGE_SHARE
+#pragma cle end ORANGE_SHARE
 
   // only a hint for GEDL
   outhint(lat, NULL, sizeof(double)); 
@@ -445,9 +447,9 @@ int wait_for_response() {
 #pragma cle begin XDLINKAGE_SEND_CAMCMD
 int send_camcmd(double pan, double tilt, double imptime, char mode, char stab) {
 #pragma cle end XDLINKAGE_SEND_CAMCMD
-  #pragma cle begin ORANGE_SHARE
+#pragma cle begin ORANGE_SHARE
   int ret = 0;
-  #pragma cle end ORANGE_SHARE
+#pragma cle end ORANGE_SHARE
   OrionCmd_t Cmd  = { { 0, 0 } };
   Cmd.Target[0]   = deg2radf(pan);
   Cmd.Target[1]   = deg2radf(tilt);
@@ -506,9 +508,9 @@ int run_videoproc(void) {
   static char arg[32];
   char *myaddr;
   char *camaddr;
-  #pragma cle begin ORANGE_SHARE
+#pragma cle begin ORANGE_SHARE
   int ret = 0;
-  #pragma cle end ORANGE_SHARE
+#pragma cle end ORANGE_SHARE
 
   if(!inited) {
     inited = 1;

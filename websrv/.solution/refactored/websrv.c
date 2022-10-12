@@ -67,25 +67,25 @@
 #pragma cle def FUN_HANDLE_CAMERA_COMMAND {"level":"green", \
   "cdf": [\
     {"remotelevel":"green", "direction": "ingress", "guarddirective": {"operation": "allow"}, \
-     "argtaints": [["GREEN"], ["GREEN"]], \
+     "argtaints": [["GREEN_NOSHARE"], ["GREEN_NOSHARE"]], \
      "codtaints": ["GREEN_SHARE"], \
-     "rettaints": ["GREEN"]} \
+     "rettaints": ["GREEN_NOSHARE"]} \
   ]}
 
 #pragma cle def FUN_HANDLE_GET_METADATA {"level":"green", \
   "cdf": [\
     {"remotelevel":"green", "direction": "ingress", "guarddirective": {"operation": "allow"}, \
-     "argtaints": [["GREEN"], ["GREEN"]], \
+     "argtaints": [["GREEN_NOSHARE"], ["GREEN_NOSHARE"]], \
      "codtaints": ["GREEN_SHARE"], \
-     "rettaints": ["GREEN"]} \
+     "rettaints": ["GREEN_NOSHARE"]} \
   ]}
 
 #pragma cle def FUN_WSEND_VIDEO {"level":"green", \
   "cdf": [\
     {"remotelevel":"green", "direction": "ingress", "guarddirective": {"operation": "allow"}, \
-     "argtaints": [["GREEN"]], \
+     "argtaints": [["GREEN_NOSHARE"]], \
      "codtaints": ["GREEN_SHARE"], \
-     "rettaints": ["GREEN"]} \
+     "rettaints": ["GREEN_NOSHARE"]} \
   ]}
 
 #pragma cle def FUN_WEBSRV_MAIN {"level":"green", \
@@ -93,7 +93,7 @@
     {"remotelevel":"green", "direction": "ingress", "guarddirective": {"operation": "allow"}, \
      "argtaints": [], \
      "codtaints": ["GREEN_SHARE"], \
-     "rettaints": ["GREEN"]} \
+     "rettaints": ["GREEN_NOSHARE"]} \
   ]}
 
 #define FRAME_INTERVAL  40

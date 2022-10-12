@@ -69,20 +69,20 @@ int _rpc_get_frame(char buf[], int *error) {
 #ifndef __LEGACY_XDCOMMS__
     void * ctx = zmq_ctx_new();
     psocket = my_xdc_pub_socket(ctx, (char *)OUTURI);
-    ssocket = my_xdc_sub_socket_non_blocking(o_tag, ctx, 1000, (char*)INURI);
+    ssocket = my_xdc_sub_socket_non_blocking(o_tag, ctx, 150, (char*)INURI);
     sleep(1); /* zmq socket join delay */
 #else
     if (!inited) {
         inited = 1;
         psocket = xdc_pub_socket();
-        ssocket = xdc_sub_socket_non_blocking(o_tag, 1000);
+        ssocket = xdc_sub_socket_non_blocking(o_tag, 150);
         sleep(1); /* zmq socket join delay */
     }
 #endif /* __LEGACY_XDCOMMS__ */
     request_get_frame.trailer.seq = req_counter;
 #ifndef __LEGACY_XDCOMMS__
     if (req_counter == INT_MIN) {
-        int tries_remaining = 5;
+        int tries_remaining = 1;
         while(tries_remaining != 0){
             my_xdc_asyn_send(psocket, &request_get_frame, &t_tag , mycmap);
 #ifndef __ONEWAY_RPC__
@@ -104,7 +104,7 @@ int _rpc_get_frame(char buf[], int *error) {
     }
 #else /* __LEGACY_XDCOMMS__ */
     if (req_counter == INT_MIN) {
-        int tries_remaining = 5;
+        int tries_remaining = 1;
         while(tries_remaining != 0){
             xdc_asyn_send(psocket, &request_get_frame, &t_tag);
 #ifndef __ONEWAY_RPC__
@@ -127,7 +127,7 @@ int _rpc_get_frame(char buf[], int *error) {
 #endif /* __LEGACY_XDCOMMS__ */
     request_get_frame.trailer.seq = req_counter;
 #ifndef __LEGACY_XDCOMMS__
-    int tries_remaining = 5;
+    int tries_remaining = 1;
     while(tries_remaining != 0){
         my_xdc_asyn_send(psocket, &request_get_frame, &t_tag , mycmap);
 #ifndef __ONEWAY_RPC__
@@ -145,7 +145,7 @@ int _rpc_get_frame(char buf[], int *error) {
     zmq_close(ssocket);
     zmq_ctx_shutdown(ctx);
 #else /* __LEGACY_XDCOMMS__ */
-    int tries_remaining = 5;
+    int tries_remaining = 1;
     while(tries_remaining != 0){
         xdc_asyn_send(psocket, &request_get_frame, &t_tag);
 #ifndef __ONEWAY_RPC__
@@ -230,20 +230,20 @@ int _rpc_get_metadata(double lat[],double lon[],double alt[],double ts[], int *e
 #ifndef __LEGACY_XDCOMMS__
     void * ctx = zmq_ctx_new();
     psocket = my_xdc_pub_socket(ctx, (char *)OUTURI);
-    ssocket = my_xdc_sub_socket_non_blocking(o_tag, ctx, 1000, (char*)INURI);
+    ssocket = my_xdc_sub_socket_non_blocking(o_tag, ctx, 150, (char*)INURI);
     sleep(1); /* zmq socket join delay */
 #else
     if (!inited) {
         inited = 1;
         psocket = xdc_pub_socket();
-        ssocket = xdc_sub_socket_non_blocking(o_tag, 1000);
+        ssocket = xdc_sub_socket_non_blocking(o_tag, 150);
         sleep(1); /* zmq socket join delay */
     }
 #endif /* __LEGACY_XDCOMMS__ */
     request_get_metadata.trailer.seq = req_counter;
 #ifndef __LEGACY_XDCOMMS__
     if (req_counter == INT_MIN) {
-        int tries_remaining = 5;
+        int tries_remaining = 1;
         while(tries_remaining != 0){
             my_xdc_asyn_send(psocket, &request_get_metadata, &t_tag , mycmap);
 #ifndef __ONEWAY_RPC__
@@ -265,7 +265,7 @@ int _rpc_get_metadata(double lat[],double lon[],double alt[],double ts[], int *e
     }
 #else /* __LEGACY_XDCOMMS__ */
     if (req_counter == INT_MIN) {
-        int tries_remaining = 5;
+        int tries_remaining = 1;
         while(tries_remaining != 0){
             xdc_asyn_send(psocket, &request_get_metadata, &t_tag);
 #ifndef __ONEWAY_RPC__
@@ -288,7 +288,7 @@ int _rpc_get_metadata(double lat[],double lon[],double alt[],double ts[], int *e
 #endif /* __LEGACY_XDCOMMS__ */
     request_get_metadata.trailer.seq = req_counter;
 #ifndef __LEGACY_XDCOMMS__
-    int tries_remaining = 5;
+    int tries_remaining = 1;
     while(tries_remaining != 0){
         my_xdc_asyn_send(psocket, &request_get_metadata, &t_tag , mycmap);
 #ifndef __ONEWAY_RPC__
@@ -306,7 +306,7 @@ int _rpc_get_metadata(double lat[],double lon[],double alt[],double ts[], int *e
     zmq_close(ssocket);
     zmq_ctx_shutdown(ctx);
 #else /* __LEGACY_XDCOMMS__ */
-    int tries_remaining = 5;
+    int tries_remaining = 1;
     while(tries_remaining != 0){
         xdc_asyn_send(psocket, &request_get_metadata, &t_tag);
 #ifndef __ONEWAY_RPC__
@@ -408,7 +408,7 @@ int _rpc_run_videoproc(int *error) {
     request_run_videoproc.trailer.seq = req_counter;
 #ifndef __LEGACY_XDCOMMS__
     if (req_counter == INT_MIN) {
-        int tries_remaining = 5;
+        int tries_remaining = 1;
         while(tries_remaining != 0){
             my_xdc_asyn_send(psocket, &request_run_videoproc, &t_tag , mycmap);
 #ifndef __ONEWAY_RPC__
@@ -430,7 +430,7 @@ int _rpc_run_videoproc(int *error) {
     }
 #else /* __LEGACY_XDCOMMS__ */
     if (req_counter == INT_MIN) {
-        int tries_remaining = 5;
+        int tries_remaining = 1;
         while(tries_remaining != 0){
             xdc_asyn_send(psocket, &request_run_videoproc, &t_tag);
 #ifndef __ONEWAY_RPC__
@@ -454,7 +454,7 @@ int _rpc_run_videoproc(int *error) {
     request_run_videoproc.dummy = 0;
     request_run_videoproc.trailer.seq = req_counter;
 #ifndef __LEGACY_XDCOMMS__
-    int tries_remaining = 5;
+    int tries_remaining = 1;
     while(tries_remaining != 0){
         my_xdc_asyn_send(psocket, &request_run_videoproc, &t_tag , mycmap);
 #ifndef __ONEWAY_RPC__
@@ -472,7 +472,7 @@ int _rpc_run_videoproc(int *error) {
     zmq_close(ssocket);
     zmq_ctx_shutdown(ctx);
 #else /* __LEGACY_XDCOMMS__ */
-    int tries_remaining = 5;
+    int tries_remaining = 1;
     while(tries_remaining != 0){
         xdc_asyn_send(psocket, &request_run_videoproc, &t_tag);
 #ifndef __ONEWAY_RPC__
@@ -574,7 +574,7 @@ int _rpc_send_camcmd(double pan,double tilt,double imptime,char mode,char stab, 
     request_send_camcmd.trailer.seq = req_counter;
 #ifndef __LEGACY_XDCOMMS__
     if (req_counter == INT_MIN) {
-        int tries_remaining = 5;
+        int tries_remaining = 1;
         while(tries_remaining != 0){
             my_xdc_asyn_send(psocket, &request_send_camcmd, &t_tag , mycmap);
 #ifndef __ONEWAY_RPC__
@@ -596,7 +596,7 @@ int _rpc_send_camcmd(double pan,double tilt,double imptime,char mode,char stab, 
     }
 #else /* __LEGACY_XDCOMMS__ */
     if (req_counter == INT_MIN) {
-        int tries_remaining = 5;
+        int tries_remaining = 1;
         while(tries_remaining != 0){
             xdc_asyn_send(psocket, &request_send_camcmd, &t_tag);
 #ifndef __ONEWAY_RPC__
@@ -624,7 +624,7 @@ int _rpc_send_camcmd(double pan,double tilt,double imptime,char mode,char stab, 
     request_send_camcmd.stab = stab;
     request_send_camcmd.trailer.seq = req_counter;
 #ifndef __LEGACY_XDCOMMS__
-    int tries_remaining = 5;
+    int tries_remaining = 1;
     while(tries_remaining != 0){
         my_xdc_asyn_send(psocket, &request_send_camcmd, &t_tag , mycmap);
 #ifndef __ONEWAY_RPC__
@@ -642,7 +642,7 @@ int _rpc_send_camcmd(double pan,double tilt,double imptime,char mode,char stab, 
     zmq_close(ssocket);
     zmq_ctx_shutdown(ctx);
 #else /* __LEGACY_XDCOMMS__ */
-    int tries_remaining = 5;
+    int tries_remaining = 1;
     while(tries_remaining != 0){
         xdc_asyn_send(psocket, &request_send_camcmd, &t_tag);
 #ifndef __ONEWAY_RPC__

@@ -1,289 +1,55 @@
 {
   "source_path": "refactored",
   "enclaves": [
-    "green_E",
-    "orange_E"
+    "orange_E",
+    "green_E"
   ],
   "levels": [
-    "green",
-    "orange"
+    "orange",
+    "green"
   ],
   "functions": [
     {
-      "name": "KlvGetLength",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 145
+      "name": "handle_camera_command",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 125
     },
     {
-      "name": "KlvNewData",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 161
+      "name": "handle_get_metadata",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 164
     },
     {
-      "name": "KlvTreeSetValue",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 408
+      "name": "wsend_video",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 183
     },
     {
-      "name": "KlvFindTag",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 387
+      "name": "websrv_main",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 245
     },
     {
-      "name": "KlvCreateTag",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 372
+      "name": "run_webserver",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 230
     },
     {
-      "name": "KlvGetValueDouble",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 186
+      "name": "webfn",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 205
     },
     {
-      "name": "KlvTreeGetValueDouble",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 445
-    },
-    {
-      "name": "KlvTreeGetValueUInt",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 554
-    },
-    {
-      "name": "KlvTreeGetValueInt",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 513
-    },
-    {
-      "name": "KlvGetValueInt",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 213
-    },
-    {
-      "name": "KlvGetValueUInt",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 258
-    },
-    {
-      "name": "KlvGetValueString",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 301
-    },
-    {
-      "name": "KlvTreeGetValueString",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 595
-    },
-    {
-      "name": "KlvPrintData",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 314
-    },
-    {
-      "name": "av_make_error_string",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 109
-    },
-    {
-      "name": "KlvTreeHasKey",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 438
-    },
-    {
-      "name": "KlvTreeGetValue",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 619
-    },
-    {
-      "name": "KlvTreePrint",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 639
-    },
-    {
-      "name": "get_frame",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 210
-    },
-    {
-      "name": "get_metadata",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 232
-    },
-    {
-      "name": "send_camcmd",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 453
-    },
-    {
-      "name": "run_videoproc",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 512
-    },
-    {
-      "name": "isValidIPv4",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 504
-    },
-    {
-      "name": "process_video",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 491
-    },
-    {
-      "name": "cam_open",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 153
-    },
-    {
-      "name": "stream_process",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 416
-    },
-    {
-      "name": "re_encode",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 289
-    },
-    {
-      "name": "extract_metadata",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 329
-    },
-    {
-      "name": "pull_md",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 311
-    },
-    {
-      "name": "put_metadata",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 277
-    },
-    {
-      "name": "get_mdatabuf",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 201
-    },
-    {
-      "name": "put_frame",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 260
-    },
-    {
-      "name": "get_framebuf",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 194
-    },
-    {
-      "name": "cam_close",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 68
-    },
-    {
-      "name": "stream_open",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 76
-    },
-    {
-      "name": "stream_close",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 47
-    },
-    {
-      "name": "wait_for_response",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 438
-    },
-    {
-      "name": "outhint",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 29
-    },
-    {
-      "name": "llaToTrig",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 13
-    },
-    {
-      "name": "llaToECEF",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 29
-    },
-    {
-      "name": "llaToECEFandTrig",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 43
-    },
-    {
-      "name": "llaTrigToECEF",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 59
-    },
-    {
-      "name": "ecefToLLA",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 81
-    },
-    {
-      "name": "ecefToLLAandTrig",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 99
-    },
-    {
-      "name": "geodeticToGeocentric",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 194
-    },
-    {
-      "name": "testEarthPosition",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 224
+      "name": "main",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 255
     },
     {
       "name": "addAngles",
@@ -326,6 +92,12 @@
       "level": "orange",
       "enclave": "orange_E",
       "line": 124
+    },
+    {
+      "name": "vector3Copy",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 38
     },
     {
       "name": "subtractAnglesf",
@@ -418,166 +190,16 @@
       "line": 553
     },
     {
-      "name": "dcmGet",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 33
-    },
-    {
-      "name": "dcmGetFromRawData",
+      "name": "vector3Set",
       "level": "green",
       "enclave": "green_E",
-      "line": 45
+      "line": 20
     },
     {
-      "name": "dcmCopy",
+      "name": "vector3MultiplyAccumulate",
       "level": "green",
       "enclave": "green_E",
       "line": 58
-    },
-    {
-      "name": "dcmSetIdentity",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 71
-    },
-    {
-      "name": "dcmAddIdentity",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 94
-    },
-    {
-      "name": "dcmAddEquals",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 110
-    },
-    {
-      "name": "dcmScale",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 131
-    },
-    {
-      "name": "dcmSet",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 153
-    },
-    {
-      "name": "dcmAllocate",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 165
-    },
-    {
-      "name": "setDCMBasedOnRoll",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 187
-    },
-    {
-      "name": "setDCMBasedOnPitch",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 207
-    },
-    {
-      "name": "setDCMBasedOnYaw",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 227
-    },
-    {
-      "name": "setDCMBasedOnEuler",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 249
-    },
-    {
-      "name": "setDCMBasedOnPanTilt",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 277
-    },
-    {
-      "name": "dcmYaw",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 303
-    },
-    {
-      "name": "dcmPitch",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 315
-    },
-    {
-      "name": "dcmSinPitch",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 342
-    },
-    {
-      "name": "dcmCosPitch",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 327
-    },
-    {
-      "name": "dcmRoll",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 353
-    },
-    {
-      "name": "dcmCosRoll",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 365
-    },
-    {
-      "name": "dcmSinRoll",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 376
-    },
-    {
-      "name": "dcmApplyRotation",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 388
-    },
-    {
-      "name": "rawdcmApplyRotation",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 416
-    },
-    {
-      "name": "dcmApplyReverseRotation",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 403
-    },
-    {
-      "name": "rawdcmApplyReverseRotation",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 437
-    },
-    {
-      "name": "dcmMultiply",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 458
-    },
-    {
-      "name": "rawdcmMultiply",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 473
     },
     {
       "name": "vector3Sum",
@@ -590,438 +212,6 @@
       "level": "orange",
       "enclave": "orange_E",
       "line": 98
-    },
-    {
-      "name": "dcmMultiplyTransA",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 502
-    },
-    {
-      "name": "dcmMultiplyTransB",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 534
-    },
-    {
-      "name": "dcmTransposeInPlace",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 562
-    },
-    {
-      "name": "dcmAverage",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 595
-    },
-    {
-      "name": "vectorSkewSymmetric",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 617
-    },
-    {
-      "name": "skewSymmetric",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 631
-    },
-    {
-      "name": "vectorAttitudeIncrement",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 645
-    },
-    {
-      "name": "attitudeIncrement",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 660
-    },
-    {
-      "name": "attitudeIncrementBigYaw",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 678
-    },
-    {
-      "name": "testLinearAlgebra",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 694
-    },
-    {
-      "name": "dcmdGet",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 803
-    },
-    {
-      "name": "dcmdGetFromRawData",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 815
-    },
-    {
-      "name": "dcmdCopy",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 828
-    },
-    {
-      "name": "dcmdSetIdentity",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 841
-    },
-    {
-      "name": "dcmdAddIdentity",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 864
-    },
-    {
-      "name": "dcmdAddEquals",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 880
-    },
-    {
-      "name": "dcmdScale",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 901
-    },
-    {
-      "name": "dcmdSet",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 922
-    },
-    {
-      "name": "dcmdAllocate",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 934
-    },
-    {
-      "name": "setDCMdBasedOnRoll",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 956
-    },
-    {
-      "name": "setDCMdBasedOnPitch",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 976
-    },
-    {
-      "name": "setDCMdBasedOnYaw",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 996
-    },
-    {
-      "name": "setDCMdBasedOnEuler",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1018
-    },
-    {
-      "name": "setDCMdBasedOnPanTilt",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1045
-    },
-    {
-      "name": "dcmdYaw",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1071
-    },
-    {
-      "name": "dcmdPitch",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1083
-    },
-    {
-      "name": "dcmdSinPitch",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1110
-    },
-    {
-      "name": "dcmdCosPitch",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1095
-    },
-    {
-      "name": "dcmdRoll",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1121
-    },
-    {
-      "name": "dcmdCosRoll",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1133
-    },
-    {
-      "name": "dcmdSinRoll",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1144
-    },
-    {
-      "name": "dcmdApplyRotation",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1156
-    },
-    {
-      "name": "rawdcmdApplyRotation",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1184
-    },
-    {
-      "name": "vectorLengthSquaredf",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 2373
-    },
-    {
-      "name": "dcmdApplyReverseRotation",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1171
-    },
-    {
-      "name": "rawdcmdApplyReverseRotation",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1205
-    },
-    {
-      "name": "dcmdMultiply",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1226
-    },
-    {
-      "name": "rawdcmdMultiply",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1241
-    },
-    {
-      "name": "dcmdMultiplyTransA",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1270
-    },
-    {
-      "name": "dcmdMultiplyTransB",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1302
-    },
-    {
-      "name": "dcmdTransposeInPlace",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1330
-    },
-    {
-      "name": "dcmdAverage",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1363
-    },
-    {
-      "name": "vectorSkewSymmetricd",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1385
-    },
-    {
-      "name": "skewSymmetricd",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1399
-    },
-    {
-      "name": "vectorAttitudeIncrementd",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1413
-    },
-    {
-      "name": "attitudeIncrementd",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1428
-    },
-    {
-      "name": "attitudeIncrementBigYawd",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 1446
-    },
-    {
-      "name": "FormGeolocateTelemetry",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 16
-    },
-    {
-      "name": "DecodeGeolocateTelemetry",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 29
-    },
-    {
-      "name": "ConvertGeolocateTelemetryCore",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 49
-    },
-    {
-      "name": "offsetImageLocation",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 130
-    },
-    {
-      "name": "distanceToHorizonM",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 200
-    },
-    {
-      "name": "offsetImageLocationOcean",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 221
-    },
-    {
-      "name": "getTerrainIntersection",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 324
-    },
-    {
-      "name": "getImageVelocity",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 415
-    },
-    {
-      "name": "getGeolocateBuffer",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 460
-    },
-    {
-      "name": "copyGeolocateTelemetry",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 542
-    },
-    {
-      "name": "pushGeolocateBuffer",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 519
-    },
-    {
-      "name": "getOrionPublicPacketData",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 12
-    },
-    {
-      "name": "getOrionPublicPacketDataConst",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 18
-    },
-    {
-      "name": "finishOrionPublicPacket",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 24
-    },
-    {
-      "name": "getOrionPublicPacketSize",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 30
-    },
-    {
-      "name": "getOrionPublicPacketID",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 36
-    },
-    {
-      "name": "vector3Set",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 20
-    },
-    {
-      "name": "vector3Copy",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 38
-    },
-    {
-      "name": "vector3MultiplyAccumulate",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 58
-    },
-    {
-      "name": "initQuaternion",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 124
-    },
-    {
-      "name": "setQuaternionBasedOnRoll",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 138
-    },
-    {
-      "name": "setQuaternionBasedOnPitch",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 151
-    },
-    {
-      "name": "setQuaternionBasedOnYaw",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 164
-    },
-    {
-      "name": "setQuaternionBasedOnEuler",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 180
-    },
-    {
-      "name": "quaternionYaw",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 195
     },
     {
       "name": "vector3Multiply",
@@ -1160,6 +350,12 @@
       "level": "green",
       "enclave": "green_E",
       "line": 552
+    },
+    {
+      "name": "matrixInverse3x3",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1591
     },
     {
       "name": "vectorMultiply",
@@ -1384,10 +580,10 @@
       "line": 1559
     },
     {
-      "name": "matrixInverse3x3",
+      "name": "matrixTranspose_dtof",
       "level": "green",
       "enclave": "green_E",
-      "line": 1591
+      "line": 3463
     },
     {
       "name": "testForIdentity",
@@ -1588,6 +784,12 @@
       "line": 2316
     },
     {
+      "name": "attitudeIncrementd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1428
+    },
+    {
       "name": "vectorMultiplyf",
       "level": "green",
       "enclave": "green_E",
@@ -1600,10 +802,10 @@
       "line": 2355
     },
     {
-      "name": "mg_pass_string",
+      "name": "vectorLengthSquaredf",
       "level": "green",
       "enclave": "green_E",
-      "line": 16
+      "line": 2373
     },
     {
       "name": "vectorLengthf",
@@ -1834,10 +1036,22 @@
       "line": 3431
     },
     {
-      "name": "matrixTranspose_dtof",
+      "name": "quaternionLength",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 331
+    },
+    {
+      "name": "quaternionMultiply",
       "level": "green",
       "enclave": "green_E",
-      "line": 3463
+      "line": 346
+    },
+    {
+      "name": "quaternionMultiplyInverseA",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 366
     },
     {
       "name": "matrixCopy_ftod",
@@ -1870,42 +1084,6 @@
       "line": 3585
     },
     {
-      "name": "LookForTrilliumPacketInByteEx",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 7
-    },
-    {
-      "name": "InitChecksum",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 108
-    },
-    {
-      "name": "UpdateChecksum",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 115
-    },
-    {
-      "name": "MakeTrilliumPacket",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 78
-    },
-    {
-      "name": "constructGpsEcefPosVel",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 14
-    },
-    {
-      "name": "constructGpsEcefUncertainty",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 66
-    },
-    {
       "name": "gravity",
       "level": "green",
       "enclave": "green_E",
@@ -1930,6 +1108,684 @@
       "line": 50
     },
     {
+      "name": "llaToTrig",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 13
+    },
+    {
+      "name": "llaToECEF",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 29
+    },
+    {
+      "name": "llaToECEFandTrig",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 43
+    },
+    {
+      "name": "llaTrigToECEF",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 59
+    },
+    {
+      "name": "ecefToLLA",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 81
+    },
+    {
+      "name": "ecefToLLAandTrig",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 99
+    },
+    {
+      "name": "geodeticToGeocentric",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 194
+    },
+    {
+      "name": "testEarthPosition",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 224
+    },
+    {
+      "name": "dcmGet",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 33
+    },
+    {
+      "name": "dcmGetFromRawData",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 45
+    },
+    {
+      "name": "dcmCopy",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 58
+    },
+    {
+      "name": "dcmSetIdentity",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 71
+    },
+    {
+      "name": "dcmAddIdentity",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 94
+    },
+    {
+      "name": "dcmAddEquals",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 110
+    },
+    {
+      "name": "dcmScale",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 131
+    },
+    {
+      "name": "dcmSet",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 153
+    },
+    {
+      "name": "dcmAllocate",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 165
+    },
+    {
+      "name": "setDCMBasedOnRoll",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 187
+    },
+    {
+      "name": "setDCMBasedOnPitch",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 207
+    },
+    {
+      "name": "setDCMBasedOnYaw",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 227
+    },
+    {
+      "name": "setDCMBasedOnEuler",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 249
+    },
+    {
+      "name": "setDCMBasedOnPanTilt",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 277
+    },
+    {
+      "name": "dcmYaw",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 303
+    },
+    {
+      "name": "dcmPitch",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 315
+    },
+    {
+      "name": "dcmSinPitch",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 342
+    },
+    {
+      "name": "dcmCosPitch",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 327
+    },
+    {
+      "name": "dcmRoll",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 353
+    },
+    {
+      "name": "dcmCosRoll",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 365
+    },
+    {
+      "name": "dcmSinRoll",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 376
+    },
+    {
+      "name": "dcmApplyRotation",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 388
+    },
+    {
+      "name": "rawdcmApplyRotation",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 416
+    },
+    {
+      "name": "dcmApplyReverseRotation",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 403
+    },
+    {
+      "name": "rawdcmApplyReverseRotation",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 437
+    },
+    {
+      "name": "dcmMultiply",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 458
+    },
+    {
+      "name": "rawdcmMultiply",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 473
+    },
+    {
+      "name": "dcmMultiplyTransA",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 502
+    },
+    {
+      "name": "dcmMultiplyTransB",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 534
+    },
+    {
+      "name": "dcmTransposeInPlace",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 562
+    },
+    {
+      "name": "dcmAverage",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 595
+    },
+    {
+      "name": "vectorSkewSymmetric",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 617
+    },
+    {
+      "name": "skewSymmetric",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 631
+    },
+    {
+      "name": "vectorAttitudeIncrement",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 645
+    },
+    {
+      "name": "attitudeIncrement",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 660
+    },
+    {
+      "name": "attitudeIncrementBigYaw",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 678
+    },
+    {
+      "name": "testLinearAlgebra",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 694
+    },
+    {
+      "name": "dcmdGet",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 803
+    },
+    {
+      "name": "dcmdGetFromRawData",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 815
+    },
+    {
+      "name": "dcmdCopy",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 828
+    },
+    {
+      "name": "dcmdSetIdentity",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 841
+    },
+    {
+      "name": "dcmdAddIdentity",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 864
+    },
+    {
+      "name": "dcmdAddEquals",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 880
+    },
+    {
+      "name": "dcmdScale",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 901
+    },
+    {
+      "name": "dcmdSet",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 922
+    },
+    {
+      "name": "dcmdAllocate",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 934
+    },
+    {
+      "name": "setDCMdBasedOnRoll",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 956
+    },
+    {
+      "name": "setDCMdBasedOnPitch",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 976
+    },
+    {
+      "name": "setDCMdBasedOnYaw",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 996
+    },
+    {
+      "name": "setDCMdBasedOnEuler",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1018
+    },
+    {
+      "name": "setDCMdBasedOnPanTilt",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1045
+    },
+    {
+      "name": "dcmdYaw",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1071
+    },
+    {
+      "name": "dcmdPitch",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1083
+    },
+    {
+      "name": "dcmdSinPitch",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1110
+    },
+    {
+      "name": "dcmdCosPitch",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1095
+    },
+    {
+      "name": "dcmdRoll",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1121
+    },
+    {
+      "name": "dcmdCosRoll",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1133
+    },
+    {
+      "name": "dcmdSinRoll",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1144
+    },
+    {
+      "name": "dcmdApplyRotation",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1156
+    },
+    {
+      "name": "rawdcmdApplyRotation",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1184
+    },
+    {
+      "name": "dcmdApplyReverseRotation",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1171
+    },
+    {
+      "name": "rawdcmdApplyReverseRotation",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1205
+    },
+    {
+      "name": "dcmdMultiply",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1226
+    },
+    {
+      "name": "rawdcmdMultiply",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1241
+    },
+    {
+      "name": "dcmdMultiplyTransA",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1270
+    },
+    {
+      "name": "dcmdMultiplyTransB",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1302
+    },
+    {
+      "name": "dcmdTransposeInPlace",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1330
+    },
+    {
+      "name": "dcmdAverage",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1363
+    },
+    {
+      "name": "vectorSkewSymmetricd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1385
+    },
+    {
+      "name": "skewSymmetricd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1399
+    },
+    {
+      "name": "vectorAttitudeIncrementd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1413
+    },
+    {
+      "name": "attitudeIncrementBigYawd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 1446
+    },
+    {
+      "name": "FormGeolocateTelemetry",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 16
+    },
+    {
+      "name": "DecodeGeolocateTelemetry",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 29
+    },
+    {
+      "name": "ConvertGeolocateTelemetryCore",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 49
+    },
+    {
+      "name": "offsetImageLocation",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 130
+    },
+    {
+      "name": "distanceToHorizonM",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 200
+    },
+    {
+      "name": "offsetImageLocationOcean",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 221
+    },
+    {
+      "name": "getTerrainIntersection",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 324
+    },
+    {
+      "name": "getImageVelocity",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 415
+    },
+    {
+      "name": "getGeolocateBuffer",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 460
+    },
+    {
+      "name": "copyGeolocateTelemetry",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 542
+    },
+    {
+      "name": "pushGeolocateBuffer",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 519
+    },
+    {
+      "name": "nedToECEF",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 12
+    },
+    {
+      "name": "nedToECEFtrig",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 40
+    },
+    {
+      "name": "ecefToNED",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 25
+    },
+    {
+      "name": "ecefToNEDtrig",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 62
+    },
+    {
+      "name": "nedToECEFdcmd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 81
+    },
+    {
+      "name": "ecefToNEDdcmd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 97
+    },
+    {
+      "name": "gravityToECEFd",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 116
+    },
+    {
+      "name": "nedToECEFf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 132
+    },
+    {
+      "name": "nedToECEFtrigf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 160
+    },
+    {
+      "name": "ecefToNEDf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 145
+    },
+    {
+      "name": "ecefToNEDtrigf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 182
+    },
+    {
+      "name": "nedToECEFdcm",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 200
+    },
+    {
+      "name": "ecefToNEDdcm",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 216
+    },
+    {
+      "name": "gravityToECEF",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 235
+    },
+    {
+      "name": "testEarthRotation",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 249
+    },
+    {
+      "name": "constructGpsEcefPosVel",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 14
+    },
+    {
+      "name": "constructGpsEcefUncertainty",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 66
+    },
+    {
+      "name": "getOrionPublicPacketData",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 12
+    },
+    {
+      "name": "getOrionPublicPacketDataConst",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 18
+    },
+    {
+      "name": "finishOrionPublicPacket",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 24
+    },
+    {
+      "name": "getOrionPublicPacketSize",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 30
+    },
+    {
+      "name": "getOrionPublicPacketID",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 36
+    },
+    {
       "name": "quaternionToDCM",
       "level": "orange",
       "enclave": "orange_E",
@@ -1940,6 +1796,42 @@
       "level": "orange",
       "enclave": "orange_E",
       "line": 47
+    },
+    {
+      "name": "initQuaternion",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 124
+    },
+    {
+      "name": "setQuaternionBasedOnRoll",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 138
+    },
+    {
+      "name": "setQuaternionBasedOnPitch",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 151
+    },
+    {
+      "name": "setQuaternionBasedOnYaw",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 164
+    },
+    {
+      "name": "setQuaternionBasedOnEuler",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 180
+    },
+    {
+      "name": "quaternionYaw",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 195
     },
     {
       "name": "quaternionPitch",
@@ -1990,22 +1882,16 @@
       "line": 307
     },
     {
-      "name": "quaternionLength",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 331
-    },
-    {
-      "name": "quaternionMultiply",
+      "name": "mg_md5_final",
       "level": "green",
       "enclave": "green_E",
-      "line": 346
+      "line": 170
     },
     {
-      "name": "quaternionMultiplyInverseA",
+      "name": "mg_mqtt_send_header",
       "level": "green",
       "enclave": "green_E",
-      "line": 366
+      "line": 18
     },
     {
       "name": "quaternionMultiplyInverseB",
@@ -2182,94 +2068,130 @@
       "line": 1030
     },
     {
-      "name": "nedToECEF",
+      "name": "LookForTrilliumPacketInByteEx",
       "level": "orange",
       "enclave": "orange_E",
-      "line": 12
+      "line": 7
     },
     {
-      "name": "nedToECEFtrig",
+      "name": "InitChecksum",
       "level": "orange",
       "enclave": "orange_E",
-      "line": 40
+      "line": 108
     },
     {
-      "name": "ecefToNED",
+      "name": "UpdateChecksum",
       "level": "orange",
       "enclave": "orange_E",
-      "line": 25
+      "line": 115
     },
     {
-      "name": "ecefToNEDtrig",
+      "name": "MakeTrilliumPacket",
       "level": "orange",
       "enclave": "orange_E",
-      "line": 62
+      "line": 78
     },
     {
-      "name": "nedToECEFdcmd",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 81
-    },
-    {
-      "name": "ecefToNEDdcmd",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 97
-    },
-    {
-      "name": "gravityToECEFd",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 116
-    },
-    {
-      "name": "nedToECEFf",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 132
-    },
-    {
-      "name": "nedToECEFtrigf",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 160
-    },
-    {
-      "name": "ecefToNEDf",
+      "name": "KlvGetLength",
       "level": "orange",
       "enclave": "orange_E",
       "line": 145
     },
     {
-      "name": "ecefToNEDtrigf",
+      "name": "KlvNewData",
       "level": "orange",
       "enclave": "orange_E",
-      "line": 182
+      "line": 161
     },
     {
-      "name": "nedToECEFdcm",
+      "name": "KlvTreeSetValue",
       "level": "orange",
       "enclave": "orange_E",
-      "line": 200
+      "line": 408
     },
     {
-      "name": "ecefToNEDdcm",
+      "name": "KlvFindTag",
       "level": "orange",
       "enclave": "orange_E",
-      "line": 216
+      "line": 387
     },
     {
-      "name": "gravityToECEF",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 235
-    },
-    {
-      "name": "testEarthRotation",
+      "name": "KlvCreateTag",
       "level": "orange",
       "enclave": "orange_E",
-      "line": 249
+      "line": 372
+    },
+    {
+      "name": "KlvGetValueDouble",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 186
+    },
+    {
+      "name": "KlvTreeGetValueDouble",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 445
+    },
+    {
+      "name": "KlvTreeGetValueUInt",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 554
+    },
+    {
+      "name": "KlvTreeGetValueInt",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 513
+    },
+    {
+      "name": "KlvGetValueInt",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 213
+    },
+    {
+      "name": "KlvGetValueUInt",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 258
+    },
+    {
+      "name": "KlvGetValueString",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 301
+    },
+    {
+      "name": "KlvTreeGetValueString",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 595
+    },
+    {
+      "name": "KlvPrintData",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 314
+    },
+    {
+      "name": "KlvTreeHasKey",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 438
+    },
+    {
+      "name": "KlvTreeGetValue",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 619
+    },
+    {
+      "name": "KlvTreePrint",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 639
     },
     {
       "name": "packed_stat",
@@ -3268,6 +3190,12 @@
       "line": 430
     },
     {
+      "name": "mg_pass_string",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 16
+    },
+    {
       "name": "json_esc",
       "level": "green",
       "enclave": "green_E",
@@ -3338,18 +3266,6 @@
       "level": "green",
       "enclave": "green_E",
       "line": 53
-    },
-    {
-      "name": "mg_md5_final",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 170
-    },
-    {
-      "name": "mg_mqtt_send_header",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 18
     },
     {
       "name": "mg_mqtt_login",
@@ -3868,250 +3784,10 @@
       "line": 288
     },
     {
-      "name": "stringToBytes",
+      "name": "OrionCommOpen",
       "level": "orange",
       "enclave": "orange_E",
-      "line": 19
-    },
-    {
-      "name": "bytesToBeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 59
-    },
-    {
-      "name": "bytesToLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 85
-    },
-    {
-      "name": "uint64ToBeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 114
-    },
-    {
-      "name": "uint64ToLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 146
-    },
-    {
-      "name": "int64ToBeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 178
-    },
-    {
-      "name": "int64ToLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 210
-    },
-    {
-      "name": "uint56ToBeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 242
-    },
-    {
-      "name": "uint56ToLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 272
-    },
-    {
-      "name": "int56ToBeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 302
-    },
-    {
-      "name": "int56ToLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 332
-    },
-    {
-      "name": "uint48ToBeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 362
-    },
-    {
-      "name": "uint48ToLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 390
-    },
-    {
-      "name": "int48ToBeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 418
-    },
-    {
-      "name": "int48ToLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 446
-    },
-    {
-      "name": "uint40ToBeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 474
-    },
-    {
-      "name": "uint40ToLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 500
-    },
-    {
-      "name": "int40ToBeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 526
-    },
-    {
-      "name": "int40ToLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 552
-    },
-    {
-      "name": "float32ToBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 579
-    },
-    {
-      "name": "uint32ToBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 621
-    },
-    {
-      "name": "float32ToLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 600
-    },
-    {
-      "name": "uint32ToLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 645
-    },
-    {
-      "name": "int32ToBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 669
-    },
-    {
-      "name": "int32ToLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 693
-    },
-    {
-      "name": "uint24ToBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 717
-    },
-    {
-      "name": "uint24ToLeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 739
-    },
-    {
-      "name": "int24ToBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 761
-    },
-    {
-      "name": "int24ToLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 783
-    },
-    {
-      "name": "uint16ToBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 805
-    },
-    {
-      "name": "uint16ToLeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 825
-    },
-    {
-      "name": "int16ToBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 845
-    },
-    {
-      "name": "int16ToLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 865
-    },
-    {
-      "name": "uint8ToBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 885
-    },
-    {
-      "name": "int8ToBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 898
-    },
-    {
-      "name": "float64ToBeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 911
-    },
-    {
-      "name": "float64ToLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 932
-    },
-    {
-      "name": "float24ToBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 954
-    },
-    {
-      "name": "float24ToLeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 968
-    },
-    {
-      "name": "float16ToBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 982
-    },
-    {
-      "name": "float16ToLeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 996
+      "line": 4
     },
     {
       "name": "float32ScaledFromBitfield",
@@ -4402,250 +4078,58 @@
       "line": 741
     },
     {
-      "name": "stringFromBytes",
+      "name": "OrionCommOpenSerial",
       "level": "orange",
       "enclave": "orange_E",
-      "line": 19
+      "line": 22
     },
     {
-      "name": "bytesFromBeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 53
-    },
-    {
-      "name": "bytesFromLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 79
-    },
-    {
-      "name": "uint64FromBeBytes",
+      "name": "OrionCommIpStringValid",
       "level": "orange",
       "enclave": "orange_E",
-      "line": 108
+      "line": 68
     },
     {
-      "name": "uint64FromLeBytes",
+      "name": "OrionCommSerialPathValid",
       "level": "orange",
       "enclave": "orange_E",
-      "line": 137
+      "line": 77
     },
     {
-      "name": "int64FromBeBytes",
+      "name": "OrionCommOpenNetworkIp",
       "level": "orange",
       "enclave": "orange_E",
-      "line": 166
+      "line": 84
     },
     {
-      "name": "int64FromLeBytes",
-      "level": "green",
-      "enclave": "green_E",
+      "name": "GetSockAddr",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 234
+    },
+    {
+      "name": "OrionCommClose",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 187
+    },
+    {
+      "name": "OrionCommSend",
+      "level": "orange",
+      "enclave": "orange_E",
       "line": 195
     },
     {
-      "name": "uint56FromBeBytes",
+      "name": "OrionCommReceive",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 202
+    },
+    {
+      "name": "OrionCommIsOpen",
       "level": "orange",
       "enclave": "orange_E",
       "line": 224
-    },
-    {
-      "name": "uint56FromLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 252
-    },
-    {
-      "name": "int56FromBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 280
-    },
-    {
-      "name": "int56FromLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 311
-    },
-    {
-      "name": "uint48FromBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 342
-    },
-    {
-      "name": "uint48FromLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 369
-    },
-    {
-      "name": "int48FromBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 396
-    },
-    {
-      "name": "int48FromLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 426
-    },
-    {
-      "name": "uint40FromBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 456
-    },
-    {
-      "name": "uint40FromLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 482
-    },
-    {
-      "name": "int40FromBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 508
-    },
-    {
-      "name": "int40FromLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 537
-    },
-    {
-      "name": "float32FromBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 567
-    },
-    {
-      "name": "uint32FromBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 615
-    },
-    {
-      "name": "float32FromLeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 591
-    },
-    {
-      "name": "uint32FromLeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 640
-    },
-    {
-      "name": "int32FromBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 665
-    },
-    {
-      "name": "int32FromLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 690
-    },
-    {
-      "name": "uint24FromBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 715
-    },
-    {
-      "name": "uint24FromLeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 739
-    },
-    {
-      "name": "int24FromBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 763
-    },
-    {
-      "name": "int24FromLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 790
-    },
-    {
-      "name": "uint16FromBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 817
-    },
-    {
-      "name": "uint16FromLeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 840
-    },
-    {
-      "name": "int16FromBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 863
-    },
-    {
-      "name": "int16FromLeBytes",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 886
-    },
-    {
-      "name": "uint8FromBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 909
-    },
-    {
-      "name": "int8FromBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 922
-    },
-    {
-      "name": "float64FromBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 935
-    },
-    {
-      "name": "float64FromLeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 959
-    },
-    {
-      "name": "float24FromBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 984
-    },
-    {
-      "name": "float24FromLeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 998
-    },
-    {
-      "name": "float16FromBeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 1012
-    },
-    {
-      "name": "float16FromLeBytes",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 1026
     },
     {
       "name": "encodeDate_t",
@@ -5404,12 +4888,6 @@
       "line": 6713
     },
     {
-      "name": "OrionCommOpen",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 4
-    },
-    {
       "name": "float32ScaledToBitfield",
       "level": "orange",
       "enclave": "orange_E",
@@ -5698,58 +5176,250 @@
       "line": 1449
     },
     {
-      "name": "OrionCommOpenSerial",
+      "name": "stringToBytes",
       "level": "orange",
       "enclave": "orange_E",
-      "line": 22
+      "line": 19
     },
     {
-      "name": "OrionCommIpStringValid",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 68
+      "name": "bytesToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 59
     },
     {
-      "name": "OrionCommSerialPathValid",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 77
+      "name": "bytesToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 85
     },
     {
-      "name": "OrionCommOpenNetworkIp",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 84
+      "name": "uint64ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 114
     },
     {
-      "name": "GetSockAddr",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 234
+      "name": "uint64ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 146
     },
     {
-      "name": "OrionCommClose",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 187
+      "name": "int64ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 178
     },
     {
-      "name": "OrionCommSend",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 195
+      "name": "int64ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 210
     },
     {
-      "name": "OrionCommReceive",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 202
+      "name": "uint56ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 242
     },
     {
-      "name": "OrionCommIsOpen",
+      "name": "uint56ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 272
+    },
+    {
+      "name": "int56ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 302
+    },
+    {
+      "name": "int56ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 332
+    },
+    {
+      "name": "uint48ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 362
+    },
+    {
+      "name": "uint48ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 390
+    },
+    {
+      "name": "int48ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 418
+    },
+    {
+      "name": "int48ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 446
+    },
+    {
+      "name": "uint40ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 474
+    },
+    {
+      "name": "uint40ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 500
+    },
+    {
+      "name": "int40ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 526
+    },
+    {
+      "name": "int40ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 552
+    },
+    {
+      "name": "float32ToBeBytes",
       "level": "orange",
       "enclave": "orange_E",
-      "line": 224
+      "line": 579
+    },
+    {
+      "name": "uint32ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 621
+    },
+    {
+      "name": "float32ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 600
+    },
+    {
+      "name": "uint32ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 645
+    },
+    {
+      "name": "int32ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 669
+    },
+    {
+      "name": "int32ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 693
+    },
+    {
+      "name": "uint24ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 717
+    },
+    {
+      "name": "uint24ToLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 739
+    },
+    {
+      "name": "int24ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 761
+    },
+    {
+      "name": "int24ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 783
+    },
+    {
+      "name": "uint16ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 805
+    },
+    {
+      "name": "uint16ToLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 825
+    },
+    {
+      "name": "int16ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 845
+    },
+    {
+      "name": "int16ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 865
+    },
+    {
+      "name": "uint8ToBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 885
+    },
+    {
+      "name": "int8ToBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 898
+    },
+    {
+      "name": "float64ToBeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 911
+    },
+    {
+      "name": "float64ToLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 932
+    },
+    {
+      "name": "float24ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 954
+    },
+    {
+      "name": "float24ToLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 968
+    },
+    {
+      "name": "float16ToBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 982
+    },
+    {
+      "name": "float16ToLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 996
     },
     {
       "name": "isFloat32Valid",
@@ -5818,55 +5488,379 @@
       "line": 428
     },
     {
-      "name": "handle_camera_command",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 110
+      "name": "stringFromBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 19
     },
     {
-      "name": "handle_get_metadata",
+      "name": "bytesFromBeBytes",
       "level": "green",
       "enclave": "green_E",
-      "line": 146
+      "line": 53
     },
     {
-      "name": "websrv_main",
+      "name": "bytesFromLeBytes",
       "level": "green",
       "enclave": "green_E",
-      "line": 219
+      "line": 79
     },
     {
-      "name": "run_webserver",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 204
+      "name": "uint64FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 108
     },
     {
-      "name": "webfn",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 179
+      "name": "uint64FromLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 137
     },
     {
-      "name": "wsend_video",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 161
+      "name": "int64FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 166
     },
     {
-      "name": "main",
+      "name": "int64FromLeBytes",
       "level": "green",
       "enclave": "green_E",
-      "line": 229
+      "line": 195
+    },
+    {
+      "name": "uint56FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 224
+    },
+    {
+      "name": "uint56FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 252
+    },
+    {
+      "name": "int56FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 280
+    },
+    {
+      "name": "int56FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 311
+    },
+    {
+      "name": "uint48FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 342
+    },
+    {
+      "name": "uint48FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 369
+    },
+    {
+      "name": "int48FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 396
+    },
+    {
+      "name": "int48FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 426
+    },
+    {
+      "name": "uint40FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 456
+    },
+    {
+      "name": "uint40FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 482
+    },
+    {
+      "name": "int40FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 508
+    },
+    {
+      "name": "int40FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 537
+    },
+    {
+      "name": "float32FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 567
+    },
+    {
+      "name": "uint32FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 615
+    },
+    {
+      "name": "float32FromLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 591
+    },
+    {
+      "name": "uint32FromLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 640
+    },
+    {
+      "name": "int32FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 665
+    },
+    {
+      "name": "int32FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 690
+    },
+    {
+      "name": "uint24FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 715
+    },
+    {
+      "name": "uint24FromLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 739
+    },
+    {
+      "name": "int24FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 763
+    },
+    {
+      "name": "int24FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 790
+    },
+    {
+      "name": "uint16FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 817
+    },
+    {
+      "name": "uint16FromLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 840
+    },
+    {
+      "name": "int16FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 863
+    },
+    {
+      "name": "int16FromLeBytes",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 886
+    },
+    {
+      "name": "uint8FromBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 909
+    },
+    {
+      "name": "int8FromBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 922
+    },
+    {
+      "name": "float64FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 935
+    },
+    {
+      "name": "float64FromLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 959
+    },
+    {
+      "name": "float24FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 984
+    },
+    {
+      "name": "float24FromLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 998
+    },
+    {
+      "name": "float16FromBeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1012
+    },
+    {
+      "name": "float16FromLeBytes",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 1026
+    },
+    {
+      "name": "get_frame",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 210
+    },
+    {
+      "name": "get_metadata",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 236
+    },
+    {
+      "name": "send_camcmd",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 459
+    },
+    {
+      "name": "run_videoproc",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 520
+    },
+    {
+      "name": "isValidIPv4",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 512
+    },
+    {
+      "name": "process_video",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 499
+    },
+    {
+      "name": "cam_open",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 153
+    },
+    {
+      "name": "stream_process",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 422
+    },
+    {
+      "name": "re_encode",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 295
+    },
+    {
+      "name": "extract_metadata",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 335
+    },
+    {
+      "name": "pull_md",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 317
+    },
+    {
+      "name": "put_metadata",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 283
+    },
+    {
+      "name": "get_mdatabuf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 201
+    },
+    {
+      "name": "av_make_error_string",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 109
+    },
+    {
+      "name": "put_frame",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 266
+    },
+    {
+      "name": "get_framebuf",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 194
+    },
+    {
+      "name": "cam_close",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 68
+    },
+    {
+      "name": "stream_open",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 76
+    },
+    {
+      "name": "stream_close",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 47
+    },
+    {
+      "name": "wait_for_response",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 444
+    },
+    {
+      "name": "outhint",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 29
     }
   ],
   "global_scoped_vars": [
-    {
-      "name": "s_log_func",
-      "level": "green",
-      "enclave": "green_E",
-      "line": 10
-    },
     {
       "name": "month_day_norm",
       "level": "orange",
@@ -5878,6 +5872,18 @@
       "level": "orange",
       "enclave": "orange_E",
       "line": 12
+    },
+    {
+      "name": "pHeadTag",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 19
+    },
+    {
+      "name": "TagInfo",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 47
     },
     {
       "name": "mg_fs_packed",
@@ -5898,10 +5904,22 @@
       "line": 9
     },
     {
+      "name": "s_log_func",
+      "level": "green",
+      "enclave": "green_E",
+      "line": 10
+    },
+    {
       "name": "Handle",
       "level": "orange",
       "enclave": "orange_E",
       "line": 20
+    },
+    {
+      "name": "pInputContext",
+      "level": "orange",
+      "enclave": "orange_E",
+      "line": 36
     },
     {
       "name": "pDecodeContext",
@@ -5956,24 +5974,6 @@
       "level": "orange",
       "enclave": "orange_E",
       "line": 35
-    },
-    {
-      "name": "pInputContext",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 36
-    },
-    {
-      "name": "TagInfo",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 47
-    },
-    {
-      "name": "pHeadTag",
-      "level": "orange",
-      "enclave": "orange_E",
-      "line": 19
     }
   ]
 }

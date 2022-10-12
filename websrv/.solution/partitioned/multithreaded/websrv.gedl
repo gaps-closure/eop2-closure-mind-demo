@@ -12,7 +12,7 @@
 					{"type": "char", "name": "buf", "dir": "out", "sz":64000}
 				],
 				"occurs": [
-					{"file": "/workspaces/eop2-closure-mind-demo/websrv/./divvied-working/green/websrv.c", "lines": [167]}
+					{"file": "/workspaces/eop2-closure-mind-demo/websrv/./divvied-working/green/websrv.c", "lines": [193]}
 				]
 			},
 			{
@@ -26,7 +26,7 @@
 					{"type": "double", "name": "ts", "dir": "out", "sz":1}
 				],
 				"occurs": [
-					{"file": "/workspaces/eop2-closure-mind-demo/websrv/./divvied-working/green/websrv.c", "lines": [152]}
+					{"file": "/workspaces/eop2-closure-mind-demo/websrv/./divvied-working/green/websrv.c", "lines": [172]}
 				]
 			},
 			{
@@ -36,7 +36,7 @@
 				"params": [
 				],
 				"occurs": [
-					{"file": "/workspaces/eop2-closure-mind-demo/websrv/./divvied-working/green/websrv.c", "lines": [222]}
+					{"file": "/workspaces/eop2-closure-mind-demo/websrv/./divvied-working/green/websrv.c", "lines": [248]}
 				]
 			},
 			{
@@ -51,7 +51,7 @@
 					{"type": "char", "name": "stab", "dir": "in"}
 				],
 				"occurs": [
-					{"file": "/workspaces/eop2-closure-mind-demo/websrv/./divvied-working/green/websrv.c", "lines": [136]}
+					{"file": "/workspaces/eop2-closure-mind-demo/websrv/./divvied-working/green/websrv.c", "lines": [153]}
 				]
 			}
 		]

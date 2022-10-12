@@ -59,7 +59,10 @@
           ],
           "rettaints": [
             "TAG_RESPONSE_RUN_VIDEOPROC"
-          ]
+          ],
+          "idempotent": true,
+          "num_tries": 1,
+          "timeout": 1000
         },
         {
           "remotelevel": "orange",
@@ -101,7 +104,10 @@
           ],
           "rettaints": [
             "TAG_RESPONSE_GET_FRAME"
-          ]
+          ],
+          "idempotent": true,
+          "num_tries": 1,
+          "timeout": 150
         },
         {
           "remotelevel": "orange",
@@ -156,7 +162,10 @@
           ],
           "rettaints": [
             "TAG_RESPONSE_GET_METADATA"
-          ]
+          ],
+          "idempotent": true,
+          "num_tries": 1,
+          "timeout": 150
         },
         {
           "remotelevel": "orange",
@@ -223,7 +232,10 @@
           ],
           "rettaints": [
             "TAG_RESPONSE_SEND_CAMCMD"
-          ]
+          ],
+          "idempotent": true,
+          "num_tries": 1,
+          "timeout": 1000
         },
         {
           "remotelevel": "orange",
@@ -272,17 +284,17 @@
           },
           "argtaints": [
             [
-              "GREEN"
+              "GREEN_NOSHARE"
             ],
             [
-              "GREEN"
+              "GREEN_NOSHARE"
             ]
           ],
           "codtaints": [
             "GREEN_SHARE"
           ],
           "rettaints": [
-            "GREEN"
+            "GREEN_NOSHARE"
           ]
         }
       ]
@@ -301,17 +313,17 @@
           },
           "argtaints": [
             [
-              "GREEN"
+              "GREEN_NOSHARE"
             ],
             [
-              "GREEN"
+              "GREEN_NOSHARE"
             ]
           ],
           "codtaints": [
             "GREEN_SHARE"
           ],
           "rettaints": [
-            "GREEN"
+            "GREEN_NOSHARE"
           ]
         }
       ]
@@ -330,14 +342,14 @@
           },
           "argtaints": [
             [
-              "GREEN"
+              "GREEN_NOSHARE"
             ]
           ],
           "codtaints": [
             "GREEN_SHARE"
           ],
           "rettaints": [
-            "GREEN"
+            "GREEN_NOSHARE"
           ]
         }
       ]
@@ -359,7 +371,7 @@
             "GREEN_SHARE"
           ],
           "rettaints": [
-            "GREEN"
+            "GREEN_NOSHARE"
           ]
         }
       ]

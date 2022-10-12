@@ -53,7 +53,7 @@ int handle_get_metadata(struct mg_connection *c, struct mg_http_message *hm) {
   return 0;
 }
 
-void wsend_video(void *arg) {
+int wsend_video(void *arg) {
   struct mg_mgr *mgr = (struct mg_mgr *) arg;
   static char buf[MAX_FRAME_BUF];
   int sz;
@@ -66,7 +66,7 @@ void wsend_video(void *arg) {
       }
     }
   }
-  return;
+  return 0;
 }
 
 void webfn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {

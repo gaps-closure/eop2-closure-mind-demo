@@ -1,1 +1,1 @@
-contains v1.0.0 bsp for the GE/MIND Enclosure. To build the bsp, the GIT DIRTY and GIT HASH must be removed, see the os-release.bbappend file attached, modify in the project under recipe-core until the bsp is fixed
+contains v1.0.0 bsp for the GE/MIND Enclosure. To build the bsp, the GIT DIRTY and GIT HASH must be removed, see the os-release.bbappend file and  base-files_%.bbappend, modify in the project under recipe-core until the bsp is fixed

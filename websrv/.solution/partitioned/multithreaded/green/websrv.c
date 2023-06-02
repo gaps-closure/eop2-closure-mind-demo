@@ -236,7 +236,7 @@ void run_webserver() {
   fprintf(stderr, "Starting HTTPS camera API endpoint on %s/api\n", s_https_addr);
   fprintf(stderr, "Starting WSS video endpoint on %s/ws/video\n", s_listen_on);
   mg_http_listen(&mgr, s_https_addr, webfn, (void *) 1);
-  mg_timer_add(&mgr, FRAME_INTERVAL, MG_TIMER_REPEAT, wsend_video, &mgr);
+  mg_timer_add(&mgr, FRAME_INTERVAL, MG_TIMER_REPEAT, (void *) wsend_video, &mgr);
   for (;;) mg_mgr_poll(&mgr, POLL_INTERVAL);
   mg_mgr_free(&mgr);
 }

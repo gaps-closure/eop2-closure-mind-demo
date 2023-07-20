@@ -130,9 +130,13 @@ void response_get_frame_data_encode (void *buff_out, void *buff_in, size_t *len_
   response_get_frame_datatype *p1 = (response_get_frame_datatype *) buff_in;
   response_get_frame_output   *p2 = (response_get_frame_output *)   buff_out;
   p2->ret = htonl(p1->ret);
-  for (int i=0; i<64000; i++) {
-    p2->buf[i] = codec_id(p1->buf[i]);
-  }
+//  Replace byte copies with 8-byte naive-memcpy
+//  for (int i=0; i<64000; i++) {
+//    p2->buf[i] = codec_id(p1->buf[i]);
+//  }
+        unsigned long *d = (unsigned long *) p2->buf;
+  const unsigned long *s = (unsigned long *) p1->buf;
+  for (int i=0; i<8000; i++) *d++ = *s++;
   p2->trailer.seq = htonl(p1->trailer.seq);
   p2->trailer.rqr = htonl(p1->trailer.rqr);
   p2->trailer.oid = htonl(p1->trailer.oid);
@@ -145,9 +149,13 @@ void response_get_frame_data_decode (void *buff_out, void *buff_in, size_t *len_
   response_get_frame_output   *p1 = (response_get_frame_output *)   buff_in;
   response_get_frame_datatype *p2 = (response_get_frame_datatype *) buff_out;
   p2->ret = ntohl(p1->ret);
-  for (int i=0; i<64000; i++) {
-    p2->buf[i] = codec_id(p1->buf[i]);
-  }
+//  Replace byte copies with 8-byte naive-memcpy
+//  for (int i=0; i<64000; i++) {
+//    p2->buf[i] = codec_id(p1->buf[i]);
+//  }
+        unsigned long *d = (unsigned long *) p2->buf;
+  const unsigned long *s = (unsigned long *) p1->buf;
+  for (int i=0; i<8000; i++) *d++ = *s++;
   p2->trailer.seq = ntohl(p1->trailer.seq);
   p2->trailer.rqr = ntohl(p1->trailer.rqr);
   p2->trailer.oid = ntohl(p1->trailer.oid);

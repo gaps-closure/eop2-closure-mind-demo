@@ -11,7 +11,7 @@ LDFLAGS  = -L ./Communications -lOrionComm -L ./Utils -lOrionUtils \
 
 CFLAGS  += -I../autogen
 CFLAGS  += -D__LEGACY_XDCOMMS__=1
-LDFLAGS += ../autogen/libcodecs.a -lxdcomms
+LDFLAGS += ../autogen/libcodecs.a -lxdcomms -ljson-c
 
 SLIBS    = Utils/libOrionUtils.a Communications/libOrionComm.a ../autogen/libcodecs.a
 COMSRCS  = $(wildcard Communications/*.c)

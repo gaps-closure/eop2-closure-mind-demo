@@ -14,7 +14,10 @@
         "type": "shell",
         "command": "rm -rf annotated* partitioned divvied* refactored* jsons *.json *.dot *.log *.ll;",
         "args": [],
-        "group": "build",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
         "problemMatcher": []
       },
       {
@@ -22,7 +25,10 @@
         "type": "shell",
         "command": "mkdir annotated; cp -R plain/* annotated; echo Prepared sources for CLE annotation by developer under ./annotated; echo Move to Conflict Analysis when done annotating",
         "args": [],
-        "group": "build",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
         "problemMatcher": []
       },
       {
@@ -30,7 +36,10 @@
         "type": "shell",
         "command": "mkdir annotated; cp -R .solution/refactored/* annotated; echo Prepared sources for CLE annotation by developer under ./annotated; echo Move to Conflict Analysis when done annotating",
         "args": [],
-        "group": "build",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
         "problemMatcher": []
       },
       {

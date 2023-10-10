@@ -10,7 +10,8 @@ topology: $(EDIR)
 	--source-path refactored \
 	--log-level INFO \
 	--artifact artifact.json \
-	--temp-dir $(EDIR)
+	--temp-dir $(EDIR) \
+	--dump-ptg `which dump-ptg`
 
 $(EDIR):
 	mkdir -p $(EDIR)

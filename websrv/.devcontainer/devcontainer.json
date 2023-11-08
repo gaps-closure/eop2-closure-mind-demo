@@ -26,8 +26,6 @@
 	"remoteUser": "closure",
 	"runArgs": ["--privileged"],
 	"mounts": [
-		"source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind",
-		"source=${localWorkspaceFolder}/../../build/emu,target=/opt/closure/emu,type=bind",
-		"source=/IMAGES,target=/IMAGES,type=bind"
+		"source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind"
 	]
 }

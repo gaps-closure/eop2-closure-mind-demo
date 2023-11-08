@@ -4,6 +4,8 @@ This is a demonstration application to showcase some features of the CLOSURE and
 
 ## For building and testing the application on hardware
 
+### Building Petalinux Images
+
 First install Xilinx Petalinux tools 2021.1. In my case, it is under `~/gaps/misc/xilinx`.
 
 ```bash
@@ -34,6 +36,8 @@ cd ../mb
 petalinux-package --bsp --clean -p . --output ~/gaps/eop2-closure-mind-demo/bsp/zcu102_peraton_mb_20220823.bsp
 ```
 
+### Reflash XILINX hardware with new Images
+
 Now, get the ZCU102 to ZyncMP/U-Boot prompts, and reflash the hardware:
 
 ```
@@ -56,6 +60,15 @@ sf write 0x90000000 0x100000 0x1E00000
 reset
 ```
 
+These instructions are for images created on jaga (10.109.23.126). 
+The instructions for liono (10.109.23.128) are in:
+
+- [demo_notes_1_setup.txt](./demo_notes_1_setup.txt)
+
+and are stored on the demo machine in /home/closure/Desktop/
+
+### Test unpartitioned Websrv application on both A53 and MB
+
 Log into the A53 and MB and test as follows:
 
 ```
@@ -67,30 +80,29 @@ Log into the A53 and MB and test as follows:
 
 cd /opt/closure/websrv
 MYADDR=<a53-addr> CAMADDR=<trillium-addr> ./websrv
-
-#################################################
-# Test partitioned application on both A53 and MB
-#################################################
-# Configure Trillium camera with static IP and also to send video to a53's IP address using Skylink
-# Point firefox to http://<mb-addr>:8443 -- now web server runs on MB
-
-# On MB
-modprobe -r dma_proxy
-modprobe dma_proxy
-ifconfig
-cd /opt/closure/websrv
-XDCLOGLEVEL=1 DMARXDEV=dma_proxy_rx DMATXDEV=dma_proxy_tx ./websrv-web 2>/tmp/err
-
-# on A53
-modprobe -r dma_proxy
-modprobe dma_proxy
-ifconfig
-cd /opt/closure/websrv
-#  use current ip address of A53 and address of Trillium camera
-XDCLOGLEVEL=1 DMARXDEV=dma_proxy_rx DMATXDEV=dma_proxy_tx MYADDR=10.109.23.229 CAMADDR=10.109.23.151 ./websrv-vid 2>/tmp/err
-
-# You can optionally specify XDCLOGLEVEL to 2 for QUIET and 0 for TRACE level verbose logs (kills performance). 
 ```
+
+### Test partitioned Websrv application on both A53 and MB
+
+Log into the A53 and MB and, as with Unpartitioned case, 
+configure Trillium camera with static IP and also to send video to
+a53's IP address using Skylink. Next, point firefox to 
+
+```
+'http://<mb-addr>:8443' 
+```
+
+which points firefox to the web server running on the MB. 
+Then use the instructions at the start of:
+
+- [demo_notes_2_run_apps.txt](./demo_notes_2_run_apps.txt)
+
+These instructions are also stored on the demo machine in '/home/closure/Desktop/'
+You can optionally specify XDCLOGLEVEL to 2 for QUIET and 0 for TRACE level verbose logs (kills performance). 
+The instructions also give instructions for:
+- Running test applications on the A53 and MB
+- Copying log files back to liono using 'tftp'
+
 
 ## Steps for local testing of partitioned code with pseudo driver on x86/Linux
 

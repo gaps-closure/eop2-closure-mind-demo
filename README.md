@@ -71,17 +71,18 @@ Log into the A53 and MB and test as follows:
 
 cd /opt/closure/websrv
 MYADDR=<a53-addr> CAMADDR=<trillium-addr> ./websrv
-
-#################################################
-# Test partitioned application on both A53 and MB
-#################################################
-# Configure Trillium camera with static IP and also to send video to a53's IP address using Skylink
-# Point firefox to http://<mb-addr>:8443 -- now web server runs on MB
-
-Then use the instructions in [demo_notes_2_run_apps.txt](./demo_notes_2_run_apps.txt)
-
-# You can optionally specify XDCLOGLEVEL to 2 for QUIET and 0 for TRACE level verbose logs (kills performance). 
 ```
+
+### Test partitioned application on both A53 and MB
+
+As with Unpartitioned case, configure Trillium camera with static IP 
+and also to send video to a53's IP address using Skylink
+Point firefox to http://<mb-addr>:8443 --  now web server runs on MB
+Then use the instructions in:
+
+[demo_notes_2_run_apps.txt](./demo_notes_2_run_apps.txt)
+
+You can optionally specify XDCLOGLEVEL to 2 for QUIET and 0 for TRACE level verbose logs (kills performance). 
 
 ## Steps for local testing of partitioned code with pseudo driver on x86/Linux
 

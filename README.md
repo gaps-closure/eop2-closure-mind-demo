@@ -80,16 +80,21 @@ MYADDR=<a53-addr> CAMADDR=<trillium-addr> ./websrv
 
 As with Unpartitioned case, configure Trillium camera with static IP 
 and also to send video to a53's IP address using Skylink
-Point firefox to 'http://<mb-addr>:8443' --  now web server runs on MB.
-Then use the instructions at the start of:
+Point firefox to 
+
+```
+'http://<mb-addr>:8443' 
+```
+
+--  now web server runs on MB. Then use the instructions at the start of:
 
 - [demo_notes_2_run_apps.txt](./demo_notes_2_run_apps.txt)
 
 These instructions are also stored on the demo machine in '/home/closure/Desktop/'
 You can optionally specify XDCLOGLEVEL to 2 for QUIET and 0 for TRACE level verbose logs (kills performance). 
-The instructions also give instructions for 
-- running test applications on the A53 and MB
-- copying log files back to liono using 'tftp'
+The instructions also give instructions for:
+- Running test applications on the A53 and MB
+- Copying log files back to liono using 'tftp'
 
 
 ## Steps for local testing of partitioned code with pseudo driver on x86/Linux

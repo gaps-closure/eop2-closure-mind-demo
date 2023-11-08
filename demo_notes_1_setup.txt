@@ -1,0 +1,37 @@
+2023 NOTES TO SETUP a53 and mb terminals (running on XILINX DMA BOARD) 
+
+  ===========================================================================
+  1) VNC into demo laptop (10.109.23.205:1) with a53 and mb terminals
+  ===========================================================================
+sudo minicom -D /dev/ttyUSB0   # A53 - terminal in top half of VNC window
+sudo minicom -D /dev/ttyUSB2   # MB  - terminal in bottom half of VNC window 
+
+  ===========================================================================
+  2) Start firefox (running on demo laptop) with two tabs:
+  ===========================================================================
+http://10.109.23.248:8443   # websrv GUI (dynamic IP address of green MB)
+http://10.109.23.226        # MSN Power switch: on/off FPGA + Trillium Camera 
+  # To start XILINX board turn on the FPGA switch. 
+  # To reflash XILINX board, IMMEDIATELY stop boot in both minicom windows, 
+    then run steps 3a followed by 3b
+
+  ===========================================================================
+  3a) Boot MB image from liono:srv/tftp/mb (reflash the hardware)
+  ===========================================================================
+setenv ipaddr 10.109.23.248
+setenv serverip 10.109.23.128
+sf probe 0 0 0
+sf erase 0x100000 0x1E00000
+tftpboot 0x90000000 mb/image.ub
+sf write 0x90000000 0x100000 0x1E00000
+
+  ===========================================================================
+  3b) Boot A53 image from liono:srv/tftp/a53
+  ===========================================================================
+setenv ipaddr 10.109.23.246
+setenv serverip 10.109.23.128
+sf probe 0 0 0
+sf erase 0x1E40000 0x6040000
+tftpboot 0x10000000 a53/image.ub
+sf write 0x10000000 0x1E40000 0x6040000
+reset

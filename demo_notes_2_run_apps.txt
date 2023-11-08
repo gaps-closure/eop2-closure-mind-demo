@@ -1,0 +1,36 @@
+2023 NOTES TO RUN APPS in a53 and mb terminals (running on XILINX DMA BOARD) 
+
+  ===========================================================================
+  1) WEBSRV: Orange (A53) websrv-vid  <-- DMA -->  Green (MB) websrv-web
+  ===========================================================================
+  # Get A53 IP address (10.109.23.162) for MYADDR + C
+cd /opt/closure/websrv
+ifconfig | grep inet
+modprobe -r dma_proxy && modprobe dma_proxy    
+  # Run on Green then (WITHIN 3 SECONDS) Orange 
+XDCLOGLEVEL=1 CONFIG_FILE=xdconf.ini ENCLAVE=green ./websrv-web 2>/tmp/err
+XDCLOGLEVEL=1 CONFIG_FILE=xdconf.ini ENCLAVE=orange MYADDR=10.109.23.162 CAMADDR=10.109.23.151 ./websrv-vid 2>/tmp/err
+
+  ===========================================================================
+  2) DMA PROXY TEST APP (100 parallel 64K packets, verifying transfer)
+  ===========================================================================
+  # Run same command in both enclaves (lean DMA before each run)
+modprobe -r dma_proxy && modprobe dma_proxy 
+dma-proxy-test 100 64 1
+
+  ===========================================================================
+  3) REQUEST-REPLY TEST APP (with single small request and reply message)
+  ===========================================================================
+  # Run server (with '-e 2') followed by client (which initiates request)
+  # -v and -l options control amount of debug messages (-l sets XDCLOGLEVEL)
+cd /opt/closure/test_app
+modprobe -r dma_proxy && modprobe dma_proxy 
+ENCLAVE=orange CONFIG_FILE=xdconf_app_req_rep.json ./app_req_rep -v -e 2 -l 0  
+ENCLAVE=green  CONFIG_FILE=xdconf_app_req_rep.json ./app_req_rep -v -l 0
+
+  ============================================================
+  4) Copy logs from A53/MB to Liono
+  ============================================================
+tftp -l /tmp/err -r  mb.err -p 10.109.23.128
+tftp -l /tmp/err -r a53.err -p 10.109.23.128
+

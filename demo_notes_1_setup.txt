@@ -11,10 +11,12 @@ sudo minicom -D /dev/ttyUSB2   # MB  - terminal in bottom half of VNC window
   ===========================================================================
 http://10.109.23.248:8443   # websrv GUI (dynamic IP address of green MB)
 http://10.109.23.226        # MSN Power switch: on/off FPGA + Trillium Camera 
-  # Turn on FPGA switch, then IMMEDIATELY stop boot in both minicom windows
+  # To start XILINX board turn on the FPGA switch. 
+  # To reflash XILINX board, IMMEDIATELY stop boot in both minicom windows, 
+    then run steps 3a followed by 3b
 
   ===========================================================================
-  3a) Boot MB image from liono:srv/tftp/mb
+  3a) Boot MB image from liono:srv/tftp/mb (reflash the hardware)
   ===========================================================================
 setenv ipaddr 10.109.23.248
 setenv serverip 10.109.23.128

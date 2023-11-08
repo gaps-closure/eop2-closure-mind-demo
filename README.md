@@ -56,6 +56,10 @@ sf write 0x90000000 0x100000 0x1E00000
 reset
 ```
 
+These instructions are for images created on jaga (10.109.23.126). 
+The instructions for liono (10.109.23.128) are in [demo_notes_1_setup.txt](./demo_notes_1_setup.txt)
+and are stored on the demo machine in /home/closure/Desktop/
+
 Log into the A53 and MB and test as follows:
 
 ```
@@ -74,20 +78,7 @@ MYADDR=<a53-addr> CAMADDR=<trillium-addr> ./websrv
 # Configure Trillium camera with static IP and also to send video to a53's IP address using Skylink
 # Point firefox to http://<mb-addr>:8443 -- now web server runs on MB
 
-# On MB
-modprobe -r dma_proxy
-modprobe dma_proxy
-ifconfig
-cd /opt/closure/websrv
-XDCLOGLEVEL=1 DMARXDEV=dma_proxy_rx DMATXDEV=dma_proxy_tx ./websrv-web 2>/tmp/err
-
-# on A53
-modprobe -r dma_proxy
-modprobe dma_proxy
-ifconfig
-cd /opt/closure/websrv
-#  use current ip address of A53 and address of Trillium camera
-XDCLOGLEVEL=1 DMARXDEV=dma_proxy_rx DMATXDEV=dma_proxy_tx MYADDR=10.109.23.229 CAMADDR=10.109.23.151 ./websrv-vid 2>/tmp/err
+Then use the instructions in [demo_notes_2_run_apps.txt](./demo_notes_2_run_apps.txt)
 
 # You can optionally specify XDCLOGLEVEL to 2 for QUIET and 0 for TRACE level verbose logs (kills performance). 
 ```

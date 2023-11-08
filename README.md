@@ -4,6 +4,8 @@ This is a demonstration application to showcase some features of the CLOSURE and
 
 ## For building and testing the application on hardware
 
+### Building Petalinux Images
+
 First install Xilinx Petalinux tools 2021.1. In my case, it is under `~/gaps/misc/xilinx`.
 
 ```bash
@@ -34,6 +36,8 @@ cd ../mb
 petalinux-package --bsp --clean -p . --output ~/gaps/eop2-closure-mind-demo/bsp/zcu102_peraton_mb_20220823.bsp
 ```
 
+### Reflash XILINX hardware with new Images
+
 Now, get the ZCU102 to ZyncMP/U-Boot prompts, and reflash the hardware:
 
 ```
@@ -63,6 +67,8 @@ The instructions for liono (10.109.23.128) are in:
 
 and are stored on the demo machine in /home/closure/Desktop/
 
+### Test unpartitioned Websrv application on both A53 and MB
+
 Log into the A53 and MB and test as follows:
 
 ```
@@ -76,17 +82,18 @@ cd /opt/closure/websrv
 MYADDR=<a53-addr> CAMADDR=<trillium-addr> ./websrv
 ```
 
-### Test partitioned websrv application on both A53 and MB
+### Test partitioned Websrv application on both A53 and MB
 
-As with Unpartitioned case, configure Trillium camera with static IP 
-and also to send video to a53's IP address using Skylink
-Point firefox to 
+Log into the A53 and MB and, as with Unpartitioned case, 
+configure Trillium camera with static IP and also to send video to
+a53's IP address using Skylink. Next, point firefox to 
 
 ```
 'http://<mb-addr>:8443' 
 ```
 
---  now web server runs on MB. Then use the instructions at the start of:
+which points firefox to the web server running on the MB. 
+Then use the instructions at the start of:
 
 - [demo_notes_2_run_apps.txt](./demo_notes_2_run_apps.txt)
 

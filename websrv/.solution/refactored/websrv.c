@@ -94,7 +94,8 @@
      "codtaints": ["GREEN_SHARE"], \
      "rettaints": ["GREEN_NOSHARE"]} \
   ]}
-
+/* the rettaints below may be a problem, wsend_video was changed back to
+   a void function, does it have a rettaint? */
 #pragma cle def FUN_WSEND_VIDEO {"level":"green", \
   "cdf": [\
     {"remotelevel":"green", "direction": "ingress", "guarddirective": {"operation": "allow"}, \

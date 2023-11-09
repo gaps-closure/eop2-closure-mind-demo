@@ -95,7 +95,8 @@
      "rettaints": ["GREEN_NOSHARE"]} \
   ]}
 /* the rettaints below may be a problem, wsend_video was changed back to
-   a void function, does it have a rettaint? */
+   a void function, does it have a rettaint? this is problem, changing fn back
+   to int/return 0 */
 #pragma cle def FUN_WSEND_VIDEO {"level":"green", \
   "cdf": [\
     {"remotelevel":"green", "direction": "ingress", "guarddirective": {"operation": "allow"}, \
@@ -174,7 +175,7 @@ int handle_get_metadata(struct mg_connection *c, struct mg_http_message *hm) {
 
 
 #pragma cle begin FUN_WSEND_VIDEO
-void wsend_video(void *arg) {
+int wsend_video(void *arg) {
 #pragma cle end FUN_WSEND_VIDEO
   struct mg_mgr *mgr = (struct mg_mgr *) arg;
 #pragma cle begin GREEN_SHARE
@@ -190,10 +191,12 @@ void wsend_video(void *arg) {
       }
     }
   }
+  return 0;
 }
 
-void wsend_video_wrapper(void *arg) {
+int wsend_video_wrapper(void *arg) {
   wsend_video(arg);
+  return 0;
 }
 
 void webfn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {

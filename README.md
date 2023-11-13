@@ -67,9 +67,9 @@ The instructions for liono (10.109.23.128) are in:
 
 and are stored on the demo machine in /home/closure/Desktop/
 
-### Test unpartitioned Websrv application on both A53 and MB
+### Test unpartitioned Websrv application on A53
 
-Log into the A53 and MB and test as follows:
+Log into the A53 and test as follows:
 
 ```
 #######################################
@@ -82,24 +82,29 @@ cd /opt/closure/websrv
 MYADDR=<a53-addr> CAMADDR=<trillium-addr> ./websrv
 ```
 
-### Test partitioned Websrv application on both A53 and MB
+### Test partitioned Websrv application on A53 and MB
 
 Log into the A53 and MB and, as with Unpartitioned case, 
 configure Trillium camera with static IP and also to send video to
-a53's IP address using Skylink. Next, point firefox to 
+a53's IP address using Skylink. Next, point firefox to: 
 
 ```
 'http://<mb-addr>:8443' 
 ```
 
-which points firefox to the web server running on the MB. 
-Then use the instructions at the start of:
+which points firefox to the web server running in the green enclave on the MB. 
+Then use the instructions in the file:
 
 - [demo_notes_2_run_apps.txt](./demo_notes_2_run_apps.txt)
 
-These instructions are also stored on the demo machine in '/home/closure/Desktop/'
-You can optionally specify XDCLOGLEVEL to 2 for QUIET and 0 for TRACE level verbose logs (kills performance). 
-The instructions also give instructions for:
+The file instructions are stored on the demo machine in '/home/closure/Desktop/',
+which allows commands to be copied and pasted into the two minicom terminals.
+The MYADDR definition for the MB websrv command must be modified to point to 
+the MB's dynamically assigned IP address . 
+In addition the XDCLOGLEVEL on the websrv commands can be modified: 
+to 2 for QUIET and 0 for TRACE level verbose logs (the latter kills performance). 
+
+The file instructions also give instructions for:
 - Running test applications on the A53 and MB
 - Copying log files back to liono using 'tftp'
 
@@ -168,7 +173,7 @@ dmesg
 
 ```
 
-## For cross-domain application development using the CLOSURE toolchain
+## Cross-domain application development using the CLOSURE toolchain
 
 The following development tools and libraries are required.
  * GNU gcc toolchain with libm and lpthread

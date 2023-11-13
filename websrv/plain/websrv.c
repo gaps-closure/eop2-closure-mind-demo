@@ -53,7 +53,7 @@ int handle_get_metadata(struct mg_connection *c, struct mg_http_message *hm) {
   return 0;
 }
 
-int wsend_video(void *arg) {
+void wsend_video(void *arg) {
   struct mg_mgr *mgr = (struct mg_mgr *) arg;
   static char buf[MAX_FRAME_BUF];
   int sz;
@@ -66,7 +66,10 @@ int wsend_video(void *arg) {
       }
     }
   }
-  return 0;
+}
+
+void wsend_video_wrapper(void *arg) {
+  wsend_video(arg);
 }
 
 void webfn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
@@ -102,7 +105,7 @@ void run_webserver() {
   fprintf(stderr, "Starting HTTPS camera API endpoint on %s/api\n", s_https_addr);
   fprintf(stderr, "Starting WSS video endpoint on %s/ws/video\n", s_listen_on);
   mg_http_listen(&mgr, s_https_addr, webfn, (void *) 1);
-  mg_timer_add(&mgr, FRAME_INTERVAL, MG_TIMER_REPEAT, wsend_video, &mgr);
+  mg_timer_add(&mgr, FRAME_INTERVAL, MG_TIMER_REPEAT, wsend_video_wrapper, &mgr);
   for (;;) mg_mgr_poll(&mgr, POLL_INTERVAL);
   mg_mgr_free(&mgr);
 }

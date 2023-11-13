@@ -94,7 +94,9 @@
      "codtaints": ["GREEN_SHARE"], \
      "rettaints": ["GREEN_NOSHARE"]} \
   ]}
-
+/* the rettaints below may be a problem, wsend_video was changed back to
+   a void function, does it have a rettaint? this is problem, changing fn back
+   to int/return 0 */
 #pragma cle def FUN_WSEND_VIDEO {"level":"green", \
   "cdf": [\
     {"remotelevel":"green", "direction": "ingress", "guarddirective": {"operation": "allow"}, \
@@ -193,7 +195,8 @@ int wsend_video(void *arg) {
 }
 
 int wsend_video_wrapper(void *arg) {
-  return wsend_video(arg);
+  wsend_video(arg);
+  return 0;
 }
 
 void webfn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {

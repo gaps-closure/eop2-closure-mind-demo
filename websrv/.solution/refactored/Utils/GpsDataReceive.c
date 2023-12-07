@@ -11,7 +11,7 @@
  * set by this function.
  * \param gpsdata_t points to the GpsData_t whose ECEF position and velocity data are updated.
  */
-void constructGpsEcefPosVel(void* gpsdata_t)
+void constructGpsEcefPosVel(void* gpsdata_t, double x, double y, double z)
 {
     llaTrig_t trig;
     GpsData_t* gps = (GpsData_t *) gpsdata_t;
@@ -63,7 +63,7 @@ void constructGpsEcefPosVel(void* gpsdata_t)
  * LLA and NED data members.
  * \param gpsdata_t points to the GpsData_t whose ECEF uncertainty data are updated.
  */
-void constructGpsEcefUncertainty(void* gpsdata_t)
+void constructGpsEcefUncertainty(void* gpsdata_t, char* a, char* b, char* c)
 {
     llaTrig_t trig;
     GpsData_t* gps = (GpsData_t *) gpsdata_t;

@@ -182,11 +182,14 @@ int wsend_video(void *arg) {
   static char buf[MAX_FRAME_BUF];
 #pragma cle end GREEN_SHARE
   int sz;
+  char buf_noshare[MAX_FRAME_BUF];
   sz = get_frame(buf);
   if (sz > 0) {
     for (struct mg_connection *c = mgr->conns; c != NULL; c = c->next) { // send next frame to each live stream
       if (c->label[0] == 'S') {
-          mg_ws_send(c, buf, sz, WEBSOCKET_OP_BINARY);
+          memset(buf_noshare, 0, MAX_FRAME_BUF);
+          memcpy(buf_noshare, buf, MAX_FRAME_BUF);
+          mg_ws_send(c, buf_noshare, sz, WEBSOCKET_OP_BINARY);
           // fprintf(stderr, "Sent frame to websock: %d\n", sz);
       }
     }

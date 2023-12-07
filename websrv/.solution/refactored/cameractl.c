@@ -208,9 +208,8 @@ int get_frame(char buf[static MAX_FRAME_BUF]) {
 #pragma cle end XDLINKAGE_GET_FRAME
 #pragma cle begin ORANGE_SHARE
   int sz;
-  struct framebuf_st *wp;
 #pragma cle end ORANGE_SHARE
-  
+  struct framebuf_st *wp;
   outhint(buf, NULL, MAX_FRAME_BUF); // only a hint for GEDL
   wp = get_framebuf();
   pthread_mutex_lock(&wp->flk);
@@ -223,16 +222,16 @@ int get_frame(char buf[static MAX_FRAME_BUF]) {
   }
   pthread_mutex_unlock(&wp->flk);
   return sz;
+
 }
 
 #pragma cle begin XDLINKAGE_GET_METADATA
 int get_metadata(double *lat, double *lon, double *alt, double *ts) {
 #pragma cle end XDLINKAGE_GET_METADATA
 #pragma cle begin ORANGE_SHARE
-  struct llat_st *wp;
   int ret = 0;
 #pragma cle end ORANGE_SHARE
-
+  struct llat_st *wp;
   // only a hint for GEDL
   outhint(lat, NULL, sizeof(double)); 
   outhint(lon, NULL, sizeof(double)); 

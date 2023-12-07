@@ -7,6 +7,8 @@
 #include "scaleddecode.h"
 #include "scaledencode.h"
 
+#include <stddef.h> //added for NULL, signature fix: MK 12/7/23
+
 /*!
  * \brief Encode a Date_t structure into a byte array
  *
@@ -2285,7 +2287,7 @@ int decodeGpsDataPacketStructure(const void* pkt, GpsData_t* user)
     byteindex += 1; // close bit field
 
     // Fill out non-encoded ECEF position and velocity fields
-    constructGpsEcefPosVel(user);
+    constructGpsEcefPosVel(user,0.0,0.0,0.0);
 
     // Leap seconds to subtract from GPS time to compute UTC time
     user->leapSeconds = uint8FromBytes(data, &byteindex);
@@ -2326,7 +2328,7 @@ int decodeGpsDataPacketStructure(const void* pkt, GpsData_t* user)
     }
 
     // Fill out non-encoded ECEF uncertainty fields of this structure
-    constructGpsEcefUncertainty(user);
+    constructGpsEcefUncertainty(user,NULL,NULL,NULL);
 
     return 1;
 }

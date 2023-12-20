@@ -25,10 +25,10 @@ extern "C" {
 #endif // __cplusplus
 
 //! Fill out null-encoded ECEF position and velocity members of the GpsData_t after it was received via ORION_PKT_GPS_DATA packet
-void constructGpsEcefPosVel(void* gpsdata_t);
+void constructGpsEcefPosVel(void* gpsdata_t, double x, double y, double z);
 
 //! Fill out null-encoded ECEF uncertainty members of the GpsData_t after it was received via ORION_PKT_GPS_DATA packet
-void constructGpsEcefUncertainty(void* gpsdata_t);
+void constructGpsEcefUncertainty(void* gpsdata_t, char* a, char* b, char* c);
 
 #ifdef __cplusplus
 }

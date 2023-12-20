@@ -53,23 +53,28 @@ int handle_get_metadata(struct mg_connection *c, struct mg_http_message *hm) {
   return 0;
 }
 
-void wsend_video(void *arg) {
+int wsend_video(void *arg) {
   struct mg_mgr *mgr = (struct mg_mgr *) arg;
   static char buf[MAX_FRAME_BUF];
   int sz;
+  char buf_noshare[MAX_FRAME_BUF];
   sz = get_frame(buf);
   if (sz > 0) {
     for (struct mg_connection *c = mgr->conns; c != NULL; c = c->next) { // send next frame to each live stream
       if (c->label[0] == 'S') {
-          mg_ws_send(c, buf, sz, WEBSOCKET_OP_BINARY);
+          memset(buf_noshare, 0, MAX_FRAME_BUF);
+          memcpy(buf_noshare, buf, MAX_FRAME_BUF);
+          mg_ws_send(c, buf_noshare, sz, WEBSOCKET_OP_BINARY);
           // fprintf(stderr, "Sent frame to websock: %d\n", sz);
       }
     }
   }
+  return 0;
 }
 
-void wsend_video_wrapper(void *arg) {
+int wsend_video_wrapper(void *arg) {
   wsend_video(arg);
+  return 0;
 }
 
 void webfn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {

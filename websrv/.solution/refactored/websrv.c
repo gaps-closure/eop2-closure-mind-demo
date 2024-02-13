@@ -83,16 +83,16 @@
   "cdf": [\
     {"remotelevel":"green", "direction": "ingress", "guarddirective": {"operation": "allow"}, \
      "argtaints": [["GREEN_NOSHARE"], ["GREEN_NOSHARE"]], \
-     "codtaints": ["GREEN_SHARE"], \
-     "rettaints": ["GREEN_NOSHARE"]} \
+     "codtaints": ["GREEN_SHARE", "TAG_REQUEST_SEND_CAMCMD", "TAG_RESPONSE_SEND_CAMCMD"], \
+     "rettaints": ["GREEN_NOSHARE", "GREEN_SHARE"]} \
   ]}
 
 #pragma cle def FUN_HANDLE_GET_METADATA {"level":"green", \
   "cdf": [\
     {"remotelevel":"green", "direction": "ingress", "guarddirective": {"operation": "allow"}, \
      "argtaints": [["GREEN_NOSHARE"], ["GREEN_NOSHARE"]], \
-     "codtaints": ["GREEN_SHARE"], \
-     "rettaints": ["GREEN_NOSHARE"]} \
+     "codtaints": ["GREEN_SHARE", "TAG_REQUEST_GET_METADATA", "TAG_RESPONSE_GET_METADATA"], \
+     "rettaints": ["GREEN_NOSHARE", "GREEN_SHARE"]} \
   ]}
 /* the rettaints below may be a problem, wsend_video was changed back to
    a void function, does it have a rettaint? this is problem, changing fn back
@@ -101,16 +101,16 @@
   "cdf": [\
     {"remotelevel":"green", "direction": "ingress", "guarddirective": {"operation": "allow"}, \
      "argtaints": [["GREEN_NOSHARE"]], \
-     "codtaints": ["GREEN_SHARE"], \
-     "rettaints": ["GREEN_NOSHARE"]} \
+     "codtaints": ["GREEN_SHARE", "TAG_REQUEST_GET_FRAME", "TAG_RESPONSE_GET_FRAME"], \
+     "rettaints": ["GREEN_NOSHARE", "GREEN_SHARE"]} \
   ]}
 
 #pragma cle def FUN_WEBSRV_MAIN {"level":"green", \
   "cdf": [\
     {"remotelevel":"green", "direction": "ingress", "guarddirective": {"operation": "allow"}, \
      "argtaints": [], \
-     "codtaints": ["GREEN_SHARE"], \
-     "rettaints": ["GREEN_NOSHARE"]} \
+     "codtaints": ["GREEN_SHARE","TAG_REQUEST_RUN_VIDEOPROC", "TAG_RESPONSE_RUN_VIDEOPROC"], \
+     "rettaints": ["GREEN_NOSHARE", "GREEN_SHARE"]} \
   ]}
 
 #define FRAME_INTERVAL  40
@@ -129,6 +129,8 @@ int handle_camera_command(struct mg_connection *c, struct mg_http_message *hm) {
   double pan, tilt, imptime;
   char   mode, stab;
 #pragma cle end GREEN_SHARE
+  double pan_copy, tilt_copy, imptime_copy;
+  char   mode_copy, stab_copy;
   if (hm != NULL) {
     struct mg_str json = mg_str("");
     json = mg_str_n(hm->body.ptr, hm->body.len);
@@ -148,7 +150,13 @@ int handle_camera_command(struct mg_connection *c, struct mg_http_message *hm) {
     free(istr);
     free(mstr);
     free(sstr);
-    if (send_camcmd(pan, tilt, imptime, mode, stab) == 1) {
+    
+    memcpy(&pan_copy, &pan, sizeof(double));
+    memcpy(&tilt_copy, &tilt, sizeof(double));
+    memcpy(&imptime_copy, &imptime, sizeof(double));
+    memcpy(&mode_copy, &mode, sizeof(char));
+    memcpy(&stab_copy, &stab, sizeof(char));
+    if (send_camcmd(pan_copy, tilt_copy, imptime_copy, mode_copy, stab_copy) == 1) {
       mg_http_reply(c, 200, "Content-Type: application/json\r\n", "{\"result\": \"%s\"}\n", "OKAY");
       return 1;
     }
@@ -163,9 +171,19 @@ int handle_get_metadata(struct mg_connection *c, struct mg_http_message *hm) {
 #pragma cle begin GREEN_SHARE
   double lat, lon, alt, ts;
 #pragma cle end GREEN_SHARE
-  if (get_metadata(&lat, &lon, &alt, &ts) != 1) {
+
+  double lat_copy, lon_copy, alt_copy, ts_copy = 0.0;
+  memcpy (&lat_copy, &lat, sizeof(double));
+  memcpy (&lon_copy, &lon, sizeof(double));
+  memcpy (&alt_copy, &alt, sizeof(double));
+  memcpy (&ts_copy, &ts, sizeof(double));
+  if (get_metadata(&lat_copy, &lon_copy, &alt_copy, &ts_copy) != 1) {
     lat = 0.0; lon = 0.0; alt = 0.0; ts = 0.0;
   }
+  memcpy (&lat, &lat_copy, sizeof(double));
+  memcpy (&lon, &lon_copy, sizeof(double));
+  memcpy (&alt, &alt_copy, sizeof(double));
+  memcpy (&ts, &ts_copy, sizeof(double));
   char *json = mg_mprintf("{%Q:%g,%Q:%g,%Q:%g,%Q:%g}", "Lat", lat, "Lon", lon, "Alt", alt, "Tim", ts);
   mg_http_reply(c, 200, "Content-Type: application/json\r\n", "%s\n", json);
   free(json);
@@ -182,13 +200,16 @@ int wsend_video(void *arg) {
   static char buf[MAX_FRAME_BUF];
 #pragma cle end GREEN_SHARE
   int sz;
+  char buf_copy[MAX_FRAME_BUF];
   char buf_noshare[MAX_FRAME_BUF];
-  sz = get_frame(buf);
+  memset(buf_copy, 0, MAX_FRAME_BUF);
+  memcpy(buf_copy, buf, MAX_FRAME_BUF);
+  sz = get_frame(buf_copy);
   if (sz > 0) {
     for (struct mg_connection *c = mgr->conns; c != NULL; c = c->next) { // send next frame to each live stream
       if (c->label[0] == 'S') {
           memset(buf_noshare, 0, MAX_FRAME_BUF);
-          memcpy(buf_noshare, buf, MAX_FRAME_BUF);
+          memcpy(buf_noshare, buf_copy, MAX_FRAME_BUF);
           mg_ws_send(c, buf_noshare, sz, WEBSOCKET_OP_BINARY);
           // fprintf(stderr, "Sent frame to websock: %d\n", sz);
       }

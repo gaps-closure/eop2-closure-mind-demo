@@ -90,7 +90,7 @@
       {
         "label": "9c VERIFY",
         "type": "shell",
-        "command": "source .vscode/closure_env.sh; make -f .vscode/Makefile.verifier analyze",
+        "command": "cp .solution/conflict_analyzer_constraints.mzn /opt/closure/python/conflict_analyzer/constraints/ && source .vscode/closure_env.sh; make -f .vscode/Makefile.verifier analyze",
         "args": [],
         "group": "build",
         "problemMatcher": []

@@ -35,14 +35,14 @@
 #pragma cle def XDLINKAGE_GET_FRAME {"level":"orange", \
   "cdf": [\
     {"remotelevel":"green", "direction": "ingress", "guarddirective": {"operation": "allow"}, \
-     "argtaints": [["TAG_REQUEST_GET_FRAME"]], \
+     "argtaints": [["TAG_REQUEST_GET_FRAME", "TAG_RESPONSE_GET_FRAME"]], \
      "codtaints": ["ORANGE_NOSHARE", "ORANGE_SHARE"], \
      "rettaints": ["TAG_RESPONSE_GET_FRAME"], \
      "idempotent": true, \
      "num_tries": 1, \
      "timeout": 150}, \
     {"remotelevel":"orange", "direction": "ingress", "guarddirective": {"operation": "allow"}, \
-     "argtaints": [["TAG_REQUEST_GET_FRAME"]], \
+     "argtaints": [["TAG_REQUEST_GET_FRAME", "TAG_RESPONSE_GET_FRAME"]], \
      "codtaints": ["ORANGE_NOSHARE", "ORANGE_SHARE"], \
      "rettaints": ["TAG_RESPONSE_GET_FRAME"]} \
   ]}
@@ -51,14 +51,14 @@
 #pragma cle def XDLINKAGE_GET_METADATA {"level":"orange", \
   "cdf": [\
     {"remotelevel":"green", "direction": "ingress", "guarddirective": {"operation": "allow"}, \
-     "argtaints": [["TAG_REQUEST_GET_METADATA"], ["TAG_REQUEST_GET_METADATA"], ["TAG_REQUEST_GET_METADATA"], ["TAG_REQUEST_GET_METADATA"]], \
+     "argtaints": [["TAG_REQUEST_GET_METADATA","TAG_RESPONSE_GET_METADATA"], ["TAG_REQUEST_GET_METADATA","TAG_RESPONSE_GET_METADATA"], ["TAG_REQUEST_GET_METADATA","TAG_RESPONSE_GET_METADATA"], ["TAG_REQUEST_GET_METADATA","TAG_RESPONSE_GET_METADATA"]], \
      "codtaints": ["ORANGE_NOSHARE", "ORANGE_SHARE"], \
      "rettaints": ["TAG_RESPONSE_GET_METADATA"], \
      "idempotent": true, \
      "num_tries": 1, \
      "timeout": 150}, \
     {"remotelevel":"orange", "direction": "ingress", "guarddirective": {"operation": "allow"}, \
-     "argtaints": [["TAG_REQUEST_GET_METADATA"], ["TAG_REQUEST_GET_METADATA"], ["TAG_REQUEST_GET_METADATA"], ["TAG_REQUEST_GET_METADATA"]], \
+     "argtaints": [["TAG_REQUEST_GET_METADATA","TAG_RESPONSE_GET_METADATA"], ["TAG_REQUEST_GET_METADATA","TAG_RESPONSE_GET_METADATA"], ["TAG_REQUEST_GET_METADATA","TAG_RESPONSE_GET_METADATA"], ["TAG_REQUEST_GET_METADATA","TAG_RESPONSE_GET_METADATA"]], \
      "codtaints": ["ORANGE_NOSHARE", "ORANGE_SHARE"], \
      "rettaints": ["TAG_RESPONSE_GET_METADATA"]} \
   ]}

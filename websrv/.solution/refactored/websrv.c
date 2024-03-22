@@ -172,13 +172,13 @@ int handle_get_metadata(struct mg_connection *c, struct mg_http_message *hm) {
   double lat, lon, alt, ts;
 #pragma cle end GREEN_SHARE
 
-  double lat_copy, lon_copy, alt_copy, ts_copy = 0.0;
+  double lat_copy, lon_copy, alt_copy, ts_copy;
   memcpy (&lat_copy, &lat, sizeof(double));
   memcpy (&lon_copy, &lon, sizeof(double));
   memcpy (&alt_copy, &alt, sizeof(double));
   memcpy (&ts_copy, &ts, sizeof(double));
   if (get_metadata(&lat_copy, &lon_copy, &alt_copy, &ts_copy) != 1) {
-    lat = 0.0; lon = 0.0; alt = 0.0; ts = 0.0;
+    lat_copy = 0.0; lon_copy = 0.0; alt_copy = 0.0; ts_copy = 0.0;
   }
   memcpy (&lat, &lat_copy, sizeof(double));
   memcpy (&lon, &lon_copy, sizeof(double));
